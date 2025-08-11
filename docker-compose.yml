@@ -1,0 +1,21 @@
+version: '3.2'
+services:
+  web:
+    image: odoo:18.0
+    container_name: teste18
+    restart: unless-stopped
+    networks:
+      - nginxproxymanager_default
+    volumes:
+        - ./config:/etc/odoo
+        - ./addons:/mnt/extra-addons
+        - /srv/odoo/enterprise/v18:/mnt/extra
+        - /srv/odoo/odoo_internal:/var/lib/odoo
+    environment:
+        - HOST=172.17.0.1
+        - USER=teste18
+        - PORT=5432
+        - PASSWORD=Dakai10-
+networks:
+  nginxproxymanager_default:
+    external: true
