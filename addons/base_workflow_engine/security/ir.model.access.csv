@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_workflow_flow,workflow.flow access,model_workflow_flow,base.group_system,1,1,1,1
+access_workflow_stage,workflow.stage access,model_workflow_stage,base.group_system,1,1,1,1
+access_workflow_transition,workflow.transition access,model_workflow_transition,base.group_system,1,1,1,1
+access_workflow_constraint,workflow.constraint access,model_workflow_constraint,base.group_system,1,1,1,1

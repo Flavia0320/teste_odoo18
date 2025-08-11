@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_workflow_root" name="Workflows" sequence="10"/>
+    
+    <menuitem id="menu_workflow_flow" name="Flows" parent="menu_workflow_root" action="action_workflow_flow"/>
+</odoo>

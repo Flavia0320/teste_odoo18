@@ -1,0 +1,17 @@
+<odoo>
+    <record id="crm_lead_view_form_inherit_workflow" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.workflow</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="workflow_id" options="{'no_create': True}"/>
+            </field>
+            <header position="replace">
+                <header>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                </header>
+            </header>
+        </field>
+    </record>
+</odoo>

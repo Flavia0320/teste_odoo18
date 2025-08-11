@@ -1,0 +1,82 @@
+<odoo>
+    <!-- Demo Workflow Flow -->
+    <record id="wf_demo_flow" model="workflow.flow">
+        <field name="name">Demo Sales Flow</field>
+        <field name="model_name">crm.lead</field>
+    </record>
+
+    <!-- Demo Stages -->
+    <record id="wf_demo_stage_new" model="workflow.stage">
+        <field name="name">New</field>
+        <field name="flow_id" ref="wf_demo_flow"/>
+        <field name="is_entry">1</field>
+    </record>
+
+    <record id="wf_demo_stage_qualified" model="workflow.stage">
+        <field name="name">Qualified</field>
+        <field name="flow_id" ref="wf_demo_flow"/>
+    </record>
+
+    <record id="wf_demo_stage_won" model="workflow.stage">
+        <field name="name">Won</field>
+        <field name="flow_id" ref="wf_demo_flow"/>
+    </record>
+
+    <!-- Demo Constraints -->
+    <record id="wf_demo_constraint_basic" model="workflow.constraint">
+        <field name="domain">[]</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <!-- Diverse demo constraints -->
+    <record id="wf_demo_constraint_admin_only" model="workflow.constraint">
+        <field name="domain">[]</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_system')])]"/>
+    </record>
+
+    <record id="wf_demo_constraint_high_revenue" model="workflow.constraint">
+        <field name="domain">[("expected_revenue", ">", 10000)]</field>
+    </record>
+
+    <record id="wf_demo_constraint_contactable" model="workflow.constraint">
+        <field name="domain">['|', ('email_from', '!=', False), ('phone', '!=', False)]</field>
+    </record>
+
+    <record id="wf_demo_constraint_has_partner" model="workflow.constraint">
+        <field name="domain">[("partner_id", "!=", False)]</field>
+    </record>
+
+    <record id="wf_demo_constraint_priority_high" model="workflow.constraint">
+        <field name="domain">[("priority", "in", ["2", "3"])]</field>
+    </record>
+
+    <record id="wf_demo_constraint_country_us" model="workflow.constraint">
+        <field name="domain">[("country_id.code", "=", "US")]</field>
+    </record>
+
+    <record id="wf_demo_constraint_opportunity_only" model="workflow.constraint">
+        <field name="domain">[("type", "=", "opportunity")]</field>
+    </record>
+
+    <record id="wf_demo_constraint_user_group_manager" model="workflow.constraint">
+        <field name="domain">[]</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_erp_manager')])]"/>
+    </record>
+
+    <!-- Demo Transitions -->
+    <record id="wf_demo_transition_new_to_qualified" model="workflow.transition">
+        <field name="name">Qualify</field>
+        <field name="from_stage_id" ref="wf_demo_stage_new"/>
+        <field name="to_stage_id" ref="wf_demo_stage_qualified"/>
+        <field name="flow_id" ref="wf_demo_flow"/>
+        <field name="constraint_ids" eval="[(6, 0, [ref('wf_demo_constraint_basic')])]"/>
+    </record>
+
+    <record id="wf_demo_transition_qualified_to_won" model="workflow.transition">
+        <field name="name">Win</field>
+        <field name="from_stage_id" ref="wf_demo_stage_qualified"/>
+        <field name="to_stage_id" ref="wf_demo_stage_won"/>
+        <field name="flow_id" ref="wf_demo_flow"/>
+        <field name="constraint_ids" eval="[(6, 0, [ref('wf_demo_constraint_basic')])]"/>
+    </record>
+</odoo>

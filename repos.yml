@@ -1,0 +1,17 @@
+./dks_colab:
+  defaults:
+    depth: 20
+  remotes:
+    origin: git@github.com:Flavia0320/dks_colab.git
+  target: origin 18.0
+  merges:
+    - origin 18.0
+#
+# ./teste_odoo18:
+#   defaults:
+#     depth: 20
+#   remotes:
+#     origin: git@github.com:Flavia0320/teste_odoo18.git
+#   target: origin 18.0
+#   merges:
+#     - origin 18.0
