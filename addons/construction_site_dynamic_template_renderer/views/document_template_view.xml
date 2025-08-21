@@ -27,7 +27,7 @@
                         <notebook>
                             <page string="Parametrii">
                                 <field name="parameter_ids" nolabel="1">
-                                    <list editable="1">
+                                    <list editable="bottom">
                                         <field name="key"/>
                                         <field name="key"/>
                                     </list>

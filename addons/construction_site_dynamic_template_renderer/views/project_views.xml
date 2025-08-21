@@ -14,7 +14,7 @@
             <xpath expr="//page[@name='description']" position="after">
                 <page name="parameters" string="Parametrii">
                     <field name="parameter_ids">
-                        <list editable="1">
+                        <list editable="bottom">
                             <field name="key"/>
                             <field name="value"/>
                         </list>
@@ -73,7 +73,7 @@
                         <page name="parameters_page" string="Parametrii Sablon"
                               invisible="show_parameters_page == False">
                             <field name="parameter_ids">
-                                <list editable="1">
+                                <list editable="bottom">
                                     <field name="key"/>
                                     <field name="value"/>
                                 </list>

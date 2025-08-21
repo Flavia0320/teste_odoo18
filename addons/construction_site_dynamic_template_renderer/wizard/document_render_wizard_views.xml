@@ -15,7 +15,7 @@
                         <notebook>
                             <page string="Fisiere disponibile">
                         <field name="file_selection_ids">
-                            <list editable="1" nolabel="1">
+                            <list editable="bottom" nolabel="1">
                                 <field name="sequence" widget="handle" optional="show"/>
                                 <field name="selected" optional="show"/>
                                 <field name="name" optional="show"/>
