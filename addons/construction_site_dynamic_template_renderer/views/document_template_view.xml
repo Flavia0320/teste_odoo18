@@ -1,0 +1,54 @@
+<odoo>
+    <record id="view_document_template_list" model="ir.ui.view">
+        <field name="name">document.template.list</field>
+        <field name="model">document.template</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_document_template_form" model="ir.ui.view">
+        <field name="name">document.template.form</field>
+        <field name="model">document.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="extract_variables" type="object" string="Extragere variabile"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="prefix_document"/>
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </group>
+                        <notebook>
+                            <page string="Parametrii">
+                                <field name="parameter_ids" nolabel="1">
+                                    <list editable="1">
+                                        <field name="key"/>
+                                        <field name="key"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_document_template" model="ir.actions.act_window">
+        <field name="name">Document Templates</field>
+        <field name="res_model">document.template</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_document_template_root"
+              name="Document Templates"
+              parent="project.menu_project_config"
+              sequence="50"
+              action="action_document_template"/>
+</odoo>

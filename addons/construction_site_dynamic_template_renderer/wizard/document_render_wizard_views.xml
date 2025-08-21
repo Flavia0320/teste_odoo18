@@ -1,0 +1,50 @@
+<odoo>
+
+    <record id="view_document_render_wizard_form" model="ir.ui.view">
+        <field name="name">document.render.wizard.form</field>
+        <field name="model">document.render.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Render Document Wizard">
+                <header>
+                    <button string="Select all" name="action_select_all" type="object"/>
+                    <button string="Deselect all" name="action_deselect_all" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="project_id" readonly="1"/>
+                        <notebook>
+                            <page string="Fisiere disponibile">
+                        <field name="file_selection_ids">
+                            <list editable="1" nolabel="1">
+                                <field name="sequence" widget="handle" optional="show"/>
+                                <field name="selected" optional="show"/>
+                                <field name="name" optional="show"/>
+                                <field name="denumire_document_opis" optional="show"/>
+                                <field name="prefix_document" optional="show"/>
+                                <field name="cod_document" optional="show"/>
+                                <field name="data_document" optional="show"/>
+                                <field name="task_id" optional="show"/>
+                                <field name="document_template_id" optional="show"/>
+                                <field name="attachment_id" optional="hide"/>
+                            </list>
+                        </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Render Selected" type="object" name="action_render_selected" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_document_render_wizard" model="ir.actions.act_window">
+        <field name="name">Document Render Wizard</field>
+        <field name="res_model">document.render.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'active_id': active_id}</field>
+    </record>
+</odoo>

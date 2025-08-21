@@ -1,0 +1,89 @@
+<odoo>
+    <record id="view_project_form_inherit" model="ir.ui.view">
+        <field name="name">project.project.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button string="Randare" name="render" type="object"/>
+                <button string="Generare Cartea constructorului" name="render_wizard" type="object"/>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="document_template_ids" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//page[@name='description']" position="after">
+                <page name="parameters" string="Parametrii">
+                    <field name="parameter_ids">
+                        <list editable="1">
+                            <field name="key"/>
+                            <field name="value"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button string="Randare" name="render" type="object"/>
+                <button string="Extrage chei" name="sync_parameters_hierarchy" type="object"/>
+            </xpath>
+            <div name="options" position='inside'>
+                <span class="d-inline-flex">
+                    <field name="opis_ok"/>
+                    <label for="opis_ok"/>
+                </span>
+            </div>
+            <xpath expr="//notebook" position="inside">
+                <page string="OPIS" invisible="opis_ok == False">
+                    <group>
+                        <field name="document_template_ids" widget="many2many_tags"/>
+                        <field name="show_opis_page" widget="boolean_toggle" string="Parametrii OPIS"/>
+                        <field name="show_parameters_page" widget="boolean_toggle" string="Parametrii sablon"/>
+                    </group>
+                    <notebook>
+                        <page name="opis_page" string="Parametrii OPIS" invisible="show_opis_page == False">
+                            <field name="opis_parameter_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="denumire_document_opis"/>
+                                    <field name="prefix_document"/>
+                                    <field name="cod_document"/>
+                                    <field name="data_document"/>
+                                    <field name="document_sablon_id"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="denumire_document_opis"/>
+                                        <field name="prefix_document"/>
+                                        <field name="cod_document"/>
+                                        <field name="data_document"/>
+                                        <field name="document_sablon_id"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+
+                        <page name="parameters_page" string="Parametrii Sablon"
+                              invisible="show_parameters_page == False">
+                            <field name="parameter_ids">
+                                <list editable="1">
+                                    <field name="key"/>
+                                    <field name="value"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
