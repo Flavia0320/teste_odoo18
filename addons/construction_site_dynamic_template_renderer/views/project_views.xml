@@ -33,7 +33,7 @@
                 <button string="Randare" name="render" type="object"/>
                 <button string="Extrage chei" name="sync_parameters_hierarchy" type="object"/>
             </xpath>
-            <div name="options" position='inside'>
+            <div name="project" position='inside'>
                 <span class="d-inline-flex">
                     <field name="opis_ok"/>
                     <label for="opis_ok"/>
