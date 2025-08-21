@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_procurement_document">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <!--
+                <t t-set="o" t-value="o.with_context(lang=o._get_report_lang())" />
+                <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
+                <t t-set="address">
+                    <div name="div_outgoing_address">
+                        <div name="outgoing_delivery_address"
+                            t-if="o.should_print_delivery_address()">
+                            <span><strong>Delivery Address:</strong></span>
+                            <div t-field="o.move_ids[0].partner_id"
+                                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                        </div>
+                        <div name="outgoing_warehouse_address"
+                             t-elif="o.picking_type_id.code != 'internal' and o.picking_type_id.warehouse_id.partner_id">
+                            <span><strong>Warehouse Address:</strong></span>
+                            <div t-field="o.picking_type_id.warehouse_id.partner_id"
+                                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                        </div>
+                    </div>
+                </t>
+                -->
+                <!--
+                <t t-set="information_block">
+                    <div class="row">
+                        <div class="col-7" name="div_incoming_address">
+                            <t t-set="show_partner" t-value="False" />
+                            <div name="vendor_address" t-if="o.picking_type_id.code=='incoming' and partner">
+                                <span><strong>Vendor Address:</strong></span>
+                                <t t-set="show_partner" t-value="True" />
+                            </div>
+                            <div name="customer_address" t-if="o.picking_type_id.code=='outgoing' and partner and partner != partner.commercial_partner_id">
+                                <span><strong>Customer Address:</strong></span>
+                                <t t-set="show_partner" t-value="True" />
+                            </div>
+                            <div t-if="show_partner" name="partner_header">
+                                <div t-field="partner.commercial_partner_id"
+                                     t-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": True, "phone_icons": True}'/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                -->
+                <div class="page">
+                    <t t-set="o" t-value="docs"/>
+                    <h2>
+                        <span t-field="o.name"/>
+                    </h2>
+                    <div class="row mt32 mb32">
+                        <div t-if="o.project_id" class="col-auto" name="div_origin">
+                            <strong>Project:</strong>
+                            <p> <span t-field="o.project_id"/> / <span t-field="o.task_id"/></p>
+                        </div>
+                        <div t-if="o.state" class="col-auto" name="div_sched_date">
+                            <strong>Route:</strong>
+                            <p t-field="o.route_id"/>
+                        </div>
+                        <div t-if="o.purchase_inform_user_ids" class="col-auto" name="div_origin">
+                            <strong>Purchase Users:</strong>
+                            <p t-field="o.purchase_inform_user_ids"/>
+                        </div>
+                        <div t-if="o.stock_inform_user_ids" class="col-auto" name="div_origin">
+                            <strong>Inventory Users:</strong>
+                            <p t-field="o.stock_inform_user_ids"/>
+                        </div>
+                    </div>
+                    <table class="table table-sm" name="stock_move_table">
+                        <thead>
+                            <tr>
+                                <th name="th_sm_product"><strong>Product</strong></th>
+                                <th name="th_sm_ordered"><strong>Ordered</strong></th>
+                                <th name="th_sm_quantity"><strong>Supplier</strong></th>
+                                <th name="th_sm_quantity"><strong>Planned Date</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.task_product_ids" t-as="move">
+                                <td>
+                                    <span t-field="move.product_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="move.to_procure_qty"/>
+                                    <span t-field="move.product_uom_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="move.supplier_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="move.planned_date"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+         </t>
+    </template>
+
+    <record id="project_procurement_report_action" model="ir.actions.report">
+        <field name="name">Procurement Document</field>
+        <field name="model">project.site.procurement</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">construction_site.report_procurement_document</field>
+        <field name="report_file">construction_site.report_procurement_document</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="model_project_site_procurement"/>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(4, ref('construction_site.group_construction_employee'))]"/>
+    </record>
+</odoo>

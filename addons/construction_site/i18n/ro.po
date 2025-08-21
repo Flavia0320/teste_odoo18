@@ -1,0 +1,1975 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* construction_site
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-13 13:17+0000\n"
+"PO-Revision-Date: 2024-05-13 13:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: construction_site
+#: model:ir.actions.report,print_report_name:construction_site.action_cost_struct_construction_site
+msgid "'Cost Analysis - %s ' % object.name"
+msgstr "'Analiza de cost - %s ' % object.name"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "<b>CLIENT:</b>"
+msgstr ""
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "<b>COST MATERIALE:</b>"
+msgstr ""
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "<b>Cost efectiv:</b>"
+msgstr ""
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "<b>Cost planificat:</b>"
+msgstr ""
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "<b>MANAGER PROIECT:</b>"
+msgstr "MANAGER PROIECT"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "<b>NUME: </b>"
+msgstr ""
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "<b>RESPONSABILI:</b>"
+msgstr ""
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "<span>Decont</span>"
+msgstr "Decont"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "<span>Profit Reports</span>"
+msgstr "<span>Profitabilitate</span>"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "<span>Purchase</span>"
+msgstr "<span>Achiziții</span>"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "<span>Transfers</span>"
+msgstr "<span>Transferuri</span>"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_task_product__requested_state__hiper_request
+msgid "Above plan"
+msgstr "Peste planificare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__access_warning
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__access_warning
+msgid "Access warning"
+msgstr "Alertă acces"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__account_move_line_ids
+msgid "Account Move Line"
+msgstr "Linie factură"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.project_site_invoice_action
+#: model:ir.actions.act_window,name:construction_site.project_site_invoice_action2
+msgid "Action Decont"
+msgstr "Acțiune Șantier Facturi"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_needaction
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_needaction
+msgid "Action Needed"
+msgstr "Necesită acțiune"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+msgid "Action will cancel procurement. Proceed?"
+msgstr "Acțiunea va anula achiziția. Doriți să continuați?"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+msgid "Action will replace materials list. Proceed?"
+msgstr "Acțiunea va înlocui lista de materiale. Doriți să continuați?"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_ids
+msgid "Activities"
+msgstr "Activitați"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_exception_decoration
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decor exceptie în activitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_state
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_state
+msgid "Activity State"
+msgstr "Status activitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_type_icon
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Pictogramă Tip activitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__assigned_users
+msgid "Assigned Users"
+msgstr "Utilizatori Asignați"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__user_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__user_ids
+msgid "Assignees"
+msgstr "Asignați"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_attachment_count
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nr. atașamente"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_avg
+msgid "Average Rating"
+msgstr "Rating Mediu"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__material_billed
+msgid "Billed Cost"
+msgstr "Costuri facturate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__billed_qty
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__billed_qty
+msgid "Billed Product Quantity"
+msgstr "Cantitate de produse facturate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__billed_qty
+msgid "Billed Quantity"
+msgstr "Cantitate facturată"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__route_type__buy
+msgid "Buy"
+msgstr "Cumpără"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_invoice__state__cancel
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__state__cancel
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_consume_wizard_form
+msgid "Cancel"
+msgstr "Anulare"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cantitate ceruta"
+msgstr "Cantitate Ceruta"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cantitate consumata"
+msgstr "Cantitate consumată"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cantitate cumparata"
+msgstr "Cantitate cumpărată"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cantitate planificata"
+msgstr "Cantitate planificată"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cantitate primita"
+msgstr "Cantitate primită"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_product_category__change_planned_cost
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__change_planned_cost
+msgid "Change Planned Cost"
+msgstr "Schimbă Costul Planificat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Contact comercial"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Commercial Partner"
+msgstr "Partener commercial"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_res_company
+msgid "Companies"
+msgstr "Companii"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__company_id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__company_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__company_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__company_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__company_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__company_id
+msgid "Company"
+msgstr "Companie"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_res_config_settings
+msgid "Config Settings"
+msgstr "Setări de configurare"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.construction_site_menu_config
+msgid "Configuration"
+msgstr "Configurare"
+
+#. module: construction_site
+#: model:ir.module.category,name:construction_site.module_category_construction
+#: model_terms:ir.ui.view,arch_db:construction_site.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:construction_site.stock_warehouse_form
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Construction"
+msgstr "Șantier"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_res_company__purchase_force_qty
+#: model:ir.model.fields,field_description:construction_site.field_res_config_settings__purchase_force_qty
+msgid "Construction - Purchase Force Qty"
+msgstr "Șantier - Impune cantitatea achiziționată "
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_stock_picking__construction_invoice_id
+msgid "Construction Invoice"
+msgstr "Facturi Șantier"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_purchase_order__construction_project_ids
+msgid "Construction Project"
+msgstr "Proiect de șantier"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_report_construction_site_construction_cost_structure
+msgid "Construction Project Cost Structure Report"
+msgstr "Raportul structurii costurilor proiectului de Șantier"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_purchase_order__construction_project_count
+msgid "Construction Project Count"
+msgstr "Nr. de șantiere"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.construction_site_menu
+#: model_terms:ir.ui.view,arch_db:construction_site.view_project_project_filter
+msgid "Construction Projects"
+msgstr "Proiect de construcții"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_stock_warehouse__project_id
+#: model:ir.ui.menu,name:construction_site.construction_site_menu_root
+#: model_terms:ir.ui.view,arch_db:construction_site.product_category_form_view_construction
+msgid "Construction Site"
+msgstr "Șantier"
+
+#. module: construction_site
+#: model:res.groups,name:construction_site.group_construction_manager
+msgid "Construction Site Administrator"
+msgstr "Manager Șantier"
+
+#. module: construction_site
+#: model:res.groups,name:construction_site.group_construction_employee
+msgid "Construction Site Employee"
+msgstr "Angajat Șantier"
+
+#. module: construction_site
+#: model:res.groups,name:construction_site.group_construction_team_leader
+msgid "Construction Site Executor"
+msgstr "Executant Șantier"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.open_view_construction_site
+msgid "Construction Site Projects"
+msgstr "Proiecte de Șantier"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_account_bank_statement_line__project_picking_ids
+#: model:ir.model.fields,field_description:construction_site.field_account_move__project_picking_ids
+#: model:ir.model.fields,field_description:construction_site.field_account_payment__project_picking_ids
+msgid "Construction Site Related Pickings"
+msgstr "Mișcari legate de Șantier"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.project_stock_warehouse_menu
+#: model:ir.ui.menu,name:construction_site.stock_warehouse_menu
+msgid "Construction Site Stock"
+msgstr "Depozite Șantiere"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_invoice_form
+msgid "Consume"
+msgstr "Consum"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__consume_loc_id
+msgid "Consume Location"
+msgstr "Locație de consum"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Consume Products"
+msgstr "Consumă produse"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__consume_type_id
+msgid "Consume Type"
+msgstr "Tip consum"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Consumed Cost"
+msgstr "Cost pe consum"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Consumed Qty"
+msgstr "Cantitate consumată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__consumed_qty
+msgid "Consumed Quantity"
+msgstr "Cantitate consumată"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_project__invoice_method__consume
+msgid "Consummed QTY"
+msgstr "Cantitate consumată"
+
+#. module: construction_site
+#: model:ir.actions.report,name:construction_site.action_cost_struct_construction_site
+msgid "Cost Analysis"
+msgstr "Analiză de costuri"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__cost_increment
+msgid "Cost Increment"
+msgstr "Incrementare cost"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cost achizitie"
+msgstr "Cost de achiziție"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cost efectiv"
+msgstr "Cost efectiv"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Cost planificat"
+msgstr "Cost planificat"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Create Project Bill"
+msgstr "Crează factură pe proiect"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__create_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__create_date
+msgid "Create date"
+msgstr "Data creării"
+
+#. module: construction_site
+#: model_terms:ir.actions.act_window,help:construction_site.open_view_construction_site
+msgid ""
+"Create projects to organize your tasks. Define a different workflow for each"
+" project."
+msgstr "Crează proiecte pentru a-ți organiza sarcinile. Definește un flux de lucru "
+"diferit pentru fiecare proiect"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__create_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__create_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__create_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__create_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__create_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__create_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__create_uid
+msgid "Created by"
+msgstr "Creat de"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__create_date
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__create_date
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__create_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__create_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__create_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__create_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__create_date
+msgid "Created on"
+msgstr "Creat în"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__currency_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__currency_id
+msgid "Currency"
+msgstr "Monedă"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__current_location_id
+msgid "Current Location"
+msgstr "Locație curentă"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__partner_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__partner_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__access_url
+#: model:ir.model.fields,help:construction_site.field_project_task_product__access_url
+msgid "Customer Portal URL"
+msgstr "URL Portal clienți"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_site_invoice
+msgid "Decont/invoicing"
+msgstr "Wizard Facturare"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_task_product__uom_id
+#: model:ir.model.fields,help:construction_site.field_project_task_product_consume_wizard_line__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr "Unitatea de masură standard folosită în toate operațiunile de stoc."
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Delivery"
+msgstr "Livrare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__delivery_count
+msgid "Delivery Count"
+msgstr "Itemi Livrați"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_invoice__invoicing_type__detailed
+msgid "Detailed"
+msgstr "Detaliat"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Details"
+msgstr "Detalii"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__display_name
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__display_name
+msgid "Display Name"
+msgstr "Nume afișat"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_invoice__state__done
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__state__done
+msgid "Done"
+msgstr "Realizat"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_invoice__state__draft
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__state__draft
+msgid "Draft"
+msgstr "Ciornă"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__effective_date
+msgid "Effective Date"
+msgstr "Data efectivă "
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__email_cc
+msgid "Email cc"
+msgstr "Email CC"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_consume_wizard_form
+msgid "Execute"
+msgstr "Execută"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__executed_date
+msgid "Executed Date"
+msgstr "Data execuției"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__extra_cost
+msgid "Extra Cost"
+msgstr "Cost suplimentar"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_task_product__requested_state__fix_request
+msgid "Fit plan"
+msgstr "Se potriveste în plan"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_follower_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_follower_ids
+msgid "Followers"
+msgstr "Urmăritori"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_partner_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Parteneri Urmăritori"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__activity_type_icon
+#: model:ir.model.fields,help:construction_site.field_project_task_product__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_move_report_form
+msgid "Form project.task.move.report"
+msgstr "Raport transferuri (form)"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_consume_wizard_form
+msgid "Form project.task.product.consume.wizard"
+msgstr "Wizard bon consum"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_report_form
+msgid "Form project.task.product.report"
+msgstr "Raport Materiale (formular)"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Future Activities"
+msgstr "Activități viitoare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__future_cost
+msgid "Future Cost"
+msgstr "Cost Viitor"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__future_revenue
+msgid "Future Revenue"
+msgstr "Venit Viitor"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+msgid "Generate Warehouse"
+msgstr "Generează Depozit Șantier"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_res_company__purchase_force_qty
+#: model:ir.model.fields,help:construction_site.field_res_config_settings__purchase_force_qty
+#: model_terms:ir.ui.view,arch_db:construction_site.res_config_settings_view_form
+msgid "Generate purchase from procurment regardless supply warehouse stock."
+msgstr ""
+"Generează achiziții din aprovizionare pentru depozitul de aprovizionare"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Group By"
+msgstr "Grupat după"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__has_message
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__has_message
+msgid "Has Message"
+msgstr "Are mesaj"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__id
+msgid "ID"
+msgstr "ID"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_exception_icon
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_exception_icon
+msgid "Icon"
+msgstr "Iconiță"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__activity_exception_icon
+#: model:ir.model.fields,help:construction_site.field_project_task_product__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Iconiță care indică o activitate exceptională"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__message_needaction
+#: model:ir.model.fields,help:construction_site.field_project_task_product__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Dacă este bifat, un nou mesaj iți va atrage atenția"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__message_has_error
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__message_has_sms_error
+#: model:ir.model.fields,help:construction_site.field_project_task_product__message_has_error
+#: model:ir.model.fields,help:construction_site.field_project_task_product__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Dacă este bifat, unele mesaje au eroare de livrare"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_task_product__requested_state__hipo_request
+msgid "In plan"
+msgstr "în planificare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__invoice_id
+msgid "Invoice"
+msgstr "Factură"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__invoice_count
+msgid "Invoice Count"
+msgstr "Num.facturi"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__invoice_in_ids
+msgid "Invoice In"
+msgstr "Facturi furnizor"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__invoice_method
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__invoicing_type
+msgid "Invoice Method"
+msgstr "Metodă de facturare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__invoice_out_ids
+msgid "Invoice Out"
+msgstr "Facturi client"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__invoiced_qty
+msgid "Invoiced Quantity"
+msgstr "Cantitatea facturată"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Invoices"
+msgstr "Facturi"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_invoice_form
+msgid "Invoicing Wizard"
+msgstr "Wizard facturi"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__task_ids
+msgid "Invoicing tasks"
+msgstr "Sarcini facturabile"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__is_construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__is_construction_site
+#: model:ir.model.fields,field_description:construction_site.field_stock_warehouse__is_construction_site
+msgid "Is Construction Site"
+msgstr "Este un Șantier"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_is_follower
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_is_follower
+msgid "Is Follower"
+msgstr "Este urmăritor"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_account_move
+msgid "Journal Entry"
+msgstr "Notă contabilă"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_account_move_line
+msgid "Journal Item"
+msgstr "Element jurnal"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report____last_update
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report____last_update
+msgid "Last Modified on"
+msgstr "Ultima modificare la"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__write_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__write_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__write_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__write_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__write_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__write_uid
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizare de"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__write_date
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__write_date
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__write_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__write_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__write_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__write_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizare la"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Late Activities"
+msgstr "Activități intârziate"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Launch Procurement"
+msgstr "Lansează aprovizionarea"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+msgid "Load Planned Materials"
+msgstr "Incarcă materialele planificate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__location_id
+msgid "Location"
+msgstr "Gestiune"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_main_attachment_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Atasamentul Principal"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_invoice_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Make Invoice"
+msgstr "Realizare facturi"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__material_cost
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__material_cost
+msgid "Material Cost"
+msgstr "Cost materiale"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Material Costs"
+msgstr "Cost materiale"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Material On Location Information"
+msgstr "Informare, materiale pe Locație"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Material Planned Information"
+msgstr "Informații materiale planificate"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Material Purchase Information"
+msgstr "Informații achiziție materiale"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Material Received Cost"
+msgstr "Cost materiale Recepționate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__max_limit
+msgid "Max Limit"
+msgstr "Limita maximă"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_has_error
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_has_error
+msgid "Message Delivery error"
+msgstr "Eroare de livrare mesaj"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_ids
+msgid "Messages"
+msgstr "Mesaje"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__move_id
+msgid "Move"
+msgstr "Mută"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__account_move_line_ids
+msgid "Move Lines"
+msgstr "Mută liniile"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__my_activity_date_deadline
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Termenul meu limită de activitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__name
+msgid "Name"
+msgstr "Nume"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__need_consume
+#: model:ir.model.fields,field_description:construction_site.field_project_task__need_consume
+msgid "Need Consume"
+msgstr "Necesită consum"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__need_invoice
+msgid "Need Invoice"
+msgstr "Necesită Factură"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__need_procurement
+#: model:ir.model.fields,field_description:construction_site.field_project_task__need_procurement
+msgid "Need Procurement"
+msgstr "Necesită aprovizionare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_calendar_event_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Următoarea activitate în calendar"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_date_deadline
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Următrul teremn limită pentru activitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_summary
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_summary
+msgid "Next Activity Summary"
+msgstr "Următorul sumar de activitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_type_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_type_id
+msgid "Next Activity Type"
+msgstr "Următorul tip de activitate"
+
+#. module: construction_site
+#: model_terms:ir.actions.act_window,help:construction_site.open_view_construction_site
+msgid "No projects found. Let's create one!"
+msgstr "Nu am găsit nici un proiect. Hai sa creem unul"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_task_product__requested_state__no_plan
+msgid "Non planned"
+msgstr "Ne-planificat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_needaction_counter
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Număr de acțiuni"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_has_error_counter
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_has_error_counter
+msgid "Number of errors"
+msgstr "Număr de erori"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__message_needaction_counter
+#: model:ir.model.fields,help:construction_site.field_project_task_product__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Număr de mesaje ce necesită intervenție"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__message_has_error_counter
+#: model:ir.model.fields,help:construction_site.field_project_task_product__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Număr de mesaje cu eroare de livrare"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_invoice__state__open
+msgid "Open"
+msgstr "Deschis"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__ord
+msgid "Ord"
+msgstr "Nr."
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__purchase_qty
+msgid "Ordered Quantity"
+msgstr "Cantitate comandată"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "PROIECT:"
+msgstr "PROIECT"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__parent_id
+msgid "Parent"
+msgstr "Părinte"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__parent_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__parent_id
+msgid "Parent Task"
+msgstr "Sarcina Părinte"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Partner"
+msgstr "Partener"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__picking_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__picking_id
+msgid "Picking"
+msgstr "Transfer"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__picking_consume_ids
+msgid "Picking Consume"
+msgstr "Bon consum"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__picking_count
+msgid "Picking Count"
+msgstr "Num.Transferuri"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__picking_date
+msgid "Picking Date"
+msgstr "Data de transfer"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__picking_in_ids
+msgid "Picking In"
+msgstr "Recepții"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__picking_out_ids
+msgid "Picking Out"
+msgstr "Avize"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__picking_s_in_ids
+msgid "Picking S In"
+msgstr "Recepții centr."
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_task_product
+msgid "Plan products on tasks"
+msgstr "Produse planificate pe obiectiv"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__planned_cost
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__material_planned_cost
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__planned_cost
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Planned Cost"
+msgstr "Cost Planificat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__planned_extra_cost
+msgid "Planned Extra Cost"
+msgstr "Cost extra planificat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__material_planned_cost
+msgid "Planned Material Cost"
+msgstr "Cost planificat pe materiale"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__planned_qty
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__planned_qty
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__planned_qty
+msgid "Planned Product Quantity"
+msgstr "Cantitate de produse planificate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__planned_profit
+msgid "Planned Profit"
+msgstr "Profit planificat"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_project__invoice_method__planned
+msgid "Planned QTY"
+msgstr "Cantitate planificată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__planned_qty
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Planned Qty"
+msgstr "Cantitate planificată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__planned_date
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__planned_date
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Planned Receive Date"
+msgstr "Data receptie planificată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__planned_revenue
+msgid "Planned Revenue"
+msgstr "Venit planificat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__access_url
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__access_url
+msgid "Portal Access URL"
+msgstr "URL Portal"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__posible_wh_ids
+msgid "Posible Wh"
+msgstr "Prosibile depozite"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__route_id
+msgid "Prefered Route"
+msgstr "Ruta preferată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__price_total_consummed
+msgid "Price Total Consummed"
+msgstr "Preț total consumat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__price_total_invoiced
+msgid "Price Total Invoiced"
+msgstr "Preț total facturat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__pricelist_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__pricelist_id
+msgid "Pricelist"
+msgstr "Lista de preturi"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__state__to-purchase
+msgid "Procure"
+msgstr "Aprovizionare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__to_procure_qty
+msgid "Procure Qty"
+msgstr "Cantitate Aprovizionată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__procurement_id
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_move_report_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_report_form
+msgid "Procurement"
+msgstr "Aprovizionare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__procurement_count
+#: model:ir.model.fields,field_description:construction_site.field_project_task__procurement_count
+msgid "Procurement Count"
+msgstr "Num. Aprovizionari"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_site_procurement
+msgid "Procurement Document"
+msgstr "Document de aprovizionare"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_procurement_group
+msgid "Procurement Group"
+msgstr "Grup de aprovizionare"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__procurement_type
+msgid "Procurement Type"
+msgstr "Tip de aprovizionare"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+msgid "Procurement Wizard"
+msgstr "Wizard Aprovizionare"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Procurements"
+msgstr "Aprovizionări"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__procurment_product_line_ids
+msgid "Procurment Product Line"
+msgstr "Lini produse aprovizionate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__product_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__product_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__product_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__product_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__product_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__product_id
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Product"
+msgstr "Produs"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.construction_site_menu_product_category
+msgid "Product Categories"
+msgstr "Categorii produse"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_product_category
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__category_id
+msgid "Product Category"
+msgstr "Categorie produs"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Product Information"
+msgstr "Informații produs"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__product_line_id
+msgid "Product Line"
+msgstr "Linie Produs"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_product_product
+msgid "Product Variant"
+msgstr "Variantă produs"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__task_product_ids
+#: model:ir.ui.menu,name:construction_site.construction_site_menu_product
+#: model:ir.ui.menu,name:construction_site.construction_site_menu_product_menu
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_consume_wizard_form
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Products"
+msgstr "Produse"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Produs"
+msgstr "Produs"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__profit
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Profit"
+msgstr "Profit"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Profitability"
+msgstr "Profitabilitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__product_qty_in_progress
+msgid "Progress Qty"
+msgstr "Cantitate în lucru"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_project
+#: model:ir.model.fields,field_description:construction_site.field_account_bank_statement_line__project_id
+#: model:ir.model.fields,field_description:construction_site.field_account_move__project_id
+#: model:ir.model.fields,field_description:construction_site.field_account_move_line__project_id
+#: model:ir.model.fields,field_description:construction_site.field_account_payment__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__project_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__project_id
+#: model:ir.model.fields,field_description:construction_site.field_purchase_order_line__project_id
+#: model:ir.model.fields,field_description:construction_site.field_stock_picking__project_id
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Project"
+msgstr "Proiect"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_revenu_report_graph
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_revenu_report_pivot
+msgid "Project Balance Report"
+msgstr "Balata proiectului"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__manager_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__manager_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__project_manager_id
+msgid "Project Manager"
+msgstr "Manager proiect"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.project_task_move_report_action
+#: model:ir.model,name:construction_site.model_project_task_move_report
+msgid "Project Product Move Report"
+msgstr "Raport Miscări produse/proiect"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_move_report_graph
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_report_graph
+msgid "Project Product Procurement Graph"
+msgstr "Grafic Aprovizionare pe proiect"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_move_report_pivot
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_report_pivot
+msgid "Project Product Procurement Pivot"
+msgstr "Pivot Aprovizionare pe proiect"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_task_product_report
+msgid "Project Product Purchase"
+msgstr "Produse cumpărate/proiect"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.project_task_product_report_action
+msgid "Project Product Report"
+msgstr "Raport produse cumpărate/proiect"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.project_task_revenu_report_menu
+msgid "Project Profitability"
+msgstr "Profitabilitatea proiectului"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.project_task_revenu_report_action
+msgid "Project Report"
+msgstr "Raport pe proiect"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__project_status_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__project_status_id
+msgid "Project State"
+msgstr "Stadiu proiect"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Project Task Product"
+msgstr "Produse/Obiectiv"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.purchase_order_form
+msgid "Projects"
+msgstr "Proiecte"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+#: model_terms:ir.ui.view,arch_db:construction_site.view_task_form2_inherited
+msgid "Purchase"
+msgstr "Achiziție"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__material_purchase_cost
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Purchase Cost"
+msgstr "Preț achiziție"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__purchase_count
+#: model:ir.model.fields,field_description:construction_site.field_project_task__purchase_count
+msgid "Purchase Count"
+msgstr "Num. Achiziții"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__purchase_date
+msgid "Purchase Date"
+msgstr "Data de achiziție"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__purchase_inform_user_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__permit_purchase_inform_user_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__purchase_inform_user_ids
+msgid "Purchase Inform User"
+msgstr "Informare achizitor"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__purchase_line_ids
+#: model:ir.model.fields,field_description:construction_site.field_purchase_order_line__procurement_ids
+msgid "Purchase Line"
+msgstr "Linie achiziție"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_purchase_order
+#: model:ir.model.fields,field_description:construction_site.field_project_project__purchase_order_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__purchase_id
+msgid "Purchase Order"
+msgstr "Comandă de achiziție"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Linie comandă de achiziție"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__purchase_order_line_ids
+msgid "Purchase Order Lines"
+msgstr "Linia de comandă a comenzii de achiziție"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__purchase_line_ids
+msgid "Purchase Order line"
+msgstr "Linia de comandă a comenzii de achiziție"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__purchase_qty
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__purchase_qty
+msgid "Purchase Product Quantity"
+msgstr "Cantitatea de produs achiziționat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__purchase_qty_in_progress
+msgid "Purchase Qty"
+msgstr "Cantitatea achizitionată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__purchase_user_id
+msgid "Purchase User"
+msgstr "Achizitor"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__purchase_users
+msgid "Purchase Users"
+msgstr "Achizitori"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Purchased Qty"
+msgstr "Cantitatea achizitionată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__quantity
+msgid "Quantity"
+msgstr "Cantitate"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+msgid "Quantity:"
+msgstr "Cantitate"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_move_report_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_report_form
+msgid "Quantitys"
+msgstr "Cantități"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_ids
+msgid "Rating"
+msgstr "Calificativ"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_avg_text
+msgid "Rating Avg Text"
+msgstr "Textul mediu al evaluărilor"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_last_feedback
+msgid "Rating Last Feedback"
+msgstr "Evaluatre, Ultimul feedback "
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_last_image
+msgid "Rating Last Image"
+msgstr "Evaluare, Ultima imagine"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_last_value
+msgid "Rating Last Value"
+msgstr "Ultima valoare a evaluării"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_percentage_satisfaction
+msgid "Rating Satisfaction"
+msgstr "Satisfacția evaluării"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_last_text
+msgid "Rating Text"
+msgstr "Textul Evaluării"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__rating_count
+msgid "Rating count"
+msgstr "Num. Rating-uri"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__real_cost
+msgid "Real Cost"
+msgstr "Cost real"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__real_profit
+msgid "Real Profit"
+msgstr "Profit real"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__real_revenue
+msgid "Real Revenue"
+msgstr "Venit real"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__received_qty
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__received_qty
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__received_qty
+msgid "Received Product Quantity"
+msgstr "Cantitatea de produse recepționată"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_project__invoice_method__received
+msgid "Received QTY"
+msgstr "Cantitatea recepționată"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Received Qty"
+msgstr "Cantitatea recepționată"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__received_qty
+msgid "Received Quantity"
+msgstr "Cantitatea recepționată"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_account_bank_statement_line__project_picking_ids
+#: model:ir.model.fields,help:construction_site.field_account_move__project_picking_ids
+#: model:ir.model.fields,help:construction_site.field_account_payment__project_picking_ids
+msgid ""
+"Related pickings (only when the invoice has been generated from a "
+"construction project)."
+msgstr ""
+"Următoarele transferuri (doar cand facturile au fost generate dintr-un "
+"proiect de Șantier)."
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__task_product_ids
+msgid "Replenishment tasks"
+msgstr "Sarcini de reaprovizionare"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.project_task_move_report_menu
+msgid "Report Move Material"
+msgstr "Raport de materiale mișcate"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.project_task_product_report_menu
+msgid "Report Procurement Material"
+msgstr "Raport de aprovizionare materiale"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.construction_site_menu_reports
+msgid "Reports"
+msgstr "Rapoarte"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__requested_qty
+msgid "Requested Qty"
+msgstr "Cantitatea cerută"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__requested_state
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__requested_state
+msgid "Requested State"
+msgstr "Status cerere"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__required_qty
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__required_qty
+msgid "Required Product Quantity"
+msgstr "Cantitatea de produse cerută"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__activity_user_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__activity_user_id
+msgid "Responsible User"
+msgstr "Utilizator Responsabil"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__restrict_product
+msgid "Restrict Product"
+msgstr "Produse restricționate"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+msgid "Retur Materiale"
+msgstr "Retur Materile"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_task_revenu_report
+msgid "Revenu report"
+msgstr "Raport venituri"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__revenue
+msgid "Revenue"
+msgstr "Venit"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__route_type
+msgid "Route Type"
+msgstr "Tip de Rută"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__message_has_sms_error
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Eroare trimitere sms"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.construction_cost_structure
+msgid "Sarcini proiect:"
+msgstr "Sarcini proiect"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__access_token
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__access_token
+msgid "Security Token"
+msgstr "Token securitate"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__sequence
+msgid "Sequence"
+msgstr "Secvență"
+
+#. module: construction_site
+#: model:ir.ui.menu,name:construction_site.construction_site_menu_settings
+msgid "Settings"
+msgstr "Setări"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_stock_warehouse__code
+msgid "Short Name"
+msgstr "Nume scurt"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_stock_warehouse__code
+msgid "Short name used to identify your warehouse"
+msgstr "Nume scurt pentru identificarea depozitului"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Show all records which has next action date is before today"
+msgstr ""
+"Arată toate inregistrarile care au data urmatoarei acțiuni după data de azi"
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__site_management
+msgid "Site Management"
+msgstr "Management Șantier"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_move_report_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_report_form
+msgid "Source Data"
+msgstr "Sursa de date"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__state
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__state
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__state
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__state
+msgid "State"
+msgstr "Stadiu"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__state
+msgid "Status"
+msgstr "Status"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__activity_state
+#: model:ir.model.fields,help:construction_site.field_project_task_product__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status bazat pe activități\n"
+"Depăsit: Data limită este depașită\n"
+"Azi: Data activității este azi\n"
+"Planificată: Activității viitoare."
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__stock_consume_ids
+msgid "Stock Consume"
+msgstr "Consumă"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__stock_inform_user_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__permit_stock_inform_user_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__stock_inform_user_ids
+msgid "Stock Inform User"
+msgstr "Informare utilizatori logistică"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_stock_move
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__stock_move_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__stock_move_ids
+#: model:ir.model.fields,field_description:construction_site.field_stock_move__procurement_ids
+msgid "Stock Move"
+msgstr "Mișcare de stoc"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__stock_move_ids
+msgid "Stock Moves"
+msgstr "Mișcări de stoc"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__stock_outer_ids
+msgid "Stock Outer"
+msgstr "Mișcări de stoc (Ieșiri)"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_invoice__stock_picking_ids
+msgid "Stock Picking"
+msgstr "Transfer"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__stock_receive_ids
+msgid "Stock Receive"
+msgstr "Mișcări de stoc (Recepții)"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_stock_rule
+msgid "Stock Rule"
+msgstr "Regulă de stoc"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__stock_user_ids
+msgid "Stock User"
+msgstr "Magazioner"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__stock_users
+msgid "Stock Users"
+msgstr "Utilizatori logistică"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__warehouse_id
+msgid "Stock Warehouse"
+msgstr "Stoc depozit"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Stock and Cost Information"
+msgstr "Informații despre Stoc și Cost"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__supplier_id
+msgid "Supplier"
+msgstr "Furnizor"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+msgid "Supplier:"
+msgstr "Furnzior"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__supply_warehouse_id
+msgid "Supply Warehouse"
+msgstr "Depozitul de livrare"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_invoice__invoicing_type__syntetic
+msgid "Syntetic"
+msgstr "Sintetic"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__synthetic_account_move_line_ids
+msgid "Synthetic Account Move Line"
+msgstr "Linie factură sintetică"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_account_move_line__synthetic_project_task_product_ids
+msgid "Synthetic Project Task Product"
+msgstr "Produs sintetic pe sarcină"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__tag_ids
+msgid "Tag"
+msgstr "Etichetă"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_task
+#: model:ir.model.fields,field_description:construction_site.field_account_bank_statement_line__task_id
+#: model:ir.model.fields,field_description:construction_site.field_account_move__task_id
+#: model:ir.model.fields,field_description:construction_site.field_account_move_line__task_id
+#: model:ir.model.fields,field_description:construction_site.field_account_move_line__task_product_id
+#: model:ir.model.fields,field_description:construction_site.field_account_payment__task_id
+#: model:ir.model.fields,field_description:construction_site.field_procurement_group__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__task_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_revenu_report__task_id
+#: model:ir.model.fields,field_description:construction_site.field_purchase_order_line__task_id
+#: model:ir.model.fields,field_description:construction_site.field_stock_move__task_id
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Task"
+msgstr "Sarcină"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__task_cost
+msgid "Task Cost"
+msgstr "Cost sarcină"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__location_id
+msgid "Task Location"
+msgstr "Gestiune Obiectiv/Sarcină"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__task_planned_cost
+msgid "Task Planned Cost"
+msgstr "Cost planificat pe sarcină"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement_product__task_product_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__purchase_order_line_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__task_product_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__task_product_id
+#: model:ir.model.fields,field_description:construction_site.field_purchase_order_line__task_product_ids
+#: model:ir.model.fields,field_description:construction_site.field_stock_move__task_product_ids
+msgid "Task Product"
+msgstr "Produs sarcină"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_task_product_purchase
+msgid "Task Product Purchase Fragment"
+msgstr "Fragment de achiziție a produsului pentru sarcină"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_move_report__stage_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__stage_id
+msgid "Task Stage"
+msgstr "Stadiul Sarcinii"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__planned_revenue
+msgid "Task Subtotal Value"
+msgstr "Subtotal sarcină"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_invoice_form
+#: model_terms:ir.ui.view,arch_db:construction_site.project_view_form_inherit
+msgid "Tasks"
+msgstr "Obiective"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__company_id
+msgid "The company is automatically set from your user preferences."
+msgstr "Compania este setată automat cu preferițele tale de utilizator."
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__tmp_consume
+msgid "Tmp Consume"
+msgstr "Tmp Consum"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__procurement_type__in_site
+msgid "To Construction Site"
+msgstr "Către șantier"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__to_consume
+msgid "To Consume"
+msgstr "De consumat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_project__to_invoice
+msgid "To Invoice"
+msgstr "De facturat"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__to_invoice_qty
+msgid "To Invoice Quantity"
+msgstr "Către cantitatea facturată"
+
+#. module: construction_site
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__procurement_type__in_supply_warehouse
+msgid "To supply warehouse"
+msgstr "Către depozitul de aprovizionare "
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Today Activities"
+msgstr "Activitățile de azi"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__cost
+msgid "Total Cost"
+msgstr "Cost total"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task__total_sale_price_consummed
+msgid "Total Sale Price Consummed"
+msgstr "Total vânzări consumate"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_stock_picking
+#: model:ir.model.fields.selection,name:construction_site.selection__project_site_procurement__route_type__transfer
+#: model_terms:ir.ui.view,arch_db:construction_site.project_site_procurement_form
+msgid "Transfer"
+msgstr "Transfer"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__activity_exception_decoration
+#: model:ir.model.fields,help:construction_site.field_project_task_product__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tip de activitate excepțională pe înregistrare"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_search_view
+msgid "Unread Messages"
+msgstr "Mesaje necitite"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__uom_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__uom_id
+msgid "Uom"
+msgstr "Unitate de masura"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Vendor Billed Cost"
+msgstr "Cost facturi furnizori"
+
+#. module: construction_site
+#: model_terms:ir.ui.view,arch_db:construction_site.project_task_product_form_view
+msgid "Vendor Billed Qty"
+msgstr "Num. facturi furnizori"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_stock_warehouse
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__location_id
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__warehouse_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task__warehouse_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_purchase__warehouse_id
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_report__warehouse_id
+msgid "Warehouse"
+msgstr "Depozit"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_site_procurement__website_message_ids
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product__website_message_ids
+msgid "Website Messages"
+msgstr "Mesaj Website"
+
+#. module: construction_site
+#: model:ir.model.fields,help:construction_site.field_project_site_procurement__website_message_ids
+#: model:ir.model.fields,help:construction_site.field_project_task_product__website_message_ids
+msgid "Website communication history"
+msgstr "Comunicare istoric pe website"
+
+#. module: construction_site
+#: model:ir.model.fields,field_description:construction_site.field_project_task_product_consume_wizard_line__wiz_id
+msgid "Wiz"
+msgstr "Wizard"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.project_site_procurement_action
+msgid "project.site.procurement Action"
+msgstr "acțiune șantier aprovizionare"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_site_procurement_product
+msgid "project.site.procurement.product"
+msgstr "Aprovizionare produse"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_task_product_consume_wizard
+msgid "project.task.product.consume.wizard"
+msgstr "wizard bon consum"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.project_task_product_consume_wizard_action
+msgid "project.task.product.consume.wizard Action"
+msgstr "Acțiune wizard bon consum"
+
+#. module: construction_site
+#: model:ir.model,name:construction_site.model_project_task_product_consume_wizard_line
+msgid "project.task.product.consume.wizard.line"
+msgstr "wizard linie bon consum"
+
+#. module: construction_site
+#: model:ir.actions.act_window,name:construction_site.stock_warehouse_action
+msgid "stock.warehouse Action"
+msgstr "Acțiune Depozit Șantier"

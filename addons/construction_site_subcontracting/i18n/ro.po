@@ -1,0 +1,320 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* construction_site_subcontracting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-21 05:34+0000\n"
+"PO-Revision-Date: 2025-03-21 05:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.view_task_form2_subcontracting_inherited
+msgid "<span>Subcontracting Report</span>"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__analytic_account_line_id
+msgid "Analytic Account Line"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__user_ids
+msgid "Assignees"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__company_id
+msgid "Company"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task__contract_id
+#, python-format
+msgid "Contract"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.view_task_form2_subcontracting_inherited
+msgid "Contracte"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__effective_cost_unit
+msgid "Cost efectiv unitar"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__planned_cost_unit
+msgid "Cost planificat unitar"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.view_task_form2_subcontracting_inherited
+msgid "Creare achizitie subcontractare"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.view_task_form2_subcontracting_inherited
+msgid "Creare contract"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__display_name
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__effective_cost
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__effective_cost
+#, python-format
+msgid "Effective Cost"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__effective_qty
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__effective_qty
+#, python-format
+msgid "Effective Qty"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__id
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__id
+msgid "ID"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task.py:0
+#, python-format
+msgid "No subcontracting lines found for this task."
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__ord
+msgid "Ord"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__parent_id
+#, python-format
+msgid "Parent Task"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__planned_cost
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__planned_cost
+#, python-format
+msgid "Planned Cost"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__planned_qty
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__planned_qty
+#, python-format
+msgid "Planned Qty"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__product_id
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__product_id
+#, python-format
+msgid "Product"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__project_id
+#, python-format
+msgid "Project"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__manager_id
+#, python-format
+msgid "Project Manager"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.project_task_subcontracting-report_graph
+msgid "Project Product Procurement Graph"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__project_status_id
+#, python-format
+msgid "Project State"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model,name:construction_site_subcontracting.model_project_task_subcontracting_report
+msgid "Project Subcontracting Purchase"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.actions.act_window,name:construction_site_subcontracting.project_task_subcontracting_report_action
+msgid "Project Subcontracting Report"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.project_task_subcontracting_report_pivot
+msgid "Project subcontracting Pivot"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task__purchase_order_created
+msgid "Purchase Order Created"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model,name:construction_site_subcontracting.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Linie comandă de achiziție"
+
+#. module: construction_site_subcontracting
+#: model:ir.ui.menu,name:construction_site_subcontracting.project_task_subcontracting_report_menu
+msgid "Report Subcontracting"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#, python-format
+msgid "Responsible"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.view_task_form2_subcontracting_inherited
+msgid "Servicii subcontractate"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task__task_subcontracting_ids
+msgid "Subcontracting"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#, python-format
+msgid "Subcontracting %s"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task__subcontracting_cost
+msgid "Subcontracting Cost"
+msgstr "Cost subcontractare"
+
+#. module: construction_site_subcontracting
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.view_task_form2_subcontracting_inherited
+msgid "Subcontracting Costs"
+msgstr "Cost subcontractare"
+
+#. module: construction_site_subcontracting
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task__subcontracting_planned_cost
+msgid "Subcontracting Planned Cost"
+msgstr "Cost planificat subcontractare"
+
+#. module: construction_site_subcontracting
+#: model:ir.model,name:construction_site_subcontracting.model_project_task_subcontracting
+msgid "Subcontracting linked to Site Work"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model,name:construction_site_subcontracting.model_project_task
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__task_id
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__task_id
+#, python-format
+msgid "Task"
+msgstr "Sarcină"
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/reports/report_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting_report__stage_id
+#, python-format
+msgid "Task Stage"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/purchase.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_purchase_order_line__task_subcontracting_ids
+#, python-format
+msgid "Task Subcontracting"
+msgstr ""
+
+#. module: construction_site_subcontracting
+#. odoo-python
+#: code:addons/construction_site_subcontracting/models/project_task_subcontracting.py:0
+#: model:ir.model.fields,field_description:construction_site_subcontracting.field_project_task_subcontracting__purchase_order_line_id
+#: model_terms:ir.ui.view,arch_db:construction_site_subcontracting.project_task_subcontracting_view_list
+#, python-format
+msgid "Task subcontracting"
+msgstr ""

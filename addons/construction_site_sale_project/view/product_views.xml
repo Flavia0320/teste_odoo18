@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_form_view_invoice_policy_inherit_sale_project_inherit" model="ir.ui.view">
+        <field name="name">product.template.inherit.construction</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="sale_project.product_template_form_view_invoice_policy_inherit_sale_project"/>
+        <field name="arch" type="xml">
+            <field name="service_tracking" position="after">
+                <field name="is_construction" invisible="service_tracking not in ['task_in_project', 'project_only']"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

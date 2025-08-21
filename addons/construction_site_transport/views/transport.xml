@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="fleet_vehicle_view_form" model="ir.ui.view">
+                <field name="name">fleet.vehicle Form</field>
+                <field name="model">fleet.vehicle</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='residual_value']" position="after">
+                        <field name="sale_km_price" widget="monetary"/>
+                    </xpath>
+                </field>
+        </record>
+
+<!--        <menuitem-->
+<!--            id="construction_site_menu_transport"-->
+<!--            name="Transports"-->
+<!--            action="project_task_transport.hr_transport_action"-->
+<!--            groups="construction_site.group_construction_manager,base.group_user"-->
+<!--            parent="construction_site.construction_site_menu_product_menu"-->
+<!--            sequence="3"/>-->
+
+</odoo>
+

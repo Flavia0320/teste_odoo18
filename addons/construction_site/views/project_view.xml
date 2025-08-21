@@ -1,0 +1,134 @@
+<odoo>
+    <!--
+        Project Views (in project app)
+    -->
+    <record id="project_view_form_type_inherit" model="ir.ui.view">
+        <field name="name">project.view.form.inherit.type</field>
+        <field name="model">project.project</field>
+        <field
+            name="inherit_id"
+            ref="project_type.project_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="before">
+                <field name="is_construction_site" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="required">is_construction_site == True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_view_form_inherit" model="ir.ui.view">
+        <field name="name">project.view.form.inherit</field>
+        <field name="model">project.project</field>
+        <field
+            name="inherit_id"
+            ref="project.edit_project"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="need_procurement" invisible="1"/>
+                <field name="to_consume" invisible="1"/>
+                <field name="to_invoice" invisible="1"/>
+                <field name="id" invisible="1"/>
+                <button name="action_open_procurement" type="object" string="Launch Procurement" invisible="is_construction_site == False or need_procurement == False" class="oe_highlight" context="{'create_procurement':True,'default_project_id':id}"/>
+                <button name="%(project_site_invoice_action)d" type="action" string="Make Invoice" invisible="is_construction_site == False or to_invoice == False" class="oe_highlight" context="{'default_project_id':id}"/>
+                <!-- 
+                	<button name="create_manual_bill" type="object" string="Create Project Bill" attrs="{'invisible':[('is_construction_site','=',False)]}" class="oe_highlight"/>
+                 -->
+            </xpath>
+            <xpath expr="//button[@name='action_view_tasks']" position="replace">
+                    <button type="object"
+                        name="action_view_tasks"
+                        class="oe_stat_button"
+                        icon="fa-tasks"
+                        invisible="is_construction_site == False or task_count == 0"
+                        groups="stock.group_stock_user">
+                        <field name="task_count" widget="statinfo" string="Tasks"/>
+                    </button>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                    <button type="object"
+                        name="action_open_procurement"
+                        class="oe_stat_button"
+                        icon="fa-inbox"
+                        invisible="is_construction_site == False or procurement_count == 0"
+                        groups="stock.group_stock_user">
+                        <field name="procurement_count" widget="statinfo" string="Procurements"/>
+                    </button>
+                    <button type="object"
+                        name="action_open_reports_material"
+                        class="oe_stat_button"
+                        icon="fa-random"
+                        invisible="is_construction_site == False"
+                        groups="stock.group_stock_user">
+                        <span>Purchase</span>
+                    </button>
+                    <button type="object"
+                        name="action_open_reports_moves"
+                        class="oe_stat_button"
+                        icon="fa-exchange"
+                        invisible="is_construction_site == False"
+                        groups="stock.group_stock_user">
+                        <span>Transfers</span>
+                    </button>
+                    <button type="object"
+                        name="action_open_reports_balance"
+                        class="oe_stat_button"
+                        icon="fa-bar-chart-o"
+                        invisible="is_construction_site == False"
+                        groups="construction_site.group_construction_manager">
+                        <span>Profit Reports</span>
+                    </button>
+                    <button type="object"
+                        name="action_open_decont"
+                        class="oe_stat_button"
+                        icon="fa-dollar"
+                        invisible="is_construction_site == False"
+                        groups="construction_site.group_construction_manager">
+                        <span>Decont</span>
+                    </button>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="stock_inform_user_ids" invisible="is_construction_site == False" widget="many2many_tags"/>
+                <field name="purchase_inform_user_ids" invisible="is_construction_site == False" widget="many2many_tags"/>
+                <field name="is_construction_site" invisible="1" />
+                <field name="warehouse_id" invisible="warehouse_id == False or is_construction_site == False" readonly="warehouse_id != False" />
+                <field name="supply_warehouse_id" invisible="is_construction_site == False" readonly="warehouse_id != False" required="is_construction_site == True" domain="[('is_construction_site','=',False), ('id','!=',warehouse_id)]" />
+                <field name="consume_loc_id" invisible="is_construction_site == False" required="is_construction_site == True"/>
+                <field name="consume_type_id" domain="[('default_location_dest_id', '=', consume_loc_id)]" invisible="is_construction_site == False" required="is_construction_site == True"/>
+                <div>
+                    <button name="createLogistic" class="oe_highlight" type="object" string="Generate Warehouse" invisible="is_construction_site == False or warehouse_id != False" groups="construction_site.group_construction_manager,account.group_account_manager,base.group_system" />
+                </div>
+                <div>
+                    <button name="runReverseMaterials" class="oe_highlight" type="object" string="Retur Materiale" invisible="is_construction_site == False or warehouse_id == False" groups="construction_site.group_construction_manager,account.group_account_manager,base.group_system" />
+                </div>
+                <field name="invoice_method" invisible="is_construction_site == False" required="is_construction_site == True" groups="construction_site.group_construction_manager,account.group_account_manager,base.group_system"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="required">is_construction_site == True</attribute>
+            </xpath>
+        </field>
+    </record>
+    
+
+    <record id="view_project_project_filter" model="ir.ui.view">
+        <field name="name">project.view.search.inherit</field>
+        <field name="model">project.project</field>
+        <field
+            name="inherit_id"
+            ref="project.view_project_project_filter"
+        />
+        <field name="arch" type="xml">
+        	<xpath expr="//filter[@name='my_projects']" position="after">
+        		<filter string="Construction Projects" name="is_construction" domain="[('is_construction_site', '=', True)]"/>
+        	</xpath>
+        </field>
+     </record>
+
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="domain">[('is_internal_project', '=', False),('is_construction_site', '=', False)]</field>
+    </record>
+
+</odoo>

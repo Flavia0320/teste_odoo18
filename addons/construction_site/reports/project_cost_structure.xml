@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="construction_cost_structure">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>PROIECT: <span t-esc="project.name"/></h2>
+                <p class="mb-0"><b>CLIENT:</b> <span t-field="project.partner_id"/></p>
+                <p class="mb-0"><b>MANAGER PROIECT:</b> <span t-esc="project.user_id.name"/></p>
+                <p class="mb-0" t-field="project.description"/>
+                <h4 style="margin-top: 20px;">Sarcini proiect:</h4>
+                <t t-foreach="project.task_ids" t-as="task">
+                    <div style="margin-bottom: 15px;padding-bottom: 15px;border-bottom: solid 1px #e0e0e0;">
+                        <h5><b>NUME: </b><span t-esc="task.name"/></h5>
+                        <p class="mb-0" t-if="task.user_ids"><b>RESPONSABILI:</b> <span t-esc="','.join(task.user_ids.mapped('name'))"/></p>
+                        <div class="cost_materiale">
+                            <p style="background: #e7e7e7;padding: 0px 5px;margin-bottom: 4px;"><b>COST MATERIALE:</b></p>
+                            <p class="mb-0" style="padding-left: 5px;"><b>Cost planificat:</b> <span t-esc="task.material_planned_cost"/> <span t-field="task.currency_id"/></p>
+                            <p class="mb-0" style="padding-left: 5px;"><b>Cost efectiv:</b> <span t-esc="task.material_cost"/> <span t-field="task.currency_id"/></p>
+                            <table class="table" t-if="task.task_product_ids">
+                                <thead>
+                                    <tr>
+                                        <th>Produs</th>
+                                        <th>Cantitate planificata</th>
+                                        <th>Cantitate ceruta</th>
+                                        <th>Cost planificat</th>
+                                        <th>Cantitate cumparata</th>
+                                        <th>Cost achizitie</th>
+                                        <th>Cantitate primita</th>
+                                        <th>Cost efectiv</th>
+                                        <th>Cantitate consumata</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="task.task_product_ids" t-as="product">
+                                        <tr>
+                                            <td t-esc="product.product_id.name"/>
+                                            <td t-esc="product.planned_qty"/>
+                                            <td t-esc="product.requested_qty"/>
+                                            <td><span t-esc="product.material_planned_cost"/> <span t-field="product.currency_id"/></td>
+                                            <td t-esc="product.purchase_qty"/>
+                                            <td><span t-esc="product.material_purchase_cost"/> <span t-field="product.currency_id"/></td>
+                                            <td t-esc="product.received_qty"/>
+                                            <td><span t-esc="product.material_cost"/> <span t-field="product.currency_id"/></td>
+                                            <td t-esc="product.consumed_qty"/>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <record id="action_cost_struct_construction_site" model="ir.actions.report">
+        <field name="name">Cost Analysis</field>
+        <field name="model">project.project</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">construction_site.construction_cost_structure</field>
+        <field name="report_file">construction_site.construction_cost_structure</field>
+        <field name="print_report_name">'Cost Analysis - %s ' % object.name</field>
+        <field name="binding_model_id" ref="project.model_project_project"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

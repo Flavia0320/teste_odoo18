@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+<!--    <t t-name="construction_site.ProjectRightSidePanel" t-inherit="project.ProjectRightSidePanel" t-inherit-mode="extension" owl="1">-->
+<!--        <xpath expr="//ProjectRightSidePanelSection[@name=&quot;'profitability'&quot;]" position="before">-->
+<!--            <ProjectRightSidePanelSection name="'construction'" show="state.data.is_construction_site">sal-->
+<!--                <t t-set-slot="title" owl="1">-->
+<!--                    Construction-->
+<!--                </t>-->
+
+<!--            </ProjectRightSidePanelSection>-->
+<!--        </xpath>-->
+<!--    </t>-->
+
+</templates>

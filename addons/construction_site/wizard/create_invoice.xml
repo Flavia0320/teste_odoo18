@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="project_site_invoice_form" model="ir.ui.view"> 
+                <field name="name">project.site.invoice Form</field>
+                <field name="model">project.site.invoice</field>
+                <field name="type">form</field> 
+                <field name="arch" type="xml">
+                    <form string="Invoicing Wizard">
+                    	<header>
+	                        <button name="executeInvoicing" string="Make Invoice" class="oe_highlight"
+	                                invisible="state != 'draft'"
+	                                type="object" />
+                    		<field name="state" widget="statusbar"/>
+                    	</header>
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="company_id" readonly="1"/>
+                                    <field name="project_id" readonly="1"/>
+                                    <field name="task_id" readonly="1"/>
+                                    <field name="invoicing_type"/>
+                                </group>
+                                <group>
+                                    <field name="invoice_id" readonly="1" invisible="state == 'draft'"/>
+                                </group>
+                            </group>
+                            <notebook>
+                                <page string="Tasks">
+                                    <field name="task_ids" domain="['|',('parent_id','child_of',task_id),'&amp;',('project_id','=',project_id),('parent_id','=',False)]">
+                                        <list
+                                            create="0">
+                                                <field name="name"/>
+                                                <field name="user_ids"/>
+<!--                                                <field name="total_sale_price_received"/>-->
+                                                <field name="project_id"/>
+                                                <field name="planned_revenue"/>
+                                        </list>
+                                    </field>
+                                </page>
+                                <page string="Consume">
+                                    <field name="stock_picking_ids" domain="['|',('project_id','=',project_id),'&amp;',('move_ids.task_id','=',task_id),('move_ids.task_id','!=',False)]"/>
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+        <record id="project_site_invoice_list" model="ir.ui.view">
+                <field name="name">project.site.invoice list</field>
+                <field name="model">project.site.invoice</field>
+                <field name="type">list</field>
+                <field name="arch" type="xml">
+                	<list>
+                		<field name="task_id"/>
+                		<field name="project_id"/>
+                		<field name="invoice_id"/>
+                		<field name="state"/>
+                	</list>
+                </field>
+        </record>
+
+        <record id="project_site_invoice_action" model="ir.actions.act_window"> 
+            <field name="name">Action Decont</field>
+            <field name="res_model">project.site.invoice</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <record id="project_site_invoice_action2" model="ir.actions.act_window"> 
+            <field name="name">Action Decont</field>
+            <field name="res_model">project.site.invoice</field>
+        </record>
+</odoo>
+        

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="project_task_subcontracting_view_list" model="ir.ui.view">
+        <field name="name">project.task.subcontracting.list</field>
+        <field name="model">project.task.subcontracting</field>
+        <field name="arch" type="xml">
+            <list string="Task subcontracting" editable="bottom">
+                <field name="task_id" invisible="1"/>
+                <field name="product_id"/>
+                <field name="planned_qty"/>
+                <field name="effective_qty"/>
+                <field name="planned_cost_unit"/>
+                <field name="effective_cost_unit"/>
+                <field name="planned_cost"/>
+                <field name="effective_cost"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_task_form2_subcontracting_inherited">
+        <field name="name">project.task.form.subcontracting.inherited</field>
+        <field name="model">project.task</field>
+        <field name="priority">10</field>
+        <field name="inherit_id" ref="construction_site.view_task_form2_inherited"/>
+        <field name="arch" type="xml">
+
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_open_smart_contract"
+                        icon="fa-file" string="Contracte" invisible="contract_id == 0">
+                </button>
+            </div>
+
+            <xpath expr="//notebook/page[@name='task_product_ids']" position="after">
+
+                <page string="Servicii subcontractate" name="task_transport_ids"
+                      invisible="contract_id ==False and is_construction_site == False or site_management == True">
+                        <button string="Creare contract" name="action_create_contract" type="object" class="btn-primary m-1"
+                                invisible="contract_id != False or not task_subcontracting_ids"/>
+                        <button name="create_purchase_order"
+                                type="object"
+                                string="Creare achizitie subcontractare"
+                                class="btn-primary m-1"
+                                invisible="not task_subcontracting_ids"/>
+
+                        <group>
+                            <field name="contract_id"/>
+                        </group>
+                    <field name="purchase_order_created" invisible="1"/>
+                    <field name="task_subcontracting_ids" mode="list" readonly="purchase_order_created == True"/>
+                </page>
+            </xpath>
+            <xpath expr="//button[@name='action_open_decont']" position="after">
+                <button type="object"
+                        name="action_open_reports_subcontracting"
+                        class="oe_stat_button"
+                        icon="fa-regular fa-list-ul"
+                        invisible="is_construction_site == False">
+                    <span>Subcontracting Report</span>
+                </button>
+            </xpath>
+
+            <xpath expr="//group[@name='costmaterial']" position="after">
+                <field name="site_management" invisible="1"/>
+                <group string="Subcontracting Costs" invisible="site_management == True">
+                    <field name="subcontracting_planned_cost"/>
+                    <field name="subcontracting_cost"/>
+                </group>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_task_employee,access_project_task_employee,model_project_task_employee,base.group_user,1,1,1,1
+access_project_task_employee_attendance,access_project_task_employee_attendance,model_project_task_employee_attendance,base.group_user,1,1,1,1
+access_project_task_employee_report,access_project_task_employee_report,model_project_task_employee_report,base.group_user,1,1,1,1

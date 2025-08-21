@@ -1,0 +1,56 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* construction_site_employee_plan_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14 13:40+0000\n"
+"PO-Revision-Date: 2024-05-14 13:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model,name:construction_site_employee_plan_import.model_project_task_employee
+msgid "Employees linked to Site Work"
+msgstr "Angajați atribuiți pe șantier"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model.fields,field_description:construction_site_employee_plan_import.field_project_site_procurement_product__hourly_cost
+msgid "Hourly Cost"
+msgstr "Cost pe oră"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model.fields,field_description:construction_site_employee_plan_import.field_project_site_procurement_product__planned_hours
+msgid "Planned Hours"
+msgstr "Ore planificate"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model,name:construction_site_employee_plan_import.model_project_site_procurement
+msgid "Procurement Document"
+msgstr "Document de aprovizionare"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model.fields,field_description:construction_site_employee_plan_import.field_project_task_employee__procurement_line_id
+msgid "Procurement Line"
+msgstr "Linie de aprovizionare"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model,name:construction_site_employee_plan_import.model_project_task_product_import
+msgid "Project Task Product Import Wizard"
+msgstr "încarcă produse pe sarcini de șantier"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model,name:construction_site_employee_plan_import.model_project_task
+msgid "Task"
+msgstr "Sarcină"
+
+#. module: construction_site_employee_plan_import
+#: model:ir.model,name:construction_site_employee_plan_import.model_project_site_procurement_product
+msgid "project.site.procurement.product"
+msgstr "Aprovizionare produse"

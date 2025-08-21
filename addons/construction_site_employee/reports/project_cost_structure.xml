@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="construction_cost_structure_employee" inherit_id="construction_site.construction_cost_structure">
+        <xpath expr="//div[@class='cost_materiale']" position="after">
+            <div class="cost_angajati">
+                <p style="background: #e7e7e7;padding: 0px 5px;margin-bottom: 4px;"><b>COST ANGAJATI:</b></p>
+                <p class="mb-0" style="padding-left: 5px;"><b>Cost planificat:</b> <span t-esc="task.employee_planned_cost"/> <span t-field="task.currency_id"/></p>
+                <p class="mb-0" style="padding-left: 5px;"><b>Cost efectiv:</b> <span t-esc="task.employee_cost"/> <span t-field="task.currency_id"/></p>
+                <table class="table" t-if="task.task_employee_ids">
+                    <thead>
+                        <tr>
+                            <th>Departament</th>
+                            <th>Angajat</th>
+                            <th>Cost angajat/ora</th>
+                            <th>Ore planificate</th>
+                            <th>Cost planificat</th>
+                            <th>Durata efectiva</th>
+                            <th>Cost efectiv</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="task.task_employee_ids" t-as="employee">
+                            <tr>
+                                <td><span t-esc="employee.hr_department_id.name"/></td>
+                                <td><span t-esc="employee.employee_id.name"/></td>
+                                <td><span t-esc="employee.hourly_cost"/> <span t-field="employee.task_id.currency_id"/></td>
+                                <td t-esc="employee.planned_hours"/>
+                                <td><span t-esc="employee.planned_cost"/> <span t-field="employee.task_id.currency_id"/></td>
+                                <td t-esc="employee.effective_hours"/>
+                                <td><span t-esc="employee.effective_cost"/> <span t-field="employee.task_id.currency_id"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+</odoo>

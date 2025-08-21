@@ -1,0 +1,231 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* construction_site_equipment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14 13:42+0000\n"
+"PO-Revision-Date: 2024-05-14 13:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "<b>COST ECHIPAMENTE:</b>"
+msgstr ""
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "<b>Cost efectiv:</b>"
+msgstr "Cost efectiv"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "<b>Cost planificat:</b>"
+msgstr "Cost planificat"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__analytic_account_line_id
+msgid "Analytic Account Line"
+msgstr "Linie cont analitic"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "Cost echipament/ora"
+msgstr "Cost echipament/oră"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "Cost efectiv"
+msgstr "Cost efectiv"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "Cost planificat"
+msgstr "Cost planificat"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__create_uid
+msgid "Created by"
+msgstr "Creat de"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__create_date
+msgid "Created on"
+msgstr "Creat în"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_maintenance_equipment__currency_id
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: construction_site_equipment
+#: model:ir.model,name:construction_site_equipment.model_project_site_invoice
+msgid "Decont/invoicing"
+msgstr "Wizard Facturare"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__display_name
+msgid "Display Name"
+msgstr "Nume afișat"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "Durata efectiva"
+msgstr "Durata efectivă"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "Echipament"
+msgstr "Echipament"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__effective_cost
+msgid "Effective Cost"
+msgstr "Cost Efectiv"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__effective_hours
+msgid "Effective Hours"
+msgstr "Durată Efectiva"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__equipment_id
+msgid "Equipment"
+msgstr "Echipament"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task__equipment_cost
+msgid "Equipment Cost"
+msgstr "Cost Echipament"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.view_task_form2_inherited
+msgid "Equipment Costs"
+msgstr "Cost Echipamente"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task__equipment_planned_cost
+msgid "Equipment Planned Cost"
+msgstr "Cost planificat echipamente"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task__task_equipment_ids
+#: model:ir.ui.menu,name:construction_site_equipment.construction_site_menu_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.view_task_form2_inherited
+msgid "Equipments"
+msgstr "Utilaje"
+
+#. module: construction_site_equipment
+#: model:ir.model,name:construction_site_equipment.model_project_task_equipment
+msgid "Equipments linked to Site Work"
+msgstr "Echipamente pe șantier"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__hour_cost
+msgid "Hour Cost"
+msgstr "Cost pe oră"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__id
+msgid "ID"
+msgstr "ID"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__invoiced_hours
+msgid "Invoiced Hours"
+msgstr "Ore facturate"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment____last_update
+msgid "Last Modified on"
+msgstr "Ultima modificare la"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__write_uid
+msgid "Last Updated by"
+msgstr "Ultima modificare de"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__write_date
+msgid "Last Updated on"
+msgstr "Ultima modificare de"
+
+#. module: construction_site_equipment
+#: model:ir.model,name:construction_site_equipment.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Echipament de mentenanță"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__ord
+msgid "Ord"
+msgstr "Nr."
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.construction_cost_structure_equipment
+msgid "Ore planificate"
+msgstr "Ore planificate"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__planned_cost
+msgid "Planned Cost"
+msgstr "Cost planificat"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__planned_date
+msgid "Planned Date"
+msgstr "Data planificată"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__planned_hours
+msgid "Planned Hours"
+msgstr "Ore planificate"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__price_total_planned
+msgid "Price Total Planned"
+msgstr "Preț total planificat"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__price_total_received
+msgid "Price Total Received"
+msgstr "Preț total receptionat"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__price_unit
+msgid "Price Unit"
+msgstr "Preț unitar"
+
+#. module: construction_site_equipment
+#: model:ir.model,name:construction_site_equipment.model_project_project
+msgid "Project"
+msgstr "Proiect"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_maintenance_equipment__sale_hour_price
+msgid "Sale Hour Price"
+msgstr "Preț Vănzare Ore"
+
+#. module: construction_site_equipment
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__sequence
+msgid "Sequence"
+msgstr "Secvență"
+
+#. module: construction_site_equipment
+#: model:ir.model,name:construction_site_equipment.model_project_task
+#: model:ir.model.fields,field_description:construction_site_equipment.field_project_task_equipment__task_id
+msgid "Task"
+msgstr "Sarcină"
+
+#. module: construction_site_equipment
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.project_task_equipment_view_form
+#: model_terms:ir.ui.view,arch_db:construction_site_equipment.project_task_equipment_view_list
+msgid "Task Equipment"
+msgstr "Echipamente/Obiectiv"

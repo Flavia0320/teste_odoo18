@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_search" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="category_id" />
+            </field>
+            <group expand="0">
+                <filter
+                    string="Project Category"
+                    name="category_id"
+                    help="Category"
+                    context="{'group_by':'category_id'}"
+                />
+            </group>
+        </field>
+    </record>
+    <record id="project_form" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="category_id" />
+            </field>
+        </field>
+    </record>
+    <record id="project_project_view_form_simplified_inherit" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="category_id" />
+            </field>
+        </field>
+    </record>
+</odoo>

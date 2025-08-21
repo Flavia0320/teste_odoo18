@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="project_task_content" inherit_id="construction_site.project_task_content">
+        <xpath expr="//tr[@name='tr_totals']" position="before">
+            <!-- -->
+            <t t-set="lines_transport" t-value="o.task_transport_ids"/>
+            <t t-if="decont">
+                <t t-set="lines_transport" t-value="lines_transport.filtered(lambda x: x.effective_kms &gt; 0)"/>
+            </t>
+            <t t-if="lines_transport">
+                <tr>
+                    <td colspan="5">
+                            <h4>Transports:</h4>
+                    </td>
+                </tr>
+                <t t-foreach="lines_transport" t-as="line">
+                    <tr>
+                        <td>
+                            <span t-esc="line.ord"/>
+                        </td>
+                        <td>
+                            <span t-field="line.transport_id"/>
+                        </td>
+                        <td>
+                            <t t-if="deviz">
+                                <span t-field="line.planned_kms"/>
+                            </t>
+                            <t t-if="decont">
+                                <span t-field="line.effective_kms"/>
+                            </t>
+                        </td>
+                        <t t-if="withCostPrice and decont">
+                            <td>
+                                <span t-field="line.km_cost"/>
+                            </td>
+                            <td>
+                                <span t-field="line.effective_cost"/>
+                            </td>
+                        </t>
+                        <t t-if="withSalePrice and (deviz or decont)">
+                            <td>
+                                <span t-field="line.price_unit"/>
+                            </td>
+                            <t t-if="deviz">
+                                <td>
+                                    <span t-field="line.price_total_planned"/>
+                                </td>
+                            </t>
+                            <t t-if="decont">
+                                <td>
+                                    <span t-field="line.price_total_received"/>
+                                </td>
+                            </t>
+                        </t>
+                    </tr>
+                </t>
+            <!-- -->
+            </t>
+        </xpath>
+    </template>
+</odoo>
+

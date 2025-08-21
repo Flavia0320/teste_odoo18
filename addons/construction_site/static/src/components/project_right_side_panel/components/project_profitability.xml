@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+<!--    <t t-name="construction_site.ProjectProfitability" t-inherit="project.ProjectProfitability" t-inherit-mode="extension" owl="1">-->
+<!--        <xpath expr="//div[@t-if='revenues.data.length']/table/thead/tr/th[3]" position="replace">-->
+<!--            <th class="text-end">To Invoice</th>-->
+<!--        </xpath>-->
+<!--    </t>-->
+
+</templates>

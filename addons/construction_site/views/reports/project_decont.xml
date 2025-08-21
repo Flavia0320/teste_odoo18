@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="project_project_decont">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="withSalePrice" t-value="True"/>
+                <t t-set="decont" t-value="True"/>
+                <t t-foreach="docs" t-as="project">
+                    <t t-set="lang" t-value="project.partner_id.lang"/>
+                    <div class="page">
+                        <h2 style="text-aling:center;">Decont Lucrari</h2>
+                        <h4 style="text-aling:center;" t-field="project.name"/>
+                        <hr/>
+                        <t t-foreach="project.task_ids" t-as="o">
+                            <t
+                                t-call="construction_site.project_task_content"
+                                t-lang="lang"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="project_decont_report" model="ir.actions.report">
+        <field name="name">Decont</field>
+        <field name="model">project.project</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">construction_site.project_project_decont</field>
+        <field name="report_file">construction_site.project_project_decont</field>
+        <field name="print_report_name">(object._get_report_base_filename('decont'))</field>
+        <field name="binding_model_id" ref="model_project_project"/>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(4, ref('construction_site.group_construction_manager'))]"/>
+    </record>
+</odoo>

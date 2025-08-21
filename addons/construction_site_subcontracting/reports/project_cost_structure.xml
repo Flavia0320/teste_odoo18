@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="construction_cost_structure_subcontracting" inherit_id="construction_site.construction_cost_structure">
+        <xpath expr="//div[@class='cost_materiale']" position="after">
+            <div class="cost_transports">
+                <p style="background: #e7e7e7;padding: 0px 5px;margin-bottom: 4px;"><b>COST SUBCONTRACTARE:</b></p>
+                <p class="mb-0" style="padding-left: 5px;"><b>Cost planificat:</b> <span t-esc="task.subcontracting_planned_cost"/> <span t-field="task.currency_id"/></p>
+                <p class="mb-0" style="padding-left: 5px;"><b>Cost efectiv:</b> <span t-esc="task.subcontracting_cost"/> <span t-field="task.currency_id"/></p>
+                <table class="table" t-if="task.task_subcontracting_ids">
+                    <thead>
+                        <tr>
+                            <th>Produs</th>
+                            <th>Cantitate planificata</th>
+                            <th>Cantitate efectiva</th>
+                            <th>Cost planificat unitar</th>
+                            <th>Cost planificat unitar</th>
+                            <th>Cost planificat</th>
+                            <th>Cost efectiv</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="task.task_subcontracting_ids" t-as="subcontracting">
+                            <tr>
+                                <td><span t-esc="subcontracting.product_id.name"/></td>
+                                <td><span t-esc="subcontracting.planned_qty"/></td>
+                                <td><span t-esc="subcontracting.effective_qty"/></td>
+                                <td><span t-esc="subcontracting.planned_cost_unit"/> <span t-field="subcontracting.task_id.currency_id"/></td>
+                                <td><span t-esc="subcontracting.effective_cost_unit"/> <span t-field="subcontracting.task_id.currency_id"/></td>
+                                <td><span t-esc="subcontracting.planned_cost"/> <span t-field="subcontracting.task_id.currency_id"/></td>
+                                <td><span t-esc="subcontracting.effective_cost"/> <span t-field="subcontracting.task_id.currency_id"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+</odoo>

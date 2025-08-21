@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_task_product_import,access_project_task_product_import,model_project_task_product_import,base.group_user,1,1,1,1
+access_construction_product_mapper,access_construction_product_mapper,model_construction_product_mapper,base.group_user,1,1,1,1

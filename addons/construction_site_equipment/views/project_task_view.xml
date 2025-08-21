@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- WORK Equipment VIEWS -->
+    <record id="project_task_equipment_view_list" model="ir.ui.view">
+        <field name="name">project.task.equipment.list</field>
+        <field name="model">project.task.equipment</field>
+        <field name="arch" type="xml">
+            <list string="Task Equipment" editable="bottom">
+                <field name="task_id" invisible="1" />
+                <field name="equipment_id" />
+                <field name="planned_hours" />
+                <field name="planned_date" optional="hide"/>
+                <field name="effective_hours" />
+                <field name="hour_cost" />
+                <field name="planned_cost" />
+                <field name="effective_cost" />
+            </list>
+        </field>
+    </record>
+    <record id="project_task_equipment_view_form" model="ir.ui.view">
+        <field name="name">project.task.equipment.form</field>
+        <field name="model">project.task.equipment</field>
+        <field name="arch" type="xml">
+            <form string="Task Equipment">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="task_id" invisible="1" />
+                            <field name="equipment_id" />
+                            <field name="planned_hours" />
+                            <field name="planned_date" />
+                        <group>
+                        </group>
+                            <field name="effective_hours" />
+                            <field name="hour_cost" />
+                            <field name="planned_cost" />
+                            <field name="effective_cost" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- WORK Equipment VIEWS -->
+
+    <record model="ir.ui.view" id="view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="priority">10</field>
+        <field name="inherit_id" ref="construction_site.view_task_form2_inherited" />
+<!--        <field-->
+<!--            name="groups_id"-->
+<!--            eval="[(6,0, (ref('hr_timesheet.group_hr_timesheet_user'),))]"-->
+<!--        />-->
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='costmaterial']" position="after">
+                <field name="site_management" invisible="1"/>
+                <group string="Equipment Costs" invisible="site_management == True">
+                    <field name="equipment_planned_cost" />
+                    <field name="equipment_cost" />
+                </group>
+            </xpath>
+            <xpath expr="//notebook/page[@name='task_product_ids']" position="after">
+                <page
+                    string="Equipments"
+                    name="task_equipment_ids"
+                    invisible="is_construction_site == False or site_management == True"
+                >
+                    <field name="task_equipment_ids" mode="list,kanban" />
+                </page>
+            </xpath>
+            <xpath expr="//button[@name='action_open_decont']" position="after">
+                <button type="object"
+                        name="action_open_reports_equipment"
+                        class="oe_stat_button"
+                        icon="fa-solid fa-gear"
+                        invisible="is_construction_site == False">
+                    <span>Equipment Report</span>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

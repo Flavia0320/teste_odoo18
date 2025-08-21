@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+<!--        migrare16 - eror-->
+<!--        <field-->
+<!--            name="groups_id"-->
+<!--            eval="[(6,0, (ref('hr_timesheet.group_hr_timesheet_user'),))]"-->
+<!--        />-->
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="parent_id" invisible="1"/>
+                <field name="id" invisible="1"/>
+				<field name="site_management" invisible="1"/>
+                <field name="need_procurement" invisible="1" />
+                <field name="need_consume" invisible="1" />
+                <button name="%(project_site_invoice_action)d" type="action" string="Make Invoice" invisible="is_construction_site == False or parent_id != False" class="oe_highlight" context="{'default_project_id':project_id, 'default_task_id': id}"/>
+                <button name="action_open_procurement" type="object"
+                	string="Launch Procurement" 
+                	invisible="is_construction_site == False or site_management == True"
+                	class="oe_highlight" 
+                	context="{'create_procurement':True,'default_project_id':project_id, 'default_task_id': id}"/>
+                <button name="%(project_task_product_consume_wizard_action)d" type="action" string="Consume Products" invisible="is_construction_site == False or need_consume == False" class="oe_highlight" context="{'create_procurement':True,'default_project_id':project_id, 'default_task_id': id}"/>
+                <button 
+                	name="create_manual_bill" 
+                	type="object" 
+                	string="Create Project Bill" 
+                	invisible="is_construction_site == False or site_management == False"
+                	class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                    <button type="object"
+                        name="action_open_procurement"
+                        class="oe_stat_button"
+                        icon="fa-inbox"
+                        invisible="procurement_count == 0" groups="stock.group_stock_user">
+                        <field name="procurement_count" widget="statinfo" string="Procurements"/>
+                    </button>
+                    <button type="object"
+                        name="action_view_delivery"
+                        class="oe_stat_button"
+                        icon="fa-truck"
+                        invisible="delivery_count == 0" groups="stock.group_stock_user">
+                        <field name="delivery_count" widget="statinfo" string="Delivery"/>
+                    </button>
+                    <button type="object"
+                        name="action_view_purchases"
+                        class="oe_stat_button"
+                        icon="fa-credit-card"
+                        invisible="purchase_count == 0">
+                        <field name="purchase_count" widget="statinfo" string="Purchase"/>
+                    </button>
+                    <button type="object"
+                        name="action_view_invoices"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        invisible="invoice_count == 0">
+                        <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                    </button>
+                    <button type="object"
+                        name="action_open_reports_material"
+                        class="oe_stat_button"
+                        icon="fa-random" invisible="is_construction_site == False"
+                        groups="stock.group_stock_user">
+                        <span>Purchase</span>
+                    </button>
+                    <button type="object"
+                        name="action_open_reports_moves"
+                        class="oe_stat_button"
+                        icon="fa-exchange"
+                        invisible="is_construction_site == False" groups="stock.group_stock_user">
+                        <span>Transfers</span>
+                    </button>
+                    <button type="object"
+                        name="action_open_reports_balance"
+                        class="oe_stat_button"
+                        icon="fa-bar-chart-o"
+                        invisible="is_construction_site == False" groups="construction_site.group_construction_manager">
+                        <span>Profit Reports</span>
+                    </button>
+                    <button type="object"
+                        name="action_open_decont"
+                        class="oe_stat_button"
+                        icon="fa-dollar"
+                        invisible="is_construction_site == False"
+                        groups="construction_site.group_construction_team_leader">
+                        <span>Decont</span>
+                    </button>
+
+            </xpath>
+            <xpath expr="//group" position="after">
+                <group>
+                    <field name="is_construction_site" invisible="1" />
+                    <group string="Construction" name="construction_data" invisible="is_construction_site == False">
+                        <field name="currency_id" invisible="1"/>
+                        <field name="planned_extra_cost" invisible="site_management == False"/>
+                        <field name="planned_revenue" readonly="parent_id != False"/>
+                        <field name="warehouse_id" invisible="1"/>
+                        <field name="location_id" domain="[('warehouse_id', '=', warehouse_id)]" context="{'default_warehouse_id': warehouse_id}"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Profitability" groups="account.group_account_manager">
+                    <group
+                        string="Profitability"
+                        invisible="is_construction_site == False"
+                        groups="account.group_account_manager"
+                    >
+                        <group name="costmaterial" string="Material Costs">
+                            <field name="material_planned_cost" />
+                        </group>
+                        <group string="Profit">
+                        	<field name="planned_revenue" readonly="1"/>
+                            <field name="revenue" />
+                            <field name="cost" />
+                            <field name="profit"/>
+                            <field name="material_cost"/>
+                            <field name="planned_cost"/>
+                            <field name="extra_cost"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//notebook/page[@name='description_page']" position="after">
+                <page
+                    string="Products"
+                    name="task_product_ids"
+                    invisible="is_construction_site == False or site_management == True"
+
+                >
+                    <field name="task_product_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="ord" />
+                            <field name="partner_id" invisible="1"/>
+                            <field name="commercial_partner_id" invisible="1"/>
+                            <field name="product_id" />
+                            <field name="uom_id" invisible="1"/>
+                            <field name="planned_qty" readonly="product_qty_in_progress > 0"/>
+                            <field name="planned_date"/>
+                            <field name="product_qty_in_progress" invisible="1"/>
+                            <field name="material_planned_cost" />
+                            <button name="action_show_details" type="object" icon="fa-area-chart" width="0.1" title="Details"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,55 @@
+# Copyright 2022 Dakai SoftSRL
+# License OPL-1.0 or later
+# (https://www.odoo.com/documentation/user/14.0/legal/licenses/licenses.html#).
+{
+    "name": "Construction Site",
+    "summary": "Construction Site",
+    "version": "18.0.1.1.2",
+    "category": "Construction",
+    "website": "https://dakai.ro",
+    "author": "Dakai SOFT SRL",
+    "maintainers": ["adrian-dks"],
+    "license": "OPL-1",
+    "installable": True,
+    "depends": [
+        'purchase_stock',
+        'project',
+        'project_type',
+        'sale_timesheet',
+        'stock'
+    ],
+    "data": [
+        "security/construction_security.xml",
+        "security/ir.model.access.csv",
+        "wizard/task_consume_products.xml",
+        "wizard/create_invoice.xml",
+        "views/construction_site_menu.xml",
+        "views/account_move_line_view.xml",
+        "views/purchase_order_line_view.xml",
+        "views/procurement.xml",
+        "views/project_view.xml",
+        "views/product_category_view.xml",
+        "views/project_task_view.xml",
+        "views/project_task_product.xml",
+        "views/stock_move_view.xml",
+        "views/project_warehouse.xml",
+        "views/res_config_settings.xml",
+        #"views/reports/project_task_content.xml",
+        #"views/reports/project_task_deviz.xml",
+        #"views/reports/project_task_decont.xml",
+        #"views/reports/project_deviz.xml",
+        #"views/reports/project_decont.xml",
+        "reports/report_materials.xml",
+        "reports/profitability.xml",
+        "reports/report_move.xml",
+        'reports/project_cost_structure.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'construction_site/static/src/components/project_right_side_panel/**/*',
+        ],
+    },
+    "application": True,
+    'post_init_hook': 'post_init_hook',
+    'uninstall_hook': 'uninstall_hook',
+}

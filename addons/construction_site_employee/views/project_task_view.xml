@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_task_employee_view_list" model="ir.ui.view">
+        <field name="name">project.task.employee.list</field>
+        <field name="model">project.task.employee</field>
+        <field name="arch" type="xml">
+            <list string="Work Employee" editable="bottom">
+                <field name="task_id" invisible="1"/>
+                <field name="employee_id"/>
+                <field name="hr_department_id"/>
+                <field name="planned_hours" />
+                <field name="planned_date" optional="hide"/>
+                <field name="effective_hours" />
+                <field name="manual_effective_hours" />
+                <field name="planned_cost" />
+                <field name="effective_cost" />
+            </list>
+        </field>
+    </record>
+    <record id="project_task_employee_view_form" model="ir.ui.view">
+        <field name="name">project.task.employee.form</field>
+        <field name="model">project.task.employee</field>
+        <field name="arch" type="xml">
+            <form string="Work Employee">
+                <sheet>
+                    <group>
+                    	<group>
+	                        <field name="task_id" invisible="1" />
+	                        <field name="employee_id" />
+	                        <field name="hr_department_id"/>
+                    	</group>
+                    	<group>
+	                        <field name="planned_hours" />
+                            <field name="planned_date" />
+	                        <field name="effective_hours" />
+                    	</group>
+                    	<group>
+	                        <field name="hourly_cost" />
+	                        <field name="planned_cost" />
+	                        <field name="effective_cost" />
+                    	</group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="construction_site.view_task_form2_inherited" />
+<!--        <field-->
+<!--            name="groups_id"-->
+<!--            eval="[(6,0, (ref('hr_timesheet.group_hr_timesheet_user'),))]"-->
+<!--        />-->
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='costmaterial']" position="after">
+            	<field name="site_management" invisible="1"/>
+                <group string="Employee Costs" invisible="site_management == True">
+                    <field name="hourly_cost" />
+                    <field name="employee_planned_cost" />
+                    <field name="employee_cost" />
+                </group>
+            </xpath>
+            <xpath expr="//notebook/page[@name='task_product_ids']" position="after">
+                <page
+                    string="Employees"
+                    name="task_employee_ids"
+                    invisible="is_construction_site == False or site_management == True"
+                >
+                    <field name="task_employee_ids" mode="list,kanban" />
+                </page>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="employee_attendance_wizard" type="object" string="Employee Attendance" invisible="is_construction_site == False or site_management == True" class="oe_highlight" groups="construction_site.group_construction_team_leader"/>
+            </xpath>
+            <xpath expr="//button[@name='action_open_decont']" position="after">
+                   <button type="object"
+                        name="action_open_reports_employees"
+                        class="oe_stat_button"
+                        icon="fa-solid fa-user"
+                        invisible="is_construction_site == False">
+                        <span>Employee Report</span>
+                    </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

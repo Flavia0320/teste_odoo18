@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_task_product_search_view" model="ir.ui.view">
+        <field name="name">project.task.product.search.view</field>
+        <field name="model">project.task.product</field>
+        <field name="arch" type="xml">
+            <search string="Project Task Product">
+                <field name="task_id" />
+                <field name="project_id" />
+                <!--                <field name="tag_ids"/>-->
+                <field name="partner_id" operator="child_of" />
+                <field name="commercial_partner_id" operator="child_of" />
+                <field name="product_id" />
+                <filter
+                    string="Unread Messages"
+                    name="message_needaction"
+                    domain="[('message_needaction', '=', True)]"
+                />
+                <separator />
+                <filter
+                    invisible="1"
+                    string="Late Activities"
+                    name="activities_overdue"
+                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    help="Show all records which has next action date is before today"
+                />
+                <filter
+                    invisible="1"
+                    string="Today Activities"
+                    name="activities_today"
+                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    invisible="1"
+                    string="Future Activities"
+                    name="activities_upcoming_all"
+                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Project"
+                        name="project_id"
+                        context="{'group_by': 'project_id'}"
+                    />
+                    <filter
+                        string="Task"
+                        name="task_id"
+                        context="{'group_by': 'task_id'}"
+                    />
+                    <filter
+                        string="Partner"
+                        name="partner_id"
+                        context="{'group_by': 'partner_id'}"
+                    />
+                    <filter
+                        string="Commercial Partner"
+                        name="commercial_partner_id"
+                        context="{'group_by': 'commercial_partner_id'}"
+                    />
+                    <filter
+                        string="Product"
+                        name="product_id"
+                        context="{'group_by': 'product_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="project_task_product_list_view" model="ir.ui.view">
+        <field name="name">project.task.product.list.view</field>
+        <field name="model">project.task.product</field>
+        <field name="arch" type="xml">
+            <list
+            	decoration-success="requested_state in ['hipo_request','fix_request']"  
+            	decoration-info="requested_state in ['hiper_request']"  
+            	decoration-warning="requested_state in ['no_plan']">
+                <field name="requested_state" invisible="1" />
+                <field name="sequence" widget="handle"/>
+                <field name="ord" />
+                <field name="partner_id" invisible="1" />
+                <field name="commercial_partner_id" invisible="1" />
+                <field name="category_id" />
+                <field name="change_planned_cost" invisible="1" />
+                <field name="product_id" readonly="requested_state == 'no_plan'"/>
+                <field name="uom_id" readonly="requested_state == 'no_plan'"/>
+                <field name="planned_qty" readonly="requested_state == 'no_plan'"/>
+                <field name="product_qty_in_progress" />
+                <field name="material_planned_cost" />
+<!--                <field name="billed_qty" />-->
+<!--                <field name="material_billed" />-->
+            </list>
+        </field>
+    </record>
+    <record id="project_task_product_form_view" model="ir.ui.view">
+        <field name="name">project.task.product.form.view</field>
+        <field name="model">project.task.product</field>
+        <field name="arch" type="xml">
+            <form string="Project Task Product">
+                <sheet>
+                    <!--<div class="oe_title">-->
+                    <!--    <h1>-->
+                    <!--        <field name="project_id"/>-->
+                    <!--        <field name="task_id"/>-->
+                    <!--    </h1>-->
+                    <!--</div>-->
+<!--                    <group>-->
+<!--                        <field name="partner_id" context="{'show_address': 1}" options="{&quot;always_reload&quot;: True}" invisible="1"/>-->
+<!--                        <field name="commercial_partner_id" context="{'show_address': 1}" options="{&quot;always_reload&quot;: True}" invisible="1"/>-->
+<!--                    </group>-->
+                    <group string="Product Information">
+                        <field name="product_id" readonly="1"/>
+                        <field name="uom_id" invisible="1"/>
+                        <field name="currency_id" invisible="1"/>
+                    </group>
+                    <group string="Stock and Cost Information">
+                        <group string="Material Planned Information">
+                            <field name="planned_qty" readonly="1" string="Planned Qty"/>
+                            <field name="requested_qty"/>
+                            <field name="requested_state"/>
+                            <field name="material_planned_cost" string="Planned Cost" widget="monetary"/>
+                            <field name="planned_date" readonly="1" string="Planned Receive Date"/>
+                            <field name="product_qty_in_progress"/>
+                        </group>
+                        <group string="Material Purchase Information">
+                            <field name="purchase_qty" string="Purchased Qty"/>
+                            <field name="material_purchase_cost" string="Purchase Cost" widget="monetary"/>
+                            <field name="billed_qty" string="Vendor Billed Qty"/>
+                            <field name="material_billed" string="Vendor Billed Cost" widget="monetary"/>
+                        </group>
+                        <group string="Material On Location Information">
+                            <field name="received_qty" string="Received Qty"/>
+                            <field name="material_cost" widget="monetary" string="Material Received Cost"/>
+                            <field name="consumed_qty" string="Consumed Qty"/>
+                            <field name="price_total_consummed" string="Consumed Cost"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_task_product_report_search" model="ir.ui.view">
+        <field name="name">project.task.product.report.search</field>
+        <field name="model">project.task.product.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="purchase_id"/>
+                <field name="purchase_date"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="project_task_content">
+        <div name="task_div">
+            <h2>
+                <i><span t-field="o.name"/></i>
+            </h2>
+            <div class="row mt32 mb32">
+                <div t-if="o.project_id" class="col-auto" name="div_project">
+                    <strong>Project:</strong>
+                    <p t-field="o.project_id"/>
+                </div>
+                <div t-if="o.name" class="col-auto" name="div_name">
+                    <strong>Objective:</strong>
+                    <p t-field="o.name"/>
+                </div>
+                <div t-if="o.stage_id" class="col-auto" name="div_stage">
+                    <strong>Stage:</strong>
+                    <p t-field="o.stage_id"/>
+                </div>
+            </div>
+            <table class="table table-bordered mb64" name="product_table">
+                <thead>
+                    <tr>
+                        <th name="th_sm_ord"><strong>Ord.</strong></th>
+                        <th name="th_sm_product">
+                            <strong>Resource</strong>
+                        </th>
+                        <th name="th_sm_quantity"><strong>Quantity</strong></th>
+                        <t t-if="withCostPrice or withSalePrice">
+                            <th name="th_sm_done_price"><strong>Price Unit</strong></th>
+                            <th name="th_sm_done_total"><strong>Total</strong></th>
+                        </t>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-set="lines" t-value="o.task_product_ids"/>
+                    <t t-if="decont">
+                        <t t-set="lines" t-value="o.task_product_ids.filtered(lambda x: x.qtyAchieved() &gt; 0)"/>
+                    </t>
+                    <tr t-if="len(lines) > 0">
+                        <td colspan="5">
+                                <h4>Materials:</h4>
+                        </td>
+                    </tr>
+                    <t t-if="len(lines) > 0" t-foreach="lines" t-as="line">
+                        <tr>
+                            <td>
+                                <span t-esc="line.ord"/>
+                            </td>
+                            <td>
+                                <span t-field="line.product_id"/>
+                            </td>
+                            <td>
+                                <t t-if="deviz">
+                                    <span t-field="line.planned_qty"/>
+                                </t>
+                                <t t-if="decont">
+                                    <span t-field="line.received_qty"/>
+                                </t>
+                                    <span t-field="line.uom_id"/>
+                            </td>
+                            <t t-if="withCostPrice and decont">
+                                <td>
+                                    <span t-field="line.price_unit_cost"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.price_total_cost"/>
+                                </td>
+                            </t>
+                            <t t-if="withSalePrice and (deviz or decont)">
+                                <td>
+                                    <span t-field="line.price_unit"/>
+                                </td>
+                                <t t-if="deviz">
+                                    <td>
+                                        <span t-field="line.price_total_planned"/>
+                                    </td>
+                                </t>
+                                <t t-if="decont">
+                                    <td>
+                                        <span t-field="line.price_total_received"/>
+                                    </td>
+                                </t>
+                            </t>
+                        </tr>
+                        <t t-if="decont">
+                            <tr t-foreach="line.listAchievedTransfers()" t-as="move" style="font-size:0.8rem;">
+                                <td/>
+                                <td>
+                                    <span style="font-wight:bold;">Picking:</span>
+                                    <span t-field="move.picking_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="move.product_uom_qty"/>
+                                    <span t-field="move.product_uom"/>
+                                </td>
+                                <td colspan="2">
+                                    <span style="font-wight:bold;">Date:</span>
+                                    <span t-field="move.picking_id.scheduled_date" t-options="{'widget': 'date'}"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                    <tr name="tr_totals">
+                        <td/>
+                        <td colspan="3" name="td_totals">
+                            <span name="total_title">Totals:</span>
+                        </td>
+                        <td>
+                            <t t-if="deviz and withSalePrice">
+                                <span t-field="o.total_sale_price_planned"/>
+                            </t>
+                            <t t-if="decont and withSalePrice">
+                                <span t-field="o.total_sale_price_received"/>
+                            </t>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+</odoo>

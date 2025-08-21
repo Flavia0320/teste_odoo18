@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="project_site_procurement_form_inherit">
+        <field name="name">project.site.procurement Form Inherit</field>
+        <field name="model">project.site.procurement</field>
+        <field name="inherit_id" ref="construction_site.project_site_procurement_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='warehouse_id']" position="after">
+            	<field name="merge_to_planned" readonly="state != 'draft'"/>
+            </xpath>
+            <xpath expr="//field[@name='task_id']" position="after">
+              <field name="state" invisible="1"/>
+              <label for="attachment_id" invisible="state != 'draft'"/>
+	          <div class="o_row" invisible="state != 'draft'">
+	                <field name="attachment_id"/>
+	                <button name="import_xls" invisible="attachment_id == False" string="Import" type="object"/>
+              </div>
+            </xpath>
+            <xpath expr="//field[@name='task_product_ids']/list/field[@name='product_id']" position="after">
+            	<field name="product_name" readonly="parent.state != 'draft' or product_id != False" required="parent.state not in ['done','cancel'] and product_id == False"/>
+            </xpath>
+            <xpath expr="//field[@name='task_product_ids']/list/field[@name='product_id']" position="attributes">
+            	<attribute name="required">parent.state == 'purchase'</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

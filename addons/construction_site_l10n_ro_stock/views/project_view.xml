@@ -1,0 +1,11 @@
+<odoo>
+    <record id="project_view_form_l10n_ro_stock_inherit" model="ir.ui.view">
+        <field name="name">project.view.form.l10n_ro_stock.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="construction_site.project_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='consume_loc_id']" position="replace"/>
+            <xpath expr="//field[@name='consume_type_id']" position="replace"/>
+        </field>
+    </record>
+</odoo>

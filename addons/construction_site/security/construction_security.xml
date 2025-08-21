@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.module.category" id="module_category_construction">
+        <field name="name">Construction</field>
+        <field name="sequence">4</field>
+    </record>
+    <record id="group_construction_employee" model="res.groups">
+        <field name="name">Construction Site Employee</field>
+        <field name="category_id" ref="module_category_construction" />
+        <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+    </record>
+    <record id="group_construction_team_leader" model="res.groups">
+        <field name="name">Construction Site Executor</field>
+        <field name="category_id" ref="module_category_construction" />
+        <field
+            name="implied_ids"
+            eval="
+            [(4, ref('purchase.group_purchase_manager')),
+             (4, ref('stock.group_stock_manager')),
+             (4, ref('analytic.group_analytic_accounting')),
+             (4, ref('account.group_account_manager')),
+             (4, ref('construction_site.group_construction_employee'))]"
+        />
+        <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+    </record>
+    <record id="group_construction_manager" model="res.groups">
+        <field name="name">Construction Site Administrator</field>
+        <field name="category_id" ref="module_category_construction" />
+        <field
+            name="implied_ids"
+            eval="[(4, ref('construction_site.group_construction_team_leader'))]"
+        />
+        <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+    </record>
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="stock_warehouse_form" model="ir.ui.view">
+                <field name="name">stock.warehouse Form</field>
+                <field name="model">stock.warehouse</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="stock.view_warehouse"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='code']" position="after">
+                        <field name="is_construction_site" readonly="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='resupply_wh_ids']" position="attributes">
+                    	<attribute name="domain">[('id', '!=', id),('is_construction_site','=',False)]</attribute>
+                    </xpath>
+                    <xpath expr="//notebook" position="inside">
+                        <page string="Construction" invisible="is_construction_site == False">
+                            <group>
+                                <group>
+                                    <field name="project_id" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </xpath>
+                    <xpath expr="//field[@name='resupply_wh_ids']" position="attributes">
+                        <attribute name="domain">[('id', '!=', id),('is_construction_site','=',False)]</attribute>
+                    </xpath>
+                </field>
+        </record>
+
+        <record id="stock_warehouse_list_no_construction" model="ir.ui.view">
+            <field name="name">stock.warehouse list</field>
+            <field name="model">stock.warehouse</field>
+            <field name="type">list</field>
+            <field name="inherit_id" ref="stock.view_warehouse_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_stock_id']" position="after">
+                    <field name="is_construction_site" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_warehouse_list_no_construction_view_list" model="ir.actions.act_window.view">
+            <field name="view_id" ref="stock_warehouse_list_no_construction"/>
+            <field name="view_mode">list</field>
+            <field name="act_window_id" ref="stock.action_warehouse_form"/>
+        </record>
+
+        <record id="stock_warehouse_tree" model="ir.ui.view">
+            <field name="name">stock.warehouse list</field>
+            <field name="model">stock.warehouse</field>
+            <field name="type">list</field>
+            <field name="inherit_id" ref="stock.view_warehouse_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code"/>
+                </xpath>
+                <xpath expr="//field[@name='lot_stock_id']" position="after">
+                    <field name="is_construction_site"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_warehouse_list2" model="ir.ui.view">
+            <field name="name">stock.warehouse list</field>
+            <field name="model">stock.warehouse</field>
+            <field name="type">list</field>
+            <field name="inherit_id" ref="stock.view_warehouse_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_stock_id']" position="after">
+                    <field name="project_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_warehouse_action" model="ir.actions.act_window">
+            <field name="name">stock.warehouse Action</field>
+            <field name="res_model">stock.warehouse</field>
+            <field name="domain">[('is_construction_site','=',True)]</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids" eval="[(5,0),(0, 0, {'view_mode':'list','view_id':ref('stock_warehouse_list2')})]"/>
+        </record>
+
+        <menuitem name="Construction Site Stock"
+            id="stock_warehouse_menu"
+            sequence="31"
+            parent="stock.menu_warehouse_config"
+            action="stock_warehouse_action"/>
+
+        <menuitem name="Construction Site Stock"
+            id="project_stock_warehouse_menu"
+            sequence="10"
+            parent="construction_site_menu_config"
+            action="stock_warehouse_action"/>
+</odoo>
+        

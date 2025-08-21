@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="id" invisible="1"/>
+<!--                <button name="%(project_task_product_import_action)d" type="action" string="Import Products" attrs="{'invisible':[('is_construction_site','=',False)]}" class="oe_highlight" context="{'default_task_id': id}"/>-->
+            </xpath>
+            <xpath expr="//field[@name='user_ids']" position="after">
+                <field name="reference"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_task_form2_inherited_import_product">
+        <field name="name">project.task.form.inherited.import.product</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="construction_site.view_task_form2_inherited" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='task_product_ids']" position="before">
+                <group>
+                    <field name="is_construction_site" invisible="1"/>
+                    <field name="parent_id" invisible="1"/>
+                    <field name="procurement_count" invisible="1"/>
+                    <field name="upload_materials_excel" invisible="is_construction_site == False or parent_id != False or procurement_count > 0"/>
+                    <button name="import_xls" invisible="is_construction_site == False or parent_id != False or upload_materials_excel == False or procurement_count > 0" class="oe_highlight" string="Import" type="object"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

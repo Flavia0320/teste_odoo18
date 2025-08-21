@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="project_view_form_inherit_product_import">
+        <field name="name">project.view.form.inherit.product.import</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="construction_site.project_view_form_inherit" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_method']" position="after">
+                <field name="upload_materials_excel" invisible="is_construction_site == False"/>
+               	<button name="import_xls" invisible="is_construction_site == False or upload_materials_excel == False" string="Import" type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

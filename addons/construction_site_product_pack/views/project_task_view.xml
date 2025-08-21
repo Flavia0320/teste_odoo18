@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_task_form2_product_pack">
+        <field name="name">project.task.form.product.pack</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="construction_site.view_task_form2_inherited" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='construction_data']" position="inside">
+                <field name="product_id" domain="[('pack_ok','=',True)]"/>
+                <field name="uom_id"/>
+                <field name="quantity"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

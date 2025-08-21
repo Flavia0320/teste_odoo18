@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* construction_site_sale_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14 13:54+0000\n"
+"PO-Revision-Date: 2024-05-14 13:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: construction_site_sale_project
+#: model_terms:ir.ui.view,arch_db:construction_site_sale_project.sale_order_construction_name_form
+msgid "Cancel"
+msgstr "Anulare"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__construction_order_id
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__construction_order_ids
+msgid "Construction Order"
+msgstr "Comanda de construcție"
+
+#. module: construction_site_sale_project
+#: model_terms:ir.ui.view,arch_db:construction_site_sale_project.sale_order_construction_name_form
+msgid "Construction Project Name"
+msgstr "Nume proiect de construcție"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_product_product__is_construction
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_product_template__is_construction
+msgid "Create construction project"
+msgstr "Crează proiect de construcții"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__create_uid
+msgid "Created by"
+msgstr "Creat de"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__create_date
+msgid "Created on"
+msgstr "Creat pe"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__obiectiv
+msgid "Denumire Proiect Santier"
+msgstr "Denumire Proiect Șantier"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__display_name
+msgid "Display Name"
+msgstr "Nume afișat"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__email
+msgid "Email"
+msgstr "Email"
+
+#. module: construction_site_sale_project
+#: model_terms:ir.ui.view,arch_db:construction_site_sale_project.sale_order_construction_name_form
+msgid "Execute"
+msgstr "Execută"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__id
+msgid "ID"
+msgstr "ID"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name____last_update
+msgid "Last Modified on"
+msgstr "Ultima modificare pe"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__write_uid
+msgid "Last Updated by"
+msgstr "Ultima modificare de"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__write_date
+msgid "Last Updated on"
+msgstr "Ultima modificare pe"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order__obiectiv
+msgid "Obiectiv"
+msgstr "Obiectiv"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__order_ids
+msgid "Order"
+msgstr "Comandă"
+
+#. module: construction_site_sale_project
+#: model:ir.model,name:construction_site_sale_project.model_product_template
+msgid "Product"
+msgstr "Produs"
+
+#. module: construction_site_sale_project
+#: model:ir.model,name:construction_site_sale_project.model_project_project
+msgid "Project"
+msgstr "Proiect"
+
+#. module: construction_site_sale_project
+#: model:ir.model,name:construction_site_sale_project.model_sale_order
+msgid "Sales Order"
+msgstr "Comandă de vânzare"
+
+#. module: construction_site_sale_project
+#: model:ir.model,name:construction_site_sale_project.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Linie comandă vânzare"
+
+#. module: construction_site_sale_project
+#: model:ir.model.fields,field_description:construction_site_sale_project.field_sale_order_construction_name__wiz_id
+msgid "Wiz"
+msgstr "Wiz"
+
+#. module: construction_site_sale_project
+#: model:ir.model,name:construction_site_sale_project.model_sale_order_construction_name
+msgid "sale.order.construction.name"
+msgstr "Nume comandă de vânzare șantier"

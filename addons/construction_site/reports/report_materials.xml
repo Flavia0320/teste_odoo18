@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="project_task_product_report_form" model="ir.ui.view"> 
+                <field name="name">Project Product Purchase Report Form</field>
+                <field name="model">project.task.product.report</field>
+                <field name="type">form</field> 
+                <field name="arch" type="xml">
+                    <form string="Form project.task.product.report.product_id.name">
+                        <sheet>
+                            <group>
+                                <group string="Quantitys">
+                                    <field name="required_qty"/>
+                                    <field name="planned_qty"/>
+                                    <field name="purchase_qty"/>
+                                    <field name="received_qty"/>
+                                    <field name="billed_qty"/>
+                                </group>
+                                <group string="Procurement">
+                                    <field name="warehouse_id"/>
+                                    <field name="user_ids"/>
+                                    <field name="purchase_id"/>
+                                    <field name="state"/>
+                                    <field name="purchase_date"/>
+                                </group>
+                            </group>
+                            <group string="Source Data">
+                                <group>
+                                    <field name="task_id"/>
+                                    <field name="stage_id"/>
+                                    <field name="product_id"/>
+                                </group>
+                                <group>
+                                    <field name="project_id"/>
+                                    <field name="project_status_id"/>
+                                    <field name="manager_id"/>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+        <record id="project_task_product_report_pivot" model="ir.ui.view">
+            <field name="name">Project Product Purchase Pivot</field>
+            <field name="model">project.task.product.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Project Product Procurement Pivot" sample="1">
+                    <field name="project_id" type="row"/>
+                    <field name="task_id" type="row"/>
+                    <field name="purchase_id" type="row"/>
+                    <field name="product_id" type="row"/>
+                    <field name="purchase_date" interval="week" type="col"/>
+                    <field name="planned_qty" type="measure"/>
+                    <field name="purchase_qty" type="measure"/>
+                    <field name="received_qty" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="project_task_product_report_graph" model="ir.ui.view">
+            <field name="name">Project Product Purchase Graph</field>
+            <field name="model">project.task.product.report</field>
+            <field name="arch" type="xml">
+                <graph string="Project Product Procurement Graph" sample="1">
+                    <field name="product_id"/>
+                    <field name="required_qty" type="measure"/>
+                    <field name="received_qty" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="project_task_product_report_list" model="ir.ui.view">
+            <field name="name">Project Product Purchase list</field>
+            <field name="model">project.task.product.report</field>
+            <field name="type">list</field>
+            <field name="arch" type="xml">
+                <list create="False"
+	            	decoration-success="requested_state in ['hipo_request','fix_request']"  
+	            	decoration-info="requested_state in ['hiper_request']"  
+	            	decoration-warning="requested_state in ['no_plan']">
+                    <field name="requested_state" invisible="1"/>
+                    <field name="project_id"/>
+                    <field name="task_id"/>
+                    <field class="col_w" name="product_id"/>
+                    <field name="required_qty"/>
+                    <field name="planned_qty"/>
+                    <field name="purchase_qty"/>
+                    <field name="received_qty"/>
+                    <field name="billed_qty"/>
+                    <field name="state"/>
+                    <field name="purchase_id"/>
+                    <field name="purchase_date"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="project_task_product_report_action" model="ir.actions.act_window"> 
+            <field name="name">Project Product Report</field>
+            <field name="res_model">project.task.product.report</field>
+            <field name="view_mode">pivot,list,graph,form</field>
+        </record>
+
+        <menuitem name="Report Procurement Material"
+            id="project_task_product_report_menu"
+            sequence="5"
+            parent="construction_site_menu_reports"
+            action="project_task_product_report_action"/>  
+    
+</odoo>
+        

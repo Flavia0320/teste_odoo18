@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="construction_cost_structure_equipment" inherit_id="construction_site.construction_cost_structure">
+        <xpath expr="//div[@class='cost_materiale']" position="after">
+            <div class="cost_echipamente">
+                <p style="background: #e7e7e7;padding: 0px 5px;margin-bottom: 4px;"><b>COST ECHIPAMENTE:</b></p>
+                <p class="mb-0" style="padding-left: 5px;"><b>Cost planificat:</b> <span t-esc="task.equipment_planned_cost"/> <span t-field="task.currency_id"/></p>
+                <p class="mb-0" style="padding-left: 5px;"><b>Cost efectiv:</b> <span t-esc="task.equipment_cost"/> <span t-field="task.currency_id"/></p>
+                <table class="table" t-if="task.task_equipment_ids">
+                    <thead>
+                        <tr>
+                            <th>Echipament</th>
+                            <th>Cost echipament/ora</th>
+                            <th>Ore planificate</th>
+                            <th>Cost planificat</th>
+                            <th>Durata efectiva</th>
+                            <th>Cost efectiv</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="task.task_equipment_ids" t-as="equipment">
+                            <tr>
+                                <td><span t-esc="equipment.equipment_id.name"/></td>
+                                <td><span t-esc="equipment.hour_cost"/> <span t-field="equipment.task_id.currency_id"/></td>
+                                <td t-esc="equipment.planned_hours"/>
+                                <td><span t-esc="equipment.planned_cost"/> <span t-field="equipment.task_id.currency_id"/></td>
+                                <td t-esc="equipment.effective_hours"/>
+                                <td><span t-esc="equipment.effective_cost"/> <span t-field="equipment.task_id.currency_id"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+</odoo>

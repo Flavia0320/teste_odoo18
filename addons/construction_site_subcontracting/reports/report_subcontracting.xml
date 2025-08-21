@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="project_task_subcontracting_report_pivot" model="ir.ui.view">
+            <field name="name">Project Subcontracting Pivot</field>
+            <field name="model">project.task.subcontracting.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Project subcontracting Pivot" sample="1">
+                    <field name="project_id" type="row"/>
+                    <field name="task_id" type="row"/>
+                    <field name="product_id" type="row"/>
+                    <field name="planned_qty" type="measure"/>
+                    <field name="planned_cost" type="measure"/>
+                    <field name="effective_qty" type="measure"/>
+                    <field name="effective_cost" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="project_task_subcontracting-report_graph" model="ir.ui.view">
+            <field name="name">Project subcontracting Graph</field>
+            <field name="model">project.task.subcontracting.report</field>
+            <field name="arch" type="xml">
+                <graph string="Project Product Procurement Graph" sample="1">
+                    <field name="product_id"/>
+                    <field name="planned_qty" type="measure"/>
+                    <field name="planned_cost" type="measure"/>
+                    <field name="effective_qty" type="measure"/>
+                    <field name="effective_cost" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="project_task_subcontracting_report_list" model="ir.ui.view">
+            <field name="name">Project Subcontracting list</field>
+            <field name="model">project.task.subcontracting.report</field>
+            <field name="type">list</field>
+            <field name="arch" type="xml">
+                <list create="False">
+                    <field name="project_id"/>
+                    <field name="task_id"/>
+                    <field class="col_w" name="product_id"/>
+                    <field name="planned_qty"/>
+                    <field name="planned_cost"/>
+                    <field name="effective_qty"/>
+                    <field name="effective_cost"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="project_task_subcontracting_report_action" model="ir.actions.act_window">
+            <field name="name">Project Subcontracting Report</field>
+            <field name="res_model">project.task.subcontracting.report</field>
+            <field name="view_mode">pivot,list,graph</field>
+        </record>
+
+        <menuitem name="Report Subcontracting"
+            id="project_task_subcontracting_report_menu"
+            sequence="36"
+            parent="construction_site.construction_site_menu_reports"
+            action="project_task_subcontracting_report_action"/>
+    
+</odoo>
+        

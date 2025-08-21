@@ -1,0 +1,12 @@
+<odoo>
+    <record id="project_category_form_inherit" model="ir.ui.view">
+        <field name="name">project.category.form.inherit</field>
+        <field name="model">project.category</field>
+        <field name="inherit_id" ref="project_type.project_category_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_sequence_id']" position="after">
+                <field name="l10n_ro_accounting_location_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

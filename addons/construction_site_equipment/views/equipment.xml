@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="maintenance_equipment_form" model="ir.ui.view">
+                <field name="name">maintenance.equipment Form</field>
+                <field name="model">maintenance.equipment</field>
+                <field name="type">form</field> 
+                <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='cost']" position="after">
+                        <field name="currency_id" invisible="1"/>
+                        <field name="sale_hour_price" groups="base.group_erp_manager" widget="monetary"/>
+                    </xpath>
+                    <xpath expr="//field[@name='cost']" position="attributes">
+                        <attribute name="widget">monetary</attribute>
+                    </xpath>
+                </field>
+        </record>
+
+        <menuitem
+            id="construction_site_menu_equipment"
+            name="Equipments"
+            action="maintenance.hr_equipment_action"
+            groups="maintenance.group_equipment_manager,base.group_user"
+            parent="construction_site.construction_site_menu_product_menu"
+            sequence="3"/>
+    
+</odoo>
+        

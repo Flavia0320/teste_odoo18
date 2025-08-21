@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_project_kanban" model="ir.ui.view">
+        <field name="name">construction.project.kanban</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="on_create"></attribute>
+                <attribute name="action"></attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="open_view_construction_site" model="ir.actions.act_window">
+        <field name="name">Construction Site Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="domain">[('is_construction_site', '=', True)]</field>
+        <field name="context">{'default_is_construction_site': True, 'search_default_groupby_stage': 1}</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="project.view_project_project_filter"/>
+        <field name="target">main</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No projects found. Let's create one!
+            </p>
+            <p>
+                Create projects to organize your tasks. Define a different workflow for each project.
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem
+        id="construction_site_menu_root"
+        name="Construction Site"
+        web_icon="construction_site,static/description/icon.png"
+        sequence="71"/>
+
+    <menuitem
+        id="construction_site_menu_config"
+        name="Configuration"
+        parent="construction_site_menu_root"
+        sequence="4"/>
+
+    <menuitem
+        id="construction_site_menu_product_category"
+        name="Product Categories"
+        action="product.product_category_action_form"
+        parent="construction_site_menu_config"
+        sequence="2"/>
+
+    <menuitem
+        id="construction_site_menu_settings"
+        name="Settings"
+        action="project.project_config_settings_action"
+        parent="construction_site_menu_config"
+        groups="base.group_system"
+        sequence="0"/>
+
+    <menuitem
+        id="construction_site_menu_reports"
+        name="Reports"
+        parent="construction_site_menu_root"
+        sequence="3"/>
+
+    <menuitem
+        id="construction_site_menu_product_menu"
+        name="Products"
+        parent="construction_site_menu_root"
+        sequence="2"/>
+
+    <menuitem
+        id="construction_site_menu_product"
+        name="Products"
+        action="stock.product_template_action_product"
+        parent="construction_site_menu_product_menu"
+        sequence="3"/>
+
+    <menuitem
+        id="construction_site_menu"
+        name="Construction Projects"
+        action="open_view_construction_site"
+        parent="construction_site_menu_root"
+        sequence="1"/>
+
+</odoo>
+
