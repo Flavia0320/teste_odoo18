@@ -1,3 +1,37 @@
 dks_colab:
   - base_workflow_engine
   - crm_workflow_engine
+
+construction_site:
+  - construction_site
+  - construction_site_dynamic_template_renderer
+  - construction_site_employee
+  - construction_site_employee_plan_import
+  - construction_site_equipment
+  - construction_site_equipment_plan_import
+  - construction_site_l10n_ro_stock
+  - construction_site_product_import
+  - construction_site_product_pack
+  - construction_site_sale_project
+  - construction_site_subcontracting
+  - construction_site_transport
+  - product_pack_addons
+  - product_pack_addons_stock
+  - project_category_sale
+  - project_import_timesheets
+  - project_type
+
+sales-advance:
+  - smart_contract
+  - smart_contract_gdpr
+  - smart_contract_notification
+
+OCA:
+  - l10n_ro_config
+  - l10n_ro_stock
+  - l10n_ro_stock_account
+
+dks_repo:
+  - common_fprint
+  - pos_fprint
+  - restrict_pos_sale

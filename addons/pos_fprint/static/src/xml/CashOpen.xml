@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CashOpeningPopup" t-inherit="point_of_sale.CashOpeningPopup" t-inherit-mode="extension" owl="1">
+       <xpath expr="//button[@t-on-click='confirm']" position="after">
+           <button class="button btn btn-lg btn-primary" t-on-click="setCashIn" >
+                    Cash IN
+           </button>
+        </xpath>
+    </t>
+
+</templates>

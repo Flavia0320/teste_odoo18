@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_fprint.PaymentScreen" t-inherit="point_of_sale.PaymentScreenButtons" t-inherit-mode="extension" owl="1">
+	<xpath expr="//div[hasclass('payment-buttons')]" position="inside">
+        <button class="button btn btn-light py-3 text-start rounded-0 border-bottom"  t-att-class="'button set_cif ' + (getCif() and 'highlight' or '')" t-on-click="setCif">
+                <i t-att-class="'fa ' + (getCif() and 'fa-check' or 'fa-plus')" role="img" aria-label="CIF" class="me-2"
+                   title="CIF"/>
+                 <span class="js_cif">
+                    <t t-if="getCif()" t-esc="getCif()"/>
+                    <t t-else="">Adaugă CUI</t>
+                </span>
+            </button>
+        </xpath>
+
+    </t>
+</templates>

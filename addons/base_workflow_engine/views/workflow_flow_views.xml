@@ -1,49 +1,46 @@
 <odoo>
-    <record id="view_workflow_flow_list" model="ir.ui.view">
-        <field name="name">workflow.flow.list</field>
-        <field name="model">workflow.flow</field>
-        <field name="arch" type="xml">
-            <list>
-                <field name="name"/>
-                <field name="model_name"/>
-            </list>
-        </field>
-    </record>
-
     <record id="view_workflow_flow_form" model="ir.ui.view">
         <field name="name">workflow.flow.form</field>
         <field name="model">workflow.flow</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. Sales Process"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name"/>
-                        <field name="model_name"/>
+                        <field name="model_name" invisible="1"/>
                     </group>
                     <notebook>
                         <page string="Stages">
                             <field name="stage_ids">
-                                <list editable="bottom">
+                                <tree>
                                     <field name="name"/>
                                     <field name="description"/>
                                     <field name="is_entry"/>
                                     <field name="is_stop"/>
-                                </list>
+                                </tree>
                             </field>
                         </page>
 
                         <page string="Transitions">
-                            <field name="transition_ids">
-                                <list editable="bottom">
+                            <field name="transition_ids"
+                                   context="{'default_flow_id': active_id, 'model_name': model_name}">
+                                <tree>
+                                    <field name="name" string="Transition"/>
                                     <field name="from_stage_id"/>
                                     <field name="to_stage_id"/>
-                                    <field name="constraint_ids">
-                                        <list editable="bottom">
-                                            <field name="domain"/>
-                                            <field name="group_ids"/>
-                                        </list>
-                                    </field>
-                                </list>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Stage Mappings">
+                            <field name="stage_mapping_ids">
+                                <tree editable="bottom">
+                                    <field name="workflow_stage_id"/>
+                                    <field name="native_stage_id"/>
+                                </tree>
                             </field>
                         </page>
                     </notebook>
@@ -52,9 +49,4 @@
         </field>
     </record>
 
-    <record id="action_workflow_flow" model="ir.actions.act_window">
-        <field name="name">Flows</field>
-        <field name="res_model">workflow.flow</field>
-        <field name="view_mode">list,form</field>
-    </record>
-</odoo>
+    </odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="journal_payment_method_view" model="ir.ui.view">
+        <field name="name">journal.payment.method.view</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='autocheck_on_post']" position="after">
+                 <field name="fp_payment_method"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

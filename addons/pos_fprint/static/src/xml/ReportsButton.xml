@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ReportsButton" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='p-2 pos-burger-menu-items']" position="inside">
+            <DropdownItem onSelected="() => this.onClick()">
+                Reports
+            </DropdownItem>
+        </xpath>
+    </t>
+</templates>

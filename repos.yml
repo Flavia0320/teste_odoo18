@@ -15,3 +15,39 @@
 #   target: origin 18.0
 #   merges:
 #     - origin 18.0
+
+./construction_site:
+  defaults:
+    depth: 20
+  remotes:
+    origin: git@github.com:adrian-dks/construction_site.git
+  target: origin 18.0
+  merges:
+      - origin 18.0
+
+./sales-advance:
+  defaults:
+    depth: 20
+  remotes:
+    origin: git@github.com:adrian-dks/sales-advance.git
+  target: origin 18.0
+  merges:
+      - origin 18.0
+
+./OCA:
+  defaults:
+    depth: 20
+  remotes:
+    origin: git@github.com:OCA/l10n-romania.git
+  target: origin 18.0
+  merges:
+      - origin 18.0
+
+./dks_repo:
+  defaults:
+    depth: 20
+  remotes:
+    origin: git@github.com:adrian-dks/dks_repo.git
+  target: origin 18.0
+  merges:
+      - origin 18.0

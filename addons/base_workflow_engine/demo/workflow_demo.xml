@@ -1,82 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Demo Workflow Flow -->
-    <record id="wf_demo_flow" model="workflow.flow">
-        <field name="name">Demo Sales Flow</field>
-        <field name="model_name">crm.lead</field>
-    </record>
+    <data noupdate="1">
 
-    <!-- Demo Stages -->
-    <record id="wf_demo_stage_new" model="workflow.stage">
-        <field name="name">New</field>
-        <field name="flow_id" ref="wf_demo_flow"/>
-        <field name="is_entry">1</field>
-    </record>
+        <record id="wf_crm_sales_flow" model="workflow.flow">
+            <field name="name">Demo Sales Process (CRM)</field>
+            <field name="model_name">crm.lead</field>
+        </record>
 
-    <record id="wf_demo_stage_qualified" model="workflow.stage">
-        <field name="name">Qualified</field>
-        <field name="flow_id" ref="wf_demo_flow"/>
-    </record>
+        <record id="crm_stage_new" model="crm.stage">
+            <field name="name">New</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="crm_stage_qualified" model="crm.stage">
+            <field name="name">Qualified</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="crm_stage_proposition" model="crm.stage">
+            <field name="name">Proposition</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="crm_stage_won" model="crm.stage">
+            <field name="name">Won</field>
+            <field name="sequence">4</field>
+            <field name="is_won">1</field>
+        </record>
+        <record id="crm_stage_lost" model="crm.stage">
+            <field name="name">Lost</field>
+            <field name="sequence">5</field>
+        </record>
 
-    <record id="wf_demo_stage_won" model="workflow.stage">
-        <field name="name">Won</field>
-        <field name="flow_id" ref="wf_demo_flow"/>
-    </record>
+        <record id="wf_stage_new" model="workflow.stage">
+            <field name="name">New</field>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="is_entry" eval="True"/>
+        </record>
+        <record id="wf_stage_qualified" model="workflow.stage">
+            <field name="name">Qualified</field>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+        </record>
+        <record id="wf_stage_proposition" model="workflow.stage">
+            <field name="name">Proposition</field>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+        </record>
+        <record id="wf_stage_won" model="workflow.stage">
+            <field name="name">Won</field>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+        </record>
+        <record id="wf_stage_lost" model="workflow.stage">
+            <field name="name">Lost</field>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+        </record>
 
-    <!-- Demo Constraints -->
-    <record id="wf_demo_constraint_basic" model="workflow.constraint">
-        <field name="domain">[]</field>
-        <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
-    </record>
+        <record id="mapping_new" model="workflow.stage.mapping">
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="workflow_stage_id" ref="wf_stage_new"/>
+            <field name="native_stage_id" model="crm.stage" ref="crm_stage_new"/>
+        </record>
+        <record id="mapping_qualified" model="workflow.stage.mapping">
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="workflow_stage_id" ref="wf_stage_qualified"/>
+            <field name="native_stage_id" model="crm.stage" ref="crm_stage_qualified"/>
+        </record>
+        <record id="mapping_proposition" model="workflow.stage.mapping">
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="workflow_stage_id" ref="wf_stage_proposition"/>
+            <field name="native_stage_id" model="crm.stage" ref="crm_stage_proposition"/>
+        </record>
+        <record id="mapping_won" model="workflow.stage.mapping">
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="workflow_stage_id" ref="wf_stage_won"/>
+            <field name="native_stage_id" model="crm.stage" ref="crm_stage_won"/>
+        </record>
+        <record id="mapping_lost" model="workflow.stage.mapping">
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="workflow_stage_id" ref="wf_stage_lost"/>
+            <field name="native_stage_id" model="crm.stage" ref="crm_stage_lost"/>
+        </record>
 
-    <!-- Diverse demo constraints -->
-    <record id="wf_demo_constraint_admin_only" model="workflow.constraint">
-        <field name="domain">[]</field>
-        <field name="group_ids" eval="[(6, 0, [ref('base.group_system')])]"/>
-    </record>
+        <record id="wf_constraint_contact_info" model="workflow.constraint">
+            <field name="name">Has Contact Info</field>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="domain">['|', ('email_from', '!=', False), ('phone', '!=', False)]</field>
+            <field name="error_message">To qualify, a lead must have an email or a phone number.</field>
+            <field name="constraint_type">restrict</field>
+        </record>
 
-    <record id="wf_demo_constraint_high_revenue" model="workflow.constraint">
-        <field name="domain">[("expected_revenue", ">", 10000)]</field>
-    </record>
+        <record id="wf_trans_new_to_qualified" model="workflow.transition">
+            <field name="from_stage_id" ref="wf_stage_new"/>
+            <field name="to_stage_id" ref="wf_stage_qualified"/>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+            <field name="constraint_ids" eval="[(6, 0, [ref('wf_constraint_contact_info')])]"/>
+        </record>
 
-    <record id="wf_demo_constraint_contactable" model="workflow.constraint">
-        <field name="domain">['|', ('email_from', '!=', False), ('phone', '!=', False)]</field>
-    </record>
+        <record id="wf_trans_qualified_to_proposition" model="workflow.transition">
+            <field name="from_stage_id" ref="wf_stage_qualified"/>
+            <field name="to_stage_id" ref="wf_stage_proposition"/>
+            <field name="flow_id" ref="wf_crm_sales_flow"/>
+        </record>
 
-    <record id="wf_demo_constraint_has_partner" model="workflow.constraint">
-        <field name="domain">[("partner_id", "!=", False)]</field>
-    </record>
-
-    <record id="wf_demo_constraint_priority_high" model="workflow.constraint">
-        <field name="domain">[("priority", "in", ["2", "3"])]</field>
-    </record>
-
-    <record id="wf_demo_constraint_country_us" model="workflow.constraint">
-        <field name="domain">[("country_id.code", "=", "US")]</field>
-    </record>
-
-    <record id="wf_demo_constraint_opportunity_only" model="workflow.constraint">
-        <field name="domain">[("type", "=", "opportunity")]</field>
-    </record>
-
-    <record id="wf_demo_constraint_user_group_manager" model="workflow.constraint">
-        <field name="domain">[]</field>
-        <field name="group_ids" eval="[(6, 0, [ref('base.group_erp_manager')])]"/>
-    </record>
-
-    <!-- Demo Transitions -->
-    <record id="wf_demo_transition_new_to_qualified" model="workflow.transition">
-        <field name="name">Qualify</field>
-        <field name="from_stage_id" ref="wf_demo_stage_new"/>
-        <field name="to_stage_id" ref="wf_demo_stage_qualified"/>
-        <field name="flow_id" ref="wf_demo_flow"/>
-        <field name="constraint_ids" eval="[(6, 0, [ref('wf_demo_constraint_basic')])]"/>
-    </record>
-
-    <record id="wf_demo_transition_qualified_to_won" model="workflow.transition">
-        <field name="name">Win</field>
-        <field name="from_stage_id" ref="wf_demo_stage_qualified"/>
-        <field name="to_stage_id" ref="wf_demo_stage_won"/>
-        <field name="flow_id" ref="wf_demo_flow"/>
-        <field name="constraint_ids" eval="[(6, 0, [ref('wf_demo_constraint_basic')])]"/>
-    </record>
+        </data>
 </odoo>

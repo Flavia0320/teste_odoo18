@@ -1,91 +1,126 @@
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 
 class WorkflowMixin(models.AbstractModel):
     _name = 'workflow.mixin'
-    _description = 'Mixin for Workflow Engine Integration'
+    _description = 'Mixin for Non-Invasive Workflow Engine'
 
-    # Câmpurile care vor fi adăugate modelului țintă
-    workflow_id = fields.Many2one('workflow.flow', compute='_compute_workflow', store=True, readonly=False)
-    stage_id = fields.Many2one('workflow.stage', string='Stage', ondelete='restrict',
-                               tracking=True, domain="[('flow_id', '=', workflow_id)]")
+    # NU mai definim stage_id aici, pentru a nu-l suprascrie pe cel nativ.
 
-    # Trebuie să fie suprascris în modelul final
-    @api.depends('project_id', 'company_id')  # Exemplu pentru project.task
+    workflow_id = fields.Many2one(
+        'workflow.flow',
+        compute='_compute_workflow',
+        store=True,
+        readonly=False
+    )
+    # Acesta este câmpul paralel care ține evidența stării în motorul nostru de flux.
+    workflow_stage_id = fields.Many2one(
+        'workflow.stage',
+        string='Workflow Stage',
+        ondelete='restrict',
+        tracking=True,
+        domain="[('flow_id', '=', workflow_id)]",
+        copy=False
+    )
+
+    # metoda _compute_workflow
+    @api.depends('company_id')
     def _compute_workflow(self):
-        """ This method must be implemented on the target model. """
         for rec in self:
-            # Logic to find the correct workflow for this record
-            # Ex: based on project type, company, etc.
             rec.workflow_id = self.env['workflow.flow'].search([
                 ('model_name', '=', self._name)
             ], limit=1)
 
-    def _check_stage_constraints(self, stage):
-        """ Verifică toate constrângerile pentru etapa destinație. """
-        for constraint in stage.constraint_ids:
-            constraint.check_constraint(self)
+    def _get_mapping(self, reverse=False):
+        """ Construiește și returnează dicționarul de mapare pentru fluxul curent. """
+        self.ensure_one()
+        if not self.workflow_id:
+            return {}
 
-    def _run_stage_entry_actions(self, stage):
-        """ Rulează toate acțiunile de server la intrarea în etapă. """
-        for action in stage.action_ids:
-            action.run_action(self)
+        mappings = self.env['workflow.stage.mapping'].search([
+            ('flow_id', '=', self.workflow_id.id)
+        ])
+
+        if reverse:
+            # Mapare: (model.nativ, id) -> workflow.stage()
+            return {
+                (m.native_stage_id._name, m.native_stage_id.id): m.workflow_stage_id
+                for m in mappings if m.native_stage_id
+            }
+
+        # Mapare: workflow.stage() -> model.nativ()
+        return {
+            m.workflow_stage_id: m.native_stage_id
+            for m in mappings if m.native_stage_id
+        }
+
+    def _execute_transition(self, new_workflow_stage):
+        """ Logica centrală care validează și execută o tranziție. """
+        self.ensure_one()
+        current_workflow_stage = self.workflow_stage_id
+
+        # 1. Validare Tranziție Permisă
+        allowed_transitions = current_workflow_stage.transition_ids.filtered(
+            lambda t: t.to_stage_id == new_workflow_stage
+        )
+        if not allowed_transitions:
+            raise UserError(_("Transition from '%s' to '%s' is not allowed.") %
+                            (current_workflow_stage.name, new_workflow_stage.name))
+
+        # 2. Validare Constrângeri
+        transition = allowed_transitions[0]
+        for constraint in transition.constraint_ids:
+            is_valid, error_msg = constraint.validate(self)
+            if not is_valid:
+                raise ValidationError(error_msg)
+
+        # 3. Executare Tranziție & Sincronizare
+        mapping = self._get_mapping()
+        native_stage = mapping.get(new_workflow_stage)
+
+        if not native_stage:
+            raise UserError(_("No native stage mapping found for workflow stage '%s'.") % new_workflow_stage.name)
+
+        # Actualizăm ambele câmpuri: cel nativ și cel de workflow
+        self.write({
+            'stage_id': native_stage.id,  # Presupunem că field-ul nativ se numește 'stage_id'
+            'workflow_stage_id': new_workflow_stage.id
+        })
+
+    @api.model
+    def create(self, vals):
+        """ La creare, setează starea inițială a fluxului și o sincronizează cu starea nativă. """
+        record = super().create(vals)
+        if record.workflow_id:
+            entry_stage = record.workflow_id.stage_ids.filtered('is_entry')
+            if entry_stage:
+                mapping = record._get_mapping()
+                native_stage = mapping.get(entry_stage)
+                if native_stage:
+                    record.write({
+                        'stage_id': native_stage.id,
+                        'workflow_stage_id': entry_stage.id
+                    })
+        return record
 
     def write(self, vals):
-        """ Suprascriem 'write' pentru a controla tranziția între etape. """
-        if 'stage_id' in vals and vals['stage_id']:
-            new_stage = self.env['workflow.stage'].browse(vals['stage_id'])
+        """ Suprascriem 'write' pentru a capta schimbările făcute direct pe etapa nativă (ex: drag-and-drop). """
+        if 'stage_id' in vals and self.env.context.get('bypass_workflow') is not True:
+            new_native_stage_id = vals['stage_id']
             for record in self:
-                # 1. Verifică permisiunile (Cerința #6)
-                if not self.env.user.has_group(
-                        'base.group_user') and not record.stage_id.allowed_group_ids & self.env.user.groups_id:
-                    raise UserError(_("You are not allowed to move the record from stage '%s'.") % record.stage_id.name)
+                reverse_mapping = record._get_mapping(reverse=True)
+                native_model_name = self.env['crm.stage'].browse(new_native_stage_id)._name  # Exemplu pentru CRM
 
-                # 2. Verifică dacă tranziția este validă
-                allowed_transitions = record.stage_id.transition_ids.mapped('stage_to_id')
-                if new_stage not in allowed_transitions:
-                    raise UserError(_("Moving from '%s' to '%s' is not an allowed transition.") % (
-                    record.stage_id.name, new_stage.name))
+                new_workflow_stage = reverse_mapping.get((native_model_name, new_native_stage_id))
 
-                # 3. Verifică constrângerile (Cerința #2)
-                record._check_stage_constraints(new_stage)
+                if new_workflow_stage and new_workflow_stage != record.workflow_stage_id:
+                    # Am detectat o schimbare nativă, acum validăm prin motorul nostru de flux
+                    try:
+                        # Folosim _execute_transition pentru a rula toate validările
+                        record.with_context(bypass_workflow=True)._execute_transition(new_workflow_stage)
+                    except (UserError, ValidationError) as e:
+                        # Blocăm tranziția dacă nu respectă regulile fluxului
+                        raise UserError(_("The transition is blocked by the workflow engine: %s") % str(e))
 
-        res = super().write(vals)
-
-        # 4. Rulează acțiunile după ce scrierea a avut loc
-        if 'stage_id' in vals:
-            new_stage = self.env['workflow.stage'].browse(vals['stage_id'])
-            for record in self:
-                record._run_stage_entry_actions(new_stage)
-
-        # 5. Logica de auto-tranziție (Cerința #7)
-        if 'stage_id' in vals:
-            self._check_for_auto_transition()
-
-        return res
-
-    def get_next_possible_stages(self):
-        """ Funcția pentru "next flow" (Cerința #5). Returnează etapele următoare posibile. """
-        self.ensure_one()
-        return self.stage_id.transition_ids.mapped('stage_to_id')
-
-    def _check_for_auto_transition(self):
-        """ Cerința #7 (Opțional): Trece automat la etapa următoare dacă sunt îndeplinite condițiile. """
-        for record in self:
-            # Simplificare: Considerăm o singură tranziție posibilă pentru automatizare
-            if len(record.stage_id.transition_ids) == 1:
-                next_stage = record.stage_id.transition_ids.stage_to_id
-                try:
-                    # Verificăm constrângerile fără a arunca eroare
-                    all_ok = True
-                    for constraint in next_stage.constraint_ids:
-                        domain = safe_eval(constraint.domain, {'record': record, 'env': self.env})
-                        if not record.search_count(domain + [('id', '=', record.id)]):
-                            all_ok = False
-                            break
-                    if all_ok:
-                        record.write({'stage_id': next_stage.id})
-                except Exception:
-                    # Constrângerea nu e îndeplinită, nu facem nimic
-                    pass
+        return super().write(vals)

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="RestrictSalePopup" owl="1">
+        <div class="popup popup-textinput">
+            <div class="modal-header btn-lg btn-primary">
+                <h4 class="modal-title text-white text-center">Check quantity</h4>
+            </div>
+            <div class="modal-body popup-textarea-wrap">
+                The product/products
+                <span style="color:#811331">
+                    <t t-esc="props.body"/>
+                </span> has/have quantity 0.
+                <br/>
+            </div>
+            <div class="footer footer-flex modal-footer">
+                <div class="button cancel btn btn-lg btn-primary" t-on-click="cancel">
+                    Cancel
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

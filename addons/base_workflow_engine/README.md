@@ -1,110 +1,132 @@
 # Base Workflow Engine pentru Odoo 18
 
-Acest modul oferă o fundație tehnică pentru crearea de fluxuri de lucru (workflows) dinamice și condiționate, aplicabile oricărui model din Odoo. A fost conceput pentru a fi abstract, flexibil și ușor de extins, permițând definirea de etape, tranziții, reguli de acces, constrângeri și acțiuni automate.
+Acest modul oferă o fundație tehnică pentru crearea de fluxuri de lucru (workflows) dinamice, condiționate și, cel mai important, **non-intruzive**, aplicabile oricărui model din Odoo. A fost conceput pentru a rula în paralel cu funcționalitățile native ale Odoo, păstrând intactă logica de business existentă.
+
+---
+
+## Arhitectura de Mapare: Păstrarea Etapelor Native
+
+Spre deosebire de alte abordări care înlocuiesc câmpurile de etape native ale modelelor Odoo, acest motor de flux utilizează o arhitectură de **mapare**. Acest lucru înseamnă că etapele originale ale unui model (ex: `crm.stage` pentru Oportunități) **rămân nemodificate**.
+
+**Avantaje:**
+* **Non-Intruziv:** Funcționalitățile native Odoo (rapoarte, acțiuni automate, vizualizări Kanban) care se bazează pe etapele originale continuă să funcționeze fără probleme.
+* **Flexibilitate:** Permite definirea unor procese de business complexe în motorul de flux, care apoi sunt sincronizate cu stările native ale recordurilor.
+* **Sincronizare Bidirecțională:** Motorul de flux acționează ca un "gardian". O schimbare de etapă inițiată prin butoanele de workflow este validată și sincronizată cu etapa nativă. Invers, o schimbare a etapei native (ex: prin drag-and-drop în Kanban) este interceptată și validată de regulile motorului de flux înainte de a fi permisă.
+
+---
 
 ## Funcționalități Principale
 
 ### 1. Motor de Flux Abstract și Extensibil
-Modulul nu depinde de nicio aplicație de business (CRM, Proiect, etc.). Logica este complet abstractizată, permițând integrarea cu orice model Odoo printr-un mecanism de moștenire (mixin).
+Logica este complet abstractizată, permițând integrarea cu orice model Odoo printr-un mecanism de moștenire (`workflow.mixin`).
 
 ### 2. Fluxuri, Etape și Tranziții Dinamice
 Utilizatorii pot defini vizual, din interfața Odoo:
-- **Fluxuri (`workflow.flow`):** Un container pentru un proces de business, legat de un model specific (ex: `crm.lead`).
-- **Etape (`workflow.stage`):** Pașii individuali ai unui flux (ex: Nou, Calificare, Propunere, Câștigat).
-- **Tranziții (`workflow.transition`):** Regulile care dictează mișcarea permisă între etape (ex: de la "Calificare" se poate trece doar la "Propunere" sau "Pierdut").
+- **Fluxuri (`workflow.flow`):** Un proces de business, legat de un model specific (ex: `crm.lead`).
+- **Etape de Workflow (`workflow.stage`):** Pașii individuali ai procesului personalizat.
+- **Tranziții (`workflow.transition`):** Căile permise între etapele de workflow.
 
-### 3. Constrângeri la Intrarea în Etape (Cerința #2)
-Pentru a condiționa trecerea într-o nouă etapă, se poate defini un set de constrângeri.
-- **Domeniu de validare:** Fiecare constrângere folosește un widget de domeniu Odoo, permițând crearea de reguli complexe bazate pe câmpurile modelului țintă (ex: `['|', ('email', '!=', False), ('phone', '!=', False)]`).
-- **Mesaj de eroare personalizat:** Dacă un record nu îndeplinește condițiile domeniului, tranziția este blocată și se afișează un mesaj de eroare specificat de utilizator.
-- **Tip de constrângere:** Poate fi `Restrict` (blochează) sau `Warning` (doar avertizează).
+### 3. Constrângeri Avansate la Tranziții
+Pentru a condiționa trecerea între etape, se poate defini un set de constrângeri pe fiecare tranziție.
+- **Domeniu de validare:** Fiecare constrângere folosește un widget de domeniu Odoo, permițând crearea de reguli complexe (ex: `[('expected_revenue', '>', 10000)]`).
+- **Mesaj de eroare personalizat:** Dacă un record nu îndeplinește condițiile, tranziția este blocată și se afișează un mesaj de eroare specific.
+- **Control pe bază de Grupuri:** Tranzițiile pot fi restricționate doar pentru anumite grupuri de utilizatori.
 
-### 4. Acțiuni Server Automate la Intrarea în Etape (Cerința #4)
-La intrarea cu succes a unui record într-o etapă nouă, se pot declanșa automat una sau mai multe Acțiuni Server. Acestea pot fi folosite pentru:
-- Trimiterea de email-uri (template-uri de email).
-- Crearea de activități pentru anumiți utilizatori.
-- Executarea de cod Python pentru logică de business avansată.
+### 4. Acțiuni Automate la Intrarea în Etape
+La intrarea cu succes a unui record într-o etapă nouă, se pot declanșa automat una sau mai multe Acțiuni Server Odoo.
 
-### 5. Controlul Accesului pe Bază de Grupuri (Cerința #6)
-Fiecare etapă are un câmp `Allowed Groups`. Doar utilizatorii care aparțin grupurilor specificate în acest câmp pot muta un record *din* etapa respectivă. Acest mecanism asigură că doar personalul autorizat poate avansa un proces.
+### 5. Mapare Vizuală a Etapelor
+Un ecran dedicat în formularul de flux permite utilizatorilor să mapeze fiecare etapă din `workflow.stage` la o etapă nativă corespunzătoare a modelului țintă (ex: se leagă etapa de workflow "Calificat" de etapa nativă CRM "Qualification").
 
-### 6. Tranziții Automate (Opțional - Cerința #7)
-Modulul include o logică de bază pentru automatizarea tranzițiilor. Dacă un record se află într-o etapă care are o singură tranziție posibilă și toate constrângerile pentru etapa următoare sunt îndeplinite, sistemul poate muta automat recordul la pasul următor. Această funcționalitate poate fi activată sau extinsă printr-o acțiune automată (`ir.cron`).
+---
 
 ## Configurare și Utilizare
 
-1.  **Navigați la `Workflow Engine -> Configuration -> Workflows`.**
+1.  **Navigați la `Settings -> Technical -> Workflow Engine -> Flows`.**
 2.  **Creați un nou flux:**
-    -   Dați-i un nume (ex: "Proces Vânzare Lead-uri").
-    -   Selectați Modelul (`ir.model`) pe care se va aplica (ex: `crm.lead`).
-3.  **Definiți Etapele în tab-ul "Stages & Transitions":**
-    -   Creați fiecare etapă necesară (Nou, Contactat, Negociere, etc.).
-    -   Stabiliți ordinea cu ajutorul `drag-and-drop` (handle-ul de secvență).
-    -   Bifați `Is Final Stage` pentru etapele terminale.
-    -   În formularul fiecărei etape, puteți adăuga **Constrângeri**, **Acțiuni Server** și **Grupuri Permise**.
-4.  **Definiți Tranzițiile:**
-    -   În formularul unei etape, mergeți la tab-ul "Allowed Transitions" și adăugați etapele următoare permise.
+    * Dați-i un nume (ex: "Proces Vânzare Corporate").
+    * Selectați Modelul (`ir.model`) pe care se va aplica (ex: `crm.lead`).
+3.  **Definiți Etapele de Workflow** în tab-ul "Stages".
+4.  **Definiți Mapările** în tab-ul "Stage Mappings":
+    * Pentru fiecare etapă de workflow creată, selectați etapa nativă corespunzătoare din modelul țintă. Acesta este un pas critic.
+5.  **Definiți Tranzițiile și Constrângerile** în tab-ul "Transitions".
 
-## Cum se Extinde pe un Modul Nou (Exemplu: `fleet.vehicle`)
+---
 
-Pentru a aplica motorul de flux pe un model nou, urmați pașii de mai jos.
+## Cum se Extinde pe un Modul Nou (Ghid pentru Dezvoltatori)
 
-1.  **Creați un nou modul "bridge"** (ex: `fleet_workflow_engine`) care depinde de `fleet` și `base_workflow_engine`.
+Pentru a aplica motorul de flux pe un model nou (ex: `helpdesk.ticket`), urmați pașii de mai jos.
+
+1.  **Creați un nou modul "bridge"** (ex: `helpdesk_workflow_engine`) care depinde de `helpdesk` și `base_workflow_engine`.
 
 2.  **Moșteniți `workflow.mixin` în modelul țintă:**
+    * **IMPORTANT:** NU suprascrieți câmpul `stage_id` nativ. Arhitectura de mapare se bazează pe păstrarea acestuia intact.
 
     ```python
-    # In fleet_workflow_engine/models/fleet_vehicle.py
+    # în helpdesk_workflow_engine/models/helpdesk_ticket.py
     from odoo import models, fields, api
 
-    class FleetVehicle(models.Model):
-        _name = 'fleet.vehicle'
-        _inherit = ['fleet.vehicle', 'workflow.mixin']
+    class HelpdeskTicket(models.Model):
+        _name = 'helpdesk.ticket'
+        _inherit = ['helpdesk.ticket', 'workflow.mixin']
 
-        # 1. Suprascrieți câmpul de etapă standard cu cel din workflow.
-        #    Numele câmpului trebuie să fie 'stage_id' pentru ca mixin-ul
-        #    să funcționeze corect.
-        stage_id = fields.Many2one(
-            'workflow.stage',
-            string='Stage',
-            ondelete='restrict',
-            tracking=True,
-            domain="[('flow_id', '=', workflow_id)]",
-            copy=False,
-            index=True,
-            group_expand='_read_group_stage_ids' # Necesar pentru vizualizarea Kanban
-        )
+        # Câmpul nativ `stage_id` rămâne neatins.
+        # Mixin-ul adaugă în paralel câmpul `workflow_stage_id`.
 
-        # 2. Implementați logica pentru a găsi fluxul corect.
-        @api.depends('company_id') # Adăugați câmpurile relevante
+        # Implementați logica pentru a găsi fluxul corect.
+        @api.depends('team_id', 'company_id') # Adăugați câmpurile relevante
         def _compute_workflow(self):
-            """ Găsește fluxul corespunzător pentru acest vehicul. """
+            """ Găsește fluxul corespunzător pentru acest tichet. """
             for record in self:
-                # Căutați un flux definit pentru modelul 'fleet.vehicle'
                 workflow = self.env['workflow.flow'].search([
-                    ('model_name', '=', 'fleet.vehicle'),
-                    # Puteți adăuga condiții suplimentare, ex: pe companie
-                    # ('company_id', '=', record.company_id.id)
+                    ('model_name', '=', 'helpdesk.ticket'),
+                    # Puteți adăuga condiții suplimentare aici
                 ], limit=1)
                 record.workflow_id = workflow.id
 
-        # 3. Suprascrieți metoda read_group pentru a afișa etapele în Kanban.
-        @api.model
-        def _read_group_stage_ids(self, stages, domain, order):
-            """ Returnează etapele pentru vizualizarea Kanban. """
-            # Găsiți fluxul cel mai probabil pe baza contextului/domeniului
-            workflow = self.env['workflow.flow'].search([
-                ('model_name', '=', 'fleet.vehicle')
-            ], limit=1)
-            if workflow:
-                return workflow.stage_ids
-            return self.env['workflow.stage'].search([])
+        def get_possible_transitions(self):
+            """ Metodă ajutătoare pentru a afișa butoane în vizualizare. """
+            if not self.workflow_stage_id:
+                return []
+            return self.workflow_stage_id.transition_ids
+
+        def execute_transition(self, transition_id):
+            """ Metodă apelată de butonul din vizualizare. """
+            transition = self.env['workflow.transition'].browse(transition_id)
+            self._execute_transition(transition.to_stage_id)
+
     ```
 
-3.  **Adaptați vizualizările** pentru a folosi noul câmp `stage_id` și, opțional, pentru a afișa `workflow_id`.
+3.  **Adaptați vizualizările** pentru a adăuga butoane de acțiune pentru workflow.
 
-4.  **Instalați noul modul `fleet_workflow_engine`**.
+    ```xml
+    <record id="helpdesk_ticket_view_form_inherit_workflow" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit.workflow</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button 
+                    t-foreach="record.get_possible_transitions()"
+                    t-as="transition"
+                    t-att-name="execute_transition"
+                    t-att-context="{'transition_id': transition.id}"
+                    t-att-string="transition.name"
+                    type="object"
+                    class="btn-primary"
+                />
+            </xpath>
+            <field name="team_id" position="after">
+                <field name="workflow_id"/>
+                <field name="workflow_stage_id" readonly="1"/>
+            </field>
+        </field>
+    </record>
+    ```
 
-## Autor
+4.  **Configurați Datele:**
+    * Asigurați-vă că etapele native (`helpdesk.stage`) există.
+    * Creați un nou flux pentru `helpdesk.ticket`.
+    * Creați etapele de workflow și, cel mai important, **mapările** între etapele de workflow și etapele native `helpdesk.stage`.
 
-Dakai SOFT SRL
+5.  **Instalați noul modul `helpdesk_workflow_engine`**.

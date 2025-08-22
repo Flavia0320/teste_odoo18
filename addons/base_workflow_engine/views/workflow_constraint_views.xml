@@ -18,16 +18,24 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., Check for high revenue"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name" placeholder="e.g., Draft State Check"/>
-                        <field name="flow_id" help="Optional: Associate this constraint with a specific workflow"/>
+                        <field name="flow_id" invisible="1"/>
+                        <field name="constraint_type"/>
                     </group>
-                    <group>
-                        <field name="domain" widget="domain" 
-                               placeholder="[('state', '=', 'draft')]"
-                               help="Domain expression to evaluate before allowing the transition. Use standard Odoo domain syntax."/>
-                        <field name="group_ids" widget="many2many_tags"
-                               help="Users must belong to at least one of these groups to use this transition. Leave empty to allow all users."/>
+                    <group string="Condition">
+                        <field name="domain"
+                               widget="domain"
+                               options="{'model': parent.model_name}"
+                               />
+                    </group>
+                    <group string="Failure Message">
+                        <field name="error_message" nolabel="1" placeholder="e.g., The expected revenue must be over $5000 to qualify for this stage."/>
                     </group>
                 </sheet>
             </form>

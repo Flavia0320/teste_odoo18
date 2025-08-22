@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ReportsButtonPop" t-inherit="point_of_sale.ClosePosPopup" t-inherit-mode="extension" owl="1">
+       <xpath expr="//button[@t-on-click='cancel']" position="after">
+                       <li class="menu-item navbar-button" t-on-click="onClick">
+                <a class="dropdown-item py-2">
+                    <span>Reports</span>
+                </a>
+            </li>
+        </xpath>
+    </t>
+</templates>

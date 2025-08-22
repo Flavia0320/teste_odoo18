@@ -24,8 +24,7 @@ class WorkflowFlow(models.Model):
     transition_ids = fields.One2many('workflow.transition', 'flow_id', string='Transitions')
     constraint_ids = fields.Many2many('workflow.constraint', string='Flow Constraints', 
                                     compute='_compute_flow_constraints', store=False)
-
-
+    stage_mapping_ids = fields.One2many('workflow.stage.mapping', 'flow_id', string='Stage Mappings')
     def go_next(self, transition, record, user=None):
         if not self.current_stage_id:
             return False

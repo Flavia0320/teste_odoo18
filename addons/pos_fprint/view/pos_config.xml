@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="pos_config_form" model="ir.ui.view">
+                <field name="name">pos.config Form</field>
+                <field name="model">pos.config</field>
+                <field name="type">form</field> 
+                <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//setting[@id='other_devices']" position="after">
+                    	<h2>Conexiune Casa de marcat</h2>
+                    	<div class="row mt16 o_settings_container" id="fpprint_reference">
+                            <div class="col-12 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="fp_active"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="fp_active"/>
+                                </div>
+                    			<div class="o_setting_right_pane">
+                    				<group invisible="fp_active == False">
+	                    				<group>
+		                    				<field name="fp_access" required="fp_active == True"/>
+	                    					<field name="fp_server_url" required="fp_active == True and fp_access in ['internet']" invisible="fp_access not in ['internet']"/>
+	                    					<field name="fp_network_server_url" required="fp_active == True"/>
+	                    					<field name="fp_localhost_server_url" required="fp_active == True"/>
+	                    					<!-- 
+	                    					<field name="fp_printer_name" attrs="{'required':[('fp_active','=',True)]}"/>
+	                    					 -->
+	                    					<field name="fp_permit_comment"/>
+	                    				</group>
+	                    				<group>
+	                    					<field name="fp_userprotect"/>
+	                    					<!-- 
+	                    					<field name="fp_operator" attrs="{'invisible':[('fp_userprotect','=',False)],'required':[('fp_userprotect','=',True)]}"/>
+	                    					<field name="fp_password" attrs="{'invisible':[('fp_userprotect','=',False)],'required':[('fp_userprotect','=',True)]}"/>
+	                    					 -->
+	                    					<field name="fp_server_user" invisible="fp_userprotect == False" required="fp_userprotect == True"/>
+	                    					<field name="fp_server_secret" invisible="fp_userprotect == False" required="fp_userprotect == True"/>
+	                    				</group>
+                                        <field name="fp_report" required="fp_active == True"/>
+                                        <field name="fp_report_view" required="fp_active == True"/>
+                                        <field name="fp_report_dispo" required="fp_active == True"/>
+                                        <field name="fp_report_dispo_view" required="fp_active == True"/>
+
+                    					<field name="fp_tax_group_ids" nolabel="1">
+                    						<list edit="True">
+                    							<field name="tax_id"/>
+                    							<field name="tax_group"/>
+                    						</list>
+                    					</field>
+                    				</group>
+                    			</div>
+                    		</div>
+                    	</div>
+                    </xpath>
+                </field>
+        </record>
+    
+        <record id="pos_config_kanban" model="ir.ui.view">
+                <field name="name">pos.config Form</field>
+                <field name="model">pos.config</field>
+                <field name="type">kanban</field> 
+                <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
+                <field name="arch" type="xml">
+                	<xpath expr="//field[@name='pos_session_duration']" position="after">
+                		<field name="fp_active"/>
+                	</xpath>
+                	<xpath expr="//div[contains(@class,'dropdown-pos-config')]//div[@class='row']" position="inside">
+                		<div t-if="record.fp_active.value" class="col-6 o_kanban_card_manage_section o_kanban_manage_view">
+                            <h5 role="menuitem" class="o_kanban_card_manage_title">
+                                <span>Casa de Marcat</span>
+                            </h5>
+
+                            <div role="menuitem">
+                                 <a name="cmarcat_raport" context="{'raport':'x'}" type="object">Raport X</a>
+                             </div>
+                             <div role="menuitem">
+                                 <a name="cmarcat_raport" context="{'raport':'z'}" type="object">Raport Z</a>
+                             </div>
+                        </div>
+                	</xpath>
+                </field>
+        </record>
+        
+        
+    <data noupdate="1">
+        <record forcecreate="True" id="ir_cron_verifica_fp_receipt" model="ir.cron">
+            <field name="name">FPrint Pos: check Fiscal Receipt</field>
+            <field name="model_id" ref="point_of_sale.model_pos_order"/>
+            <field name="state">code</field>
+            <field name="code">model.fp_getInfoTask()</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+        </record>
+    </data>
+</odoo>
+        

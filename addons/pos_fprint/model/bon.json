@@ -1,0 +1,73 @@
+{
+	"user": "adrian", //pos.config .fp_server_user
+	"secret": "adrian", //pos.config .fp_server_secret
+	"bon": {
+		"uniqueSaleNumber": "Frumoasa/0080", //pos.order name
+		"items": [
+			{
+				"text": "CAPSULE LAVAZZA ESPRESSO POINT FORTE E DECISO", // product.name
+				"quantity": 5.0, //pos.order .quantity
+				"unitPrice": 145.0, //price_unit
+				"uom": "Buc", //pos.order .product uom.name
+				"taxGroup": 1, //pos.config .fp_tax_group_ids.getTax(tax_id) //optional, daca TVA % nu e prezent
+				"taxPercent": 9.0, // account.tax.amount 9.0 la 9%, 19.0 la 19%
+				"discount": 10.0, //float pos.order.discount
+				}, 
+			{	//idem....
+				"text": "PALETINE LEMN 1000BUC",
+				"quantity": 3.0,
+				"unitPrice": 17.0,
+				"uom": "Buc",
+				"taxGroup": 1,
+				"taxPercent": 19.0,
+				"discount": null
+				},
+			{
+				"text": "CAPSULE LAVAZZA BLUE DOLCE",
+				"quantity": 1.0,
+				"unitPrice": 40.0,
+				"uom": "Buc",
+				"taxGroup": 1,
+				"taxPercent": 9.0,
+				"discount": null
+				}
+			],
+		"payments": [
+			{
+				"amount": -56.5, //pos.order payment. bani dati inapoi. - se poate ignora, valorile cu - nu sunt trimis ela casa.
+				"paymentType": "cash" //tip plata. payment.journal_id.fp_type
+				},
+			{
+				"amount": 800.0, //suma platita
+				"paymentType": "cash" //tip de plata. 
+				}
+				],
+			"cui": "RO1234567897", // pos.order.cui sau daca avem customer: res.partner.vat
+			"username": "Administrator", //User logat res.users.name
+			"type": "bon", // pentru bon fiscal type=bon
+			"operator": 0, //operator casa de marcat, nu se proceseaza
+			"operatorPassword": 0 //parola operator casa de marcat, nu se proceseaza.
+			}
+		}
+		
+//[[..1..]] se trimite la adresa: pos.config.fp_network_server_url/printbon request post json, mecanismul este asincron.
+// Daca da eroare pos.config.fp_network_server_url/printbon
+// Foloseste varianta 3. local: pos.config.fp_localhost_server_url/printbon
+// Raspuns: 
+{
+	"error": false, //boolean true/false
+    "message": "Success", //Mesaj sau mesaj de eroare. 
+    "content": {
+    	"init": {} // Valori suplimentare.
+    	},
+    "taskid": "username_timestamp.bon", //numele bonului, task unic se salveaza in pos.order. fp_task_id
+    }
+    //[[..2..]] insert in pos.order.fp_print_date data la care s-a executat comanda de print.
+    
+//[[..3..]] pos.config.fp_network_server_url/getbon/<taskid> [de mai sus.]
+//Raspuns
+{
+	"state": "close", // open/close open=neexecutat, close=executat. pentur valoarea close, executi, pentru open ignori.
+	"nr":"87", // numarul bonului daca e state=close. merge in coloana: pos.order.fp_number
+	"last_date":"2021-02-28 11:40:55", // vine mereu, este ultima cand ceva s-a facut pe bon. merge in coloana: pos.order.fp_result_date
+}

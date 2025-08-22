@@ -4,14 +4,14 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_name" type="object" class="btn-primary" string="Next Stage" />
+            </xpath>
+
             <field name="team_id" position="after">
                 <field name="workflow_id" options="{'no_create': True}"/>
+                <field name="workflow_stage_id" readonly="1"/>
             </field>
-            <header position="replace">
-                <header>
-                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
-                </header>
-            </header>
         </field>
     </record>
 </odoo>

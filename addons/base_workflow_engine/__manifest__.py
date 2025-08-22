@@ -11,7 +11,7 @@
     'data': [
         'security/ir.model.access.csv',
         'security/workflow_security.xml',
-        
+        'views/workflow_stage_mapping_views.xml',
         'views/workflow_constraint_views.xml',
         'views/workflow_transition_views.xml',
         'views/workflow_stage_views.xml',

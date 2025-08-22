@@ -19,14 +19,15 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="from_stage_id"/>
-                        <field name="to_stage_id"/>
+                        <field name="from_stage_id" domain="[('flow_id', '=', parent.flow_id)]"/>
+                        <field name="to_stage_id" domain="[('flow_id', '=', parent.flow_id)]"/>
                     </group>
-                    <field name="constraint_ids">
-                        <list editable="bottom">
+                    <field name="constraint_ids" context="{'default_flow_id': parent.flow_id, 'model_name': parent.model_name}">
+                        <tree>
+                            <field name="name"/>
                             <field name="domain"/>
-                            <field name="group_ids"/>
-                        </list>
+                            <field name="group_ids" widget="many2many_tags"/>
+                        </tree>
                     </field>
                 </sheet>
             </form>
