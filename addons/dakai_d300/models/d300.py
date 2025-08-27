@@ -477,10 +477,10 @@ class DeclaratiaD300(models.Model):
             R38_2_old = 0
             for record in self:
                 acc_4423 = self.env["account.account"].search(
-                    [("code", "=", "442300"), ("company_id", "=", record.company_id.id)]
+                    [("code", "=", "442300"), ("company_ids", "=", record.company_id.id)]
                 )
                 acc_4424 = self.env["account.account"].search(
-                    [("code", "=", "442400"), ("company_id", "=", record.company_id.id)]
+                    [("code", "=", "442400"), ("company_ids", "=", record.company_id.id)]
                 )
                 if acc_4423 and acc_4424:
                     ml_lines_4423 = self.env["account.move.line"].search(
@@ -489,10 +489,10 @@ class DeclaratiaD300(models.Model):
                             (
                                 "move_id.date",
                                 ">=",
-                                s.company_id.account_opening_date,
+                                s.company_ids.account_opening_date,
                             ),
                             ("move_id.date", "<", datetime.now().date()),
-                            ("company_id", "=", s.company_id.id),
+                            ("company_ids", "=", s.company_ids.id),
                             ("account_id", "=", acc_4423.id),
                         ]
                     )
