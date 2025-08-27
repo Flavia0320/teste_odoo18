@@ -19,12 +19,12 @@ class TestD300Report(TransactionCase):
         cls.account_4423 = cls.env["account.account"].create({
             "code": "442300",
             "name": "TVA collected",
-            "company_id": cls.company.id,
+            "company_ids": [(6, 0, [cls.company.id])],
         })
         cls.account_4424 = cls.env["account.account"].create({
             "code": "442400",
             "name": "TVA deductible",
-            "company_id": cls.company.id,
+            "company_ids": [(6, 0, [cls.company.id])],
         })
 
         cls.tax_19 = cls.env["account.tax"].create({
@@ -32,7 +32,7 @@ class TestD300Report(TransactionCase):
             "amount": 19,
             "amount_type": "percent",
             "type_tax_use": "sale",
-            "company_id": cls.company.id,
+            "company_ids": [(6, 0, [cls.company.id])],
         })
 
         cls.tax_tags = {

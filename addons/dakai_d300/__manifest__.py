@@ -2,7 +2,7 @@
 {
   'name':'Dakai D300',
   'description': "",
-  'version':'18.0.0.0',
+  'version':'18.0.0.1',
   'author':'Dakai SOFT',
   'website': 'https://dakai.ro',
   'author': 'Dakai SOFT SRL',

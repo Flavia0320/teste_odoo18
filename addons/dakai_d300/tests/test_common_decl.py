@@ -18,12 +18,12 @@ class TestD300Computation(TransactionCase):
         cls.account_4423 = cls.env["account.account"].create({
             "code": "442300",
             "name": "TVA collected",
-            "company_ids": cls.company.id,
+            "company_ids": [(6, 0, [cls.company.id])],
         })
         cls.account_4424 = cls.env["account.account"].create({
             "code": "442400",
             "name": "TVA deductible",
-            "company_ids": cls.company.id,
+            "company_ids": [(6, 0, [cls.company.id])],
         })
 
         cls.tax_tags = {
