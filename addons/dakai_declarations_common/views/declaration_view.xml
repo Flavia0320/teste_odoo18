@@ -83,23 +83,23 @@
 <!--            </field>-->
 <!--        </record>-->
 
-        <record model="ir.ui.view" id="report_reprezentant_tree_view">
-            <field name="name">report.reprezentant.tree</field>
-            <field name="model">l10_romania.report.reprezentant</field>
-            <field name="inherit_id" ref="base.view_partner_tree"/>
-            <field name="mode">primary</field>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='display_name']" position="replace">
-                    <field name="display_name" string="Name" invisible="1"/>
-                </xpath>
-            </field>
-        </record>
+<!--        <record model="ir.ui.view" id="report_reprezentant_tree_view">-->
+<!--            <field name="name">report.reprezentant.tree</field>-->
+<!--            <field name="model">l10_romania.report.reprezentant</field>-->
+<!--            <field name="inherit_id" ref="base.view_partner_tree"/>-->
+<!--            <field name="mode">primary</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='display_name']" position="replace">-->
+<!--                    <field name="display_name" string="Name" invisible="1"/>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
 
 
         <record model="ir.actions.act_window" id="action_report_reprezentant">
             <field name="name">Reprezentanti Declaratii</field>
             <field name="res_model">l10_romania.report.reprezentant</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">kanban,list,form</field>
         </record>
 
         <menuitem id="declaration_menu" name="Declaratii"
