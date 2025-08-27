@@ -24,14 +24,14 @@ class TestD390Cos(TransactionCase):
 
         cls.product_1 = cls.env["product.product"].create({
             "name": "Test Product 1",
-            "type": "product",
+            "type": "consu",
             "list_price": 100.0,
             "default_code": "NC8_01",
         })
 
         cls.product_2 = cls.env["product.product"].create({
             "name": "Test Product 2",
-            "type": "product",
+            "type": "consu",
             "list_price": 200.0,
             "default_code": "NC8_02",
         })

@@ -30,7 +30,7 @@ class TestD390Computation(TransactionCase):
 
         cls.product = cls.env["product.product"].create({
             "name": "Test Product",
-            "type": "product",
+            "type": "consu",
             "list_price": 100.0,
         })
 
