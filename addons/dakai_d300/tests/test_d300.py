@@ -32,7 +32,7 @@ class TestD300Report(TransactionCase):
             "amount": 19,
             "amount_type": "percent",
             "type_tax_use": "sale",
-            "company_ids": [(6, 0, [cls.company.id])],
+            "company_id": cls.company.id,
         })
 
         cls.tax_tags = {
