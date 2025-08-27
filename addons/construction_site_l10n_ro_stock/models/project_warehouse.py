@@ -13,7 +13,7 @@ class Project(models.Model):
 
 class StockWarehouse(models.Model):
     _inherit = "stock.warehouse"
-
+    #TODO : fix eroare picking_type_id
     def _get_consume_route_values(self):
         return {
             'name': "%s: Consume" % self.name,

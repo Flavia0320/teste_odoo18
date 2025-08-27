@@ -51,3 +51,12 @@
   target: origin 18.0
   merges:
       - origin 18.0
+
+./declaratii:
+  defaults:
+    depth: 20
+  remotes:
+    origin: git@github.com:adrian-dks/declaratii.git
+  target: origin 18.0
+  merges:
+    - origin 18.0

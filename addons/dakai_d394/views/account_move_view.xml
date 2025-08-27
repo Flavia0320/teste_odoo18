@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="l10n_ro_declaration_view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='other_tab_group']" position="inside">
+                <field name="is_l10n_ro_record" invisible="1" />
+                <group>
+                  <field name="d394_id" readonly="1"/>
+                  <field name="l10n_ro_operation_type" readonly="0"/>
+                </group>
+                <group
+                    id="ro_invoicing_purchases"
+                    invisible="move_type not in ['in_invoice', 'in_refund'] or not is_l10n_ro_record"
+                >
+                    <field name="l10n_ro_special_regim" string="Special Regime" />
+                    <field name="l10n_ro_invoice_origin_d394" />
+                </group>
+                <group
+                    id="ro_invoicing_purchase_receipts"
+                    invisible="move_type not in ['in_receipt'] or not is_l10n_ro_record"
+                >
+                    <field name="l10n_ro_simple_invoice" />
+                    <field name="l10n_ro_has_vat_number" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

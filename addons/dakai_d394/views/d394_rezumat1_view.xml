@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="d394_rezumat1_form_view">
+            <field name="name">Declaratie 394 Rezumat1 Form</field>
+            <field name="model">report.d394.rezumat1</field>
+            <field name="arch" type="xml">
+                <form string="Declaratie 394 Rezumat1">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="l10n_ro_partner_type"/>
+                                <field name="l10n_ro_invoice_origin_d394"/>
+                                <field name="cota"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Op1">
+                                <field name="op1_ids"/>
+                            </page>
+                            <page string="Detalii" invisible="not rezumat1_detaliu_ids">
+                                <field name="rezumat1_detaliu_ids">
+                                    <list>
+                                        <field name="bun"/>
+                                        <field name="nrLivV"/>
+                                        <field name="nrAchizC"/>
+                                        <field name="bazaAchizC"/>
+                                        <field name="tvaAchizC"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Informatii">
+                                <group>
+                                    <group>
+                                        <field name="facturiL"/>
+                                        <field name="bazaL"/>
+                                        <field name="tvaL"/>
+                                    </group>
+                                    <group>
+                                        <field name="facturiLS"/>
+                                        <field name="bazaLS"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="facturiA"/>
+                                        <field name="bazaA"/>
+                                        <field name="tvaA"/>
+                                    </group>
+                                    <group>
+                                        <field name="facturiAI"/>
+                                        <field name="bazaAI"/>
+                                        <field name="tvaAI"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="facturiAS"/>
+                                        <field name="bazaAS"/>
+                                    </group>
+                                    <group>
+                                        <field name="facturiV"/>
+                                        <field name="bazaV"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="facturiC"/>
+                                        <field name="bazaC"/>
+                                        <field name="tvaC"/>
+                                    </group>
+                                    <group>
+                                        <field name="facturiN"/>
+                                        <field name="bazaN"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="d394_rezumat1_list_view">
+            <field name="name">Declaratie 394 Rezumat1 list</field>
+            <field name="model">report.d394.rezumat1</field>
+            <field name="arch" type="xml">
+                <list string="Declaratii 394 Rezumat1">
+                    <field name="name"/>
+                    <field name="l10n_ro_partner_type"/>
+                    <field name="l10n_ro_invoice_origin_d394"/>
+                    <field name="cota"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

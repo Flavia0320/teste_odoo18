@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="d394_lista_form_view">
+            <field name="name">Declaratie 394 Lista Form</field>
+            <field name="model">report.d394.lista</field>
+            <field name="arch" type="xml">
+                <form string="Declaratie 394 Lista">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="caen"/>
+                                <field name="operat"/>
+                            </group>
+                            <group>
+                                <field name="cota"/>
+                                <field name="valoare"/>
+                                <field name="tva"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Linii Facturi">
+                                <field name="invoice_line_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="d394_lista_list_view">
+            <field name="name">Declaratie 394 Lista list</field>
+            <field name="model">report.d394.lista</field>
+            <field name="arch" type="xml">
+                <list string="Declaratii 394 Lista">
+                    <field name="name"/>
+                    <field name="caen"/>
+                    <field name="operat"/>
+                    <field name="cota"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

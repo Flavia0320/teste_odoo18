@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_l10_romania_report_d394,access_l10_romania_report_d394,model_l10_romania_report_d394,,1,1,1,1
+access_report_d394_facturi,access_report_d394_facturi,model_report_d394_facturi,,1,1,1,1
+access_report_d394_serie_facturi,access_report_d394_serie_facturi,model_report_d394_serie_facturi,,1,1,1,1
+access_report_d394_lista,access_report_d394_lista,model_report_d394_lista,,1,1,1,1
+access_report_d394_op1,access_report_d394_op1,model_report_d394_op1,,1,1,1,1
+access_report_d394_op11,access_report_d394_op11,model_report_d394_op11,,1,1,1,1
+access_report_d394_op2,access_report_d394_op2,model_report_d394_op2,,1,1,1,1
+access_report_d394_rezumat1,access_report_d394_rezumat1,model_report_d394_rezumat1,,1,1,1,1
+access_report_d394_rezumat1_detaliu,access_report_d394_rezumat1_detaliu,model_report_d394_rezumat1_detaliu,,1,1,1,1
+access_report_d394_rezumat2,access_report_d394_rezumat2,model_report_d394_rezumat2,,1,1,1,1
+access_report_d394_template,access_report_d394_template,model_report_d394_template,,1,1,1,1

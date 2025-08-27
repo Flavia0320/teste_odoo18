@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="d394_form_view">
+            <field name="name">Declaratie 394 Form</field>
+            <field name="model">l10_romania.report.d394</field>
+            <field name="arch" type="xml">
+                <form string="Declaratie 394">
+                    <header>
+                        <button name="rebuild_declaration" string="Rebuild" type="object" class="btn-primary"/>
+                        <button name="export_declaration" string="Export" type="object" class="btn-primary"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="version"/>
+                                <field name="company_id"/>
+                                <field name="template_id"/>
+                                <field name="reprezentant_id"/>
+                                <field name="c1_prsAfiliat"/>
+                            </group>
+                            <group>
+                                <field name="c1_luna"/>
+                                <field name="c1_an"/>
+                                <field name="c1_tip_D394"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Detalii">
+                                <group>
+                                    <group>
+                                        <field name="i_solicit"/>
+                                    </group>
+                                </group>
+                                <group string="Achizitii">
+                                    <group>
+                                        <field name="i_achizitiiPE"/>
+                                        <field name="i_achizitiiCR"/>
+                                        <field name="i_achizitiiCB"/>
+                                        <field name="i_achizitiiCI"/>
+                                    </group>
+                                    <group>
+                                        <field name="i_achizitiiA"/>
+                                        <field name="i_importB"/>
+                                        <field name="i_acINecorp"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="i_achizitiiB24"/>
+                                        <field name="i_achizitiiB20"/>
+                                        <field name="i_achizitiiB19"/>
+                                        <field name="i_achizitiiB9"/>
+                                        <field name="i_achizitiiB5"/>
+                                    </group>
+                                    <group>
+                                        <field name="i_achizitiiS24"/>
+                                        <field name="i_achizitiiS20"/>
+                                        <field name="i_achizitiiS19"/>
+                                        <field name="i_achizitiiS9"/>
+                                        <field name="i_achizitiiS5"/>
+                                    </group>
+                                </group>
+                                <group string="Livrari/Prestari">
+                                    <group>
+                                        <field name="i_livrariBI"/>
+                                        <field name="i_BUN24"/>
+                                        <field name="i_BUN20"/>
+                                        <field name="i_BUN19"/>
+                                        <field name="i_BUN9"/>
+                                        <field name="i_BUN5"/>
+                                        <field name="i_valoareScutit"/>
+                                        <field name="i_BunTI"/>
+                                    </group>
+                                    <group>
+                                        <field name="i_Prest24"/>
+                                        <field name="i_Prest20"/>
+                                        <field name="i_Prest19"/>
+                                        <field name="i_Prest9"/>
+                                        <field name="i_Prest5"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="i_PrestScutit"/>
+                                        <field name="i_LIntra"/>
+                                        <field name="i_PrestIntra"/>
+                                        <field name="i_Export"/>
+                                        <field name="i_livINecorp"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Facturi">
+                                <field name="invoice_ids"/>
+                            </page>
+                            <page string="Facturi Platite">
+                                <field name="paid_invoice_ids"/>
+                            </page>
+                            <page string="Informatii">
+                                <group>
+                                    <group string="Informatii Partner">
+                                        <field name="i_nrCui1"/>
+                                        <field name="i_nrCui2"/>
+                                        <field name="i_nrCui3"/>
+                                        <field name="i_nrCui4"/>
+                                    </group>
+                                    <group string="Incasari">
+                                        <field name="i_nr_BF_i1"/>
+                                        <field name="i_incasari_i1"/>
+                                        <field name="i_incasari_i2"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Nr. Facturi">
+                                        <field name="i_nrFacturi_terti"/>
+                                        <field name="i_nrFacturi_benef"/>
+                                        <field name="i_nrFacturi"/>
+                                        <field name="i_nrFacturiL_PF"/>
+                                        <field name="i_nrFacturiLS_PF"/>
+                                        <field name="i_val_LS_PF"/>
+                                    </group>
+                                    <group>
+                                    </group>
+                                </group>
+                                <group string="Informatii TVA">
+                                    <group>
+                                        <field name="i_tvaDed24"/>
+                                        <field name="i_tvaDed20"/>
+                                        <field name="i_tvaDed19"/>
+                                        <field name="i_tvaDed9"/>
+                                        <field name="i_tvaDed5"/>
+                                    </group>
+                                    <group>
+                                        <field name="i_tvaDedAI24"/>
+                                        <field name="i_tvaDedAI20"/>
+                                        <field name="i_tvaDedAI19"/>
+                                        <field name="i_tvaDedAI9"/>
+                                        <field name="i_tvaDedAI5"/>
+                                    </group>
+                                    <group>
+                                        <field name="i_tvaCol24"/>
+                                        <field name="i_tvaCol20"/>
+                                        <field name="i_tvaCol19"/>
+                                        <field name="i_tvaCol9"/>
+                                        <field name="i_tvaCol5"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Op1">
+                                <field name="op1_ids"/>
+                            </page>
+                            <page string="Op2">
+                                <field name="op2_ids"/>
+                            </page>
+                            <page string="Rezumat1">
+                                <field name="rezumat1_ids"/>
+                            </page>
+                            <page string="Rezumat2">
+                                <field name="rezumat2_ids"/>
+                            </page>
+                            <page string="Serie Facturi">
+                                <field name="serie_facturi_ids"/>
+                            </page>
+                            <page string="Facturi">
+                                <field name="facturi_ids"/>
+                            </page>
+                            <page string="Lista">
+                                <field name="lista_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="d394_list_view">
+            <field name="name">Declaratie 394 list</field>
+            <field name="model">l10_romania.report.d394</field>
+            <field name="arch" type="xml">
+                <list string="Declaratii 394">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_d394">
+            <field name="name">Declaratie 394</field>
+            <field name="res_model">l10_romania.report.d394</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="d394_menu" name="Declaratii 394"
+            parent="dakai_declarations_common.declaration_menu" sequence="15" action="action_d394"/>
+    </data>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="d394_serie_facturi_form_view">
+            <field name="name">Declaratie 394 Serie Facturi Form</field>
+            <field name="model">report.d394.serie_facturi</field>
+            <field name="arch" type="xml">
+                <form string="Declaratie 394 Serie Facturi">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="journal_id"/>
+                                <field name="l10n_ro_sequence_type"/>
+                            </group>
+                            <group>
+                                <field name="serieI"/>
+                                <field name="nrI"/>
+                                <field name="nrF"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Facturi">
+                                <field name="invoice_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="d394_serie_facturi_list_view">
+            <field name="name">Declaratie 394 Serie Facturi list</field>
+            <field name="model">report.d394.serie_facturi</field>
+            <field name="arch" type="xml">
+                <list string="Declaratii 394 Serie Facturi">
+                    <field name="name"/>
+                    <field name="journal_id"/>
+                    <field name="l10n_ro_sequence_type"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

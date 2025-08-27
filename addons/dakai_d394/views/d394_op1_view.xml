@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="d394_op1_form_view">
+            <field name="name">Declaratie 394 OP1 Form</field>
+            <field name="model">report.d394.op1</field>
+            <field name="arch" type="xml">
+                <form string="Declaratie 394 OP1">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="l10n_ro_partner_type"/>
+                                <field name="l10n_ro_operation_type"/>
+                                <field name="l10n_ro_invoice_origin_d394"/>
+                            </group>
+                            <group>
+                                <field name="cota"/>
+                                <field name="nrFact"/>
+                                <field name="baza"/>
+                                <field name="tva"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Facturi">
+                                <field name="invoice_ids"/>
+                            </page>
+                            <page string="Informatii">
+                                <group>
+                                    <group>
+                                        <field name="nrFact"/>
+                                        <field name="baza"/>
+                                        <field name="tva"/>
+                                    </group>
+                                    <group>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="OP11" invisible="not op11_ids">
+                                <field name="op11_ids">
+                                    <list>
+                                        <field name="codPR"/>
+                                        <field name="bazaPR"/>
+                                        <field name="tvaPR"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="d394_op1_list_view">
+            <field name="name">Declaratie 394 OP1 list</field>
+            <field name="model">report.d394.op1</field>
+            <field name="arch" type="xml">
+                <list string="Declaratii 394 OP1">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="l10n_ro_partner_type"/>
+                    <field name="l10n_ro_operation_type"/>
+                    <field name="l10n_ro_invoice_origin_d394"/>
+                    <field name="cota"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

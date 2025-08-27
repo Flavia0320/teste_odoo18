@@ -30,8 +30,17 @@ OCA:
   - l10n_ro_config
   - l10n_ro_stock
   - l10n_ro_stock_account
+  - l10n_ro_vat_on_payment
 
 dks_repo:
   - common_fprint
   - pos_fprint
   - restrict_pos_sale
+
+declaratii:
+  - dakai_account_report_journal
+  - dakai_d300
+  - dakai_d390
+  - dakai_d394
+  - dakai_declarations_common
+  - dakai_declarations_to_xml

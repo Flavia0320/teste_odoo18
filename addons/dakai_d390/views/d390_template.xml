@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="d390_template">
+        <declaratie390
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns="mfp:anaf:dgti:d390:declaratie:v3"
+                xsi:schemaLocation="mfp:anaf:dgti:d390:declaratie:v3 D390.xsd"
+                t-att-luna="doc.luna"
+                t-att-an="doc.an"
+                t-att-d_rec="doc.d_rec and '1' or '0'"
+                totalPlata_A="114155"
+                t-att-nume_declar="doc.nume_declar"
+                t-att-prenume_declar="doc.prenume_declar"
+                t-att-functie_declar="doc.functie_declar"
+                t-att-cui="doc.cui"
+                t-att-den="doc.den"
+                t-att-adresa="doc.adresa"
+                t-att-telefon="doc.telefon"
+                t-att-mail="doc.mail">
+            <rezumat
+                    t-att-nrOPI="str(doc.rezumat_nrOPI)"
+                    t-att-bazaL="str(doc.rezumat_bazaL)"
+                    t-att-bazaT="str(doc.rezumat_bazaT)"
+                    t-att-bazaA="str(doc.rezumat_bazaA)"
+                    t-att-bazaP="str(doc.rezumat_bazaP)"
+                    t-att-bazaS="str(doc.rezumat_bazaS)"
+                    t-att-bazaR="str(doc.rezumat_bazaR)"
+                    t-att-total_baza="str(doc.rezumat_total_baza)"
+                    t-att-nr_pag="str(doc.rezumat_nr_pag)"
+            />
+            <t t-foreach="doc.cos_ids" t-as="cos">
+                <cos
+                        t-att-tip="cos.tip"
+                        t-att-tara_m1="cos.tara_m1"
+                        t-att-cod_m1="cos.cod_m1"
+                        t-if="not cos.tara_m2"
+                />
+                <cos
+                        t-att-tip="cos.tip"
+                        t-att-tara_m1="cos.tara_m1"
+                        t-att-cod_m1="cos.cod_m1"
+                        t-att-motiv="cos.motiv or ''"
+                        t-att-tara_m2="cos.tara_m2"
+                        t-att-cod_m2="cos.cod_m2"
+                        t-if="cos.tara_m2"
+                />
+            </t>
+            <t t-foreach="doc.operatie_ids" t-as="operatie">
+                <operatie
+                        t-att-tara="operatie.tara"
+                        t-att-codO="operatie.codO"
+                        t-att-denO="operatie.denO"
+                        t-att-tip="operatie.tip"
+                        t-att-baza="str(operatie.baza)"
+                />
+            </t>
+        </declaratie390>
+    </template>
+</odoo>

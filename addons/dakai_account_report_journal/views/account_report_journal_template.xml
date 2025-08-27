@@ -1,0 +1,252 @@
+<odoo>
+    <template id="account_report_journal_template" name="Report Journal">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <p class="mb0">
+                            <strong>Companie:</strong>
+                            <span t-esc="o.company_id.name"/>
+                        </p>
+                        <p class="mb0">
+                            <strong>Address:</strong>
+                            <address
+                                t-field="o.company_id.partner_id"
+                                t-options='{"widget": "contact", "fields": ["address"], "no_marker": true, "no_tag_br": true}'
+                            />
+                        </p>
+                        <p t-if="o.company_id.partner_id.vat" class="mb0">
+                            <strong>CIF:</strong>
+                            <span t-field="o.company_id.partner_id.vat" />
+                        </p>
+                        <p t-if="o.company_id.partner_id.nrc" class="mb0">
+                            <strong>NRC:</strong>
+                            <span t-field="o.company_id.partner_id.nrc" />
+                        </p>
+                        <h2 t-if="o.type == 'sale'">JURNAL PENTRU VÂNZĂRI</h2>
+                        <h2 t-if="o.type == 'purchase'">JURNAL PENTRU ACHIZITII</h2>
+                        <h4>
+                            <span>De la data:</span>
+                            <span t-esc="o.start_date" />
+                            <span>pana la data:</span>
+                            <span t-esc="o.end_date" />
+                        </h4>
+                        <t t-if="o.type == 'sale'" t-call="dakai_account_report_journal.account_report_journal_template_sale"/>
+                        <t t-if="o.type == 'purchase'" t-call="dakai_account_report_journal.account_report_journal_template_purchase"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="account_report_journal_template_sale" name="Report Journal Sale">
+        <table class="table table-sm table-bordered" style="font-size:12px;">
+          <thead>
+            <tr>
+              <th rowspan="2" width="4%">Nr. crt.</th>
+              <th colspan="2">Document</th>
+              <th rowspan="2">Denumirea/Numele<br/>clientului/beneficiarului</th>
+              <th rowspan="2">Codul de înregistrare in scopuri de TVA al<br/>clientului/beneficiarului</th>
+              <th rowspan="2">Total document<br/>(inclusiv TVA)</th>
+              <th colspan="8">Livrări de bunuri și prestări de servicii taxabile</th>
+              <th rowspan="2">Bunuri și servicii pentru care s-a aplicat un regim special, conform art. 1521 sau 1522 din Codul fiscal</th>
+              <th colspan="5">Plati - Operatii exigibile</th>
+              <th colspan="2">Operatii neexigibile</th>
+              <th colspan="2">Livrări de bunuri și prestări de servicii pentru care locul livrării/prestării este în afara României</th>
+              <th rowspan="2">Scutite conform art. 143 alin. (2) lit. a) și d) din Codul fiscal</th>
+              <th rowspan="2">Scutite conform art. 143 alin. (2) lit. b) și c) din Codul fiscal</th>
+              <th rowspan="2">Alte livrări de bunuri și prestări de servicii scutite cu drept de deducere</th>
+              <th colspan="2">Intracomunitară și taxare inversă</th>
+            </tr>
+            <tr>
+              <th width="4%">Numar</th>
+              <th width="6%">Data</th>
+              <th>Baza Total</th>
+              <th>TVA Total</th>
+              <th>Baza 19%</th>
+              <th>TVA 19%</th>
+              <th>Baza 9%</th>
+              <th>TVA 9%</th>
+              <th>Baza 5%</th>
+              <th>TVA 5%</th>
+              <th>Numar</th>
+              <th>Data</th>
+              <th>Total</th>
+              <th>Baza</th>
+              <th>TVA</th>
+              <th>Baza</th>
+              <th>TVA</th>
+              <th>Cu drept de deducere</th>
+              <th>Fără drept de deducere</th>
+              <th>Baza</th>
+              <th>TVA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-set="nr_crt" t-value="1"/>
+            <t t-foreach="o.account_report_journal_line_ids" t-as="line">
+              <t t-set="payment_rowspan" t-value="str(len(line.journal_payment_ids)) if len(line.journal_payment_ids) &gt; 1 else '1'"/>
+              <tr>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="nr_crt"/>.</td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.name"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.date"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.partner_id"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.invoice_total"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.total_base"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.total_vat"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_19"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva_19"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_9"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva_9"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_5"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva_5"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_0"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-esc="line.journal_payment_ids[0].payment_number"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].payment_date"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].total_exig"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].base_exig"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].tva_exig"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.base_neex"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.tva_neex"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_base_deduction"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_base_nondeduction"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_scutit_a_d"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_scutit_b_c"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_scutit_other"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_base_invers_tax"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_tva_invers_tax"/></td>
+              </tr>
+              <t t-if="len(line.journal_payment_ids) &gt; 1" t-foreach="line.journal_payment_ids[1:]" t-as="pay">
+                <tr>
+                  <td><span t-field="pay.payment_number"/></td>
+                  <td><span t-field="pay.payment_date"/></td>
+                  <td><span t-field="pay.total_exig"/></td>
+                  <td><span t-field="pay.base_exig"/></td>
+                  <td><span t-field="pay.tva_exig"/></td>
+                </tr>
+              </t>
+              <t t-set="nr_crt" t-value="nr_crt + 1"/>
+            </t>
+          </tbody>
+        </table>
+    </template>
+    <template id="account_report_journal_template_purchase" name="Report Journal Purchase">
+        <table class="table table-sm table-bordered" style="font-size:12px;">
+          <thead>
+            <tr>
+              <th rowspan="2" width="4%">Nr. crt.</th>
+              <th colspan="2">Document</th>
+              <th rowspan="2">Denumirea/Numele<br/>clientului/beneficiarului</th>
+              <th rowspan="2">Codul de înregistrare in scopuri de TVA al<br/>clientului/beneficiarului</th>
+              <th rowspan="2">Total document<br/>(inclusiv TVA)</th>
+              <th colspan="8">Achiziții de bunuri și servicii din țară și importuri de bunuri taxabile</th>
+              <th rowspan="2">Achiziții de bunuri scutite sau neimpozabile</th>
+              <th colspan="5">Plati - Operatii exigibile</th>
+              <th colspan="2">Operatii neexigibile</th>
+              <th colspan="4">Achiziții intracomunitare de servicii și bunuri</th>
+              <th rowspan="2">Intracom. cumpărături scutite</th>
+              <th rowspan="2">Intracom. cumpărături neimpozabile</th>
+              <th colspan="2">Intracomunitară și taxare inversă</th>
+            </tr>
+            <tr>
+              <th width="4%">Numar</th>
+              <th width="6%">Data</th>
+              <th>Baza Total</th>
+              <th>TVA Total</th>
+              <th>Baza 19%</th>
+              <th>TVA 19%</th>
+              <th>Baza 9%</th>
+              <th>TVA 9%</th>
+              <th>Baza 5%</th>
+              <th>TVA 5%</th>
+              <th>Numar</th>
+              <th>Data</th>
+              <th>Total</th>
+              <th>Baza</th>
+              <th>TVA</th>
+              <th>Baza</th>
+              <th>TVA</th>
+              <th>Baza Servicii</th>
+              <th>TVA Servicii</th>
+              <th>Baza Produse</th>
+              <th>TVA Produse</th>
+              <th>Baza</th>
+              <th>TVA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-set="nr_crt" t-value="1"/>
+            <t t-foreach="o.account_report_journal_line_ids" t-as="line">
+              <t t-set="payment_rowspan" t-value="str(len(line.journal_payment_ids)) if len(line.journal_payment_ids) &gt; 1 else '1'"/>
+              <tr>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="nr_crt"/>.</td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.name"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.date"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.partner_id"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.invoice_total"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.total_base"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.total_vat"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_19"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva_19"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_9"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva_9"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_5"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.tva_5"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-esc="line.base_0"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-esc="line.journal_payment_ids[0].payment_number"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].payment_date"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].total_exig"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].base_exig"/></td>
+                <td rowspan="1"><span t-if="line.journal_payment_ids" t-field="line.journal_payment_ids[0].tva_exig"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.base_neex"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.tva_neex"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_base_deduction"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_tva_deduction"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_base_nondeduction"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_tva_nondeduction"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_scutit_a_d"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_scutit_b_c"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_base_invers_tax"/></td>
+                <td t-att-rowspan="payment_rowspan"><span t-field="line.intracom_tva_invers_tax"/></td>
+              </tr>
+              <t t-if="len(line.journal_payment_ids) &gt; 1" t-foreach="line.journal_payment_ids[1:]" t-as="pay">
+                <tr>
+                  <td><span t-field="pay.payment_number"/></td>
+                  <td><span t-field="pay.payment_date"/></td>
+                  <td><span t-field="pay.total_exig"/></td>
+                  <td><span t-field="pay.base_exig"/></td>
+                  <td><span t-field="pay.tva_exig"/></td>
+                </tr>
+              </t>
+              <t t-set="nr_crt" t-value="nr_crt + 1"/>
+            </t>
+          </tbody>
+        </table>
+    </template>
+    <record id="paperformat_A3_landscape" model="report.paperformat">
+        <field name="name">A3 Landscape</field>
+        <field name="default" eval="True" />
+        <field name="format">A3</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">15</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="account_report_journal_report" model="ir.actions.report">
+        <field name="name">Jurnal Vanzari/Achizitii</field>
+        <field name="model">account.report.journal</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dakai_account_report_journal.account_report_journal_template</field>
+        <field name="report_file">dakai_account_report_journal.account_report_journal_template</field>
+        <field name="print_report_name">(object.name)</field>
+        <field name="binding_model_id" ref="dakai_account_report_journal.model_account_report_journal"/>
+        <field name="paperformat_id" ref="paperformat_A3_landscape" />
+    </record>
+</odoo>

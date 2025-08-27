@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="d300_form_view">
+            <field name="name">Declaratie 300 Form</field>
+            <field name="model">l10_romania.report.d300</field>
+            <field name="arch" type="xml">
+                <form string="Declaratie 300">
+                    <header>
+                        <button name="rebuild_declaration" string="Rebuild" type="object" class="btn-primary"/>
+                        <button name="export_declaration" string="Export" type="object" class="btn-primary"/>
+<!--                        <field name="state" widget="statusbar"/>-->
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="version"/>
+                                <field name="company_id"/>
+                                <field name="succesor_id"/>
+                                <field name="reprezentant_id"/>
+                                <field name="depus_reprezentant"/>
+                                <field name="bifa_interne"/>
+                                <field name="solicit_ramb"/>
+                                <field name="temei"/>
+                            </group>
+                            <group>
+                                <field name="luna"/>
+                                <field name="an"/>
+                                <field name="tip_D300"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Invoice Lines">
+                                <field name="move_line_ids"/>
+                            </page>
+                            <page string="Valori">
+                                <group>
+                                    <group>
+                                        <group>
+                                            <field name="R1_1"/>
+                                            <field name="R2_1"/>
+                                            <field name="R3_1"/>
+                                            <field name="R3_1_1"/>
+                                            <field name="R4_1"/>
+                                            <field name="R5_1"/>
+                                            <field name="R5_2"/>
+                                            <field name="R5_1_1"/>
+                                            <field name="R5_1_2"/>
+                                            <field name="R6_1"/>
+                                            <field name="R6_2"/>
+                                            <field name="R7_1"/>
+                                            <field name="R7_2"/>
+                                            <field name="R7_1_1"/>
+                                            <field name="R7_1_2"/>
+                                            <field name="R8_1"/>
+                                            <field name="R8_2"/>
+                                            <field name="R9_1"/>
+                                            <field name="R9_2"/>
+                                            <field name="R10_1"/>
+                                            <field name="R10_2"/>
+                                            <field name="R11_1"/>
+                                            <field name="R11_2"/>
+                                        </group>
+                                        <group>
+                                            <field name="R12_1"/>
+                                            <field name="R12_2"/>
+                                            <field name="R12_1_1"/>
+                                            <field name="R12_1_2"/>
+                                            <field name="R12_2_1"/>
+                                            <field name="R12_2_2"/>
+                                            <field name="R12_3_1"/>
+                                            <field name="R12_3_2"/>
+                                            <field name="R13_1"/>
+                                            <field name="R14_1"/>
+                                            <field name="R67_1"/>
+                                            <field name="R68_1"/>
+                                            <field name="R15_1"/>
+                                            <field name="R16_1"/>
+                                            <field name="R16_2"/>
+                                            <field name="R64_1"/>
+                                            <field name="R64_2"/>
+                                            <field name="R65_1"/>
+                                            <field name="R65_2"/>
+                                            <field name="R17_1"/>
+                                            <field name="R17_2"/>
+                                            <field name="R18_1"/>
+                                            <field name="R18_2"/>
+                                            <field name="R18_1_1"/>
+                                            <field name="R18_1_2"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="R19_1"/>
+                                            <field name="R19_2"/>
+                                            <field name="R20_1"/>
+                                            <field name="R20_2"/>
+                                            <field name="R20_1_1"/>
+                                            <field name="R21_1"/>
+                                            <field name="R21_2"/>
+                                            <field name="R22_1"/>
+                                            <field name="R22_2"/>
+                                            <field name="R23_1"/>
+                                            <field name="R23_2"/>
+                                            <field name="R24_1"/>
+                                            <field name="R24_2"/>
+                                            <field name="R25_1"/>
+                                            <field name="R25_2"/>
+                                            <field name="R25_1_1"/>
+                                            <field name="R25_1_2"/>
+                                            <field name="R25_2_1"/>
+                                            <field name="R25_2_2"/>
+                                            <field name="R25_3_1"/>
+                                            <field name="R25_3_2"/>
+                                        </group>
+                                        <group>
+                                            <field name="R43_2"/>
+                                            <field name="R44_2"/>
+                                            <field name="R26_1"/>
+                                            <field name="R26_1_1"/>
+                                            <field name="R27_1"/>
+                                            <field name="R27_2"/>
+                                            <field name="R28_2"/>
+                                            <field name="R29_2"/>
+                                            <field name="R30_1"/>
+                                            <field name="R30_2"/>
+                                            <field name="R31_2"/>
+                                            <field name="R32_2"/>
+                                            <field name="R33_2"/>
+                                            <field name="R34_2"/>
+                                            <field name="R35_2"/>
+                                            <field name="R36_2"/>
+                                            <field name="R37_2"/>
+                                            <field name="R38_2"/>
+                                            <field name="R39_2"/>
+                                            <field name="R40_2"/>
+                                            <field name="R41_2"/>
+                                            <field name="R42_2"/>
+                                        </group>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="d300_list_view">
+            <field name="name">Declaratie 300 list</field>
+            <field name="model">l10_romania.report.d300</field>
+            <field name="arch" type="xml">
+                <list string="Declaratii 300">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_d300">
+            <field name="name">Declaratie 300</field>
+            <field name="res_model">l10_romania.report.d300</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="d300_menu" name="Declaratii 300"
+            parent="dakai_declarations_common.declaration_menu" sequence="10" action="action_d300"/>
+    </data>
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="d394_facturi_form_view">
+            <field name="name">Declaratie 394 Facturi Form</field>
+            <field name="model">report.d394.facturi</field>
+            <field name="arch" type="xml">
+                <form string="Declaratie 394 Facturi">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="invoice_id"/>
+                                <field name="tip_factura"/>
+                            </group>
+                            <group>
+                                <field name="serie"/>
+                                <field name="nr"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Informatii">
+                                <group>
+                                    <group>
+                                        <field name="baza5"/>
+                                        <field name="baza9"/>
+                                        <field name="baza19"/>
+                                        <field name="baza20"/>
+                                        <field name="baza24"/>
+                                    </group>
+                                    <group>
+                                        <field name="tva5"/>
+                                        <field name="tva9"/>
+                                        <field name="tva19"/>
+                                        <field name="tva20"/>
+                                        <field name="tva24"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="d394_facturi_list_view">
+            <field name="name">Declaratie 394 Facturi list</field>
+            <field name="model">report.d394.facturi</field>
+            <field name="arch" type="xml">
+                <list string="Declaratii 394 Facturi">
+                    <field name="name"/>
+                    <field name="invoice_id"/>
+                    <field name="serie"/>
+                    <field name="nr"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

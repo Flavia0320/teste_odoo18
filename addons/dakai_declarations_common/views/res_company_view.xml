@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_company_form_inherit_caen" model="ir.ui.view">
+        <field name="name">res.company.form.inherit.caen</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <page name="general_info" position="after">
+                <page string="Romania - Partners" name="l10n_ro_partner">
+                    <group>
+                        <group>
+                            <field name="l10n_ro_affiliated_person_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

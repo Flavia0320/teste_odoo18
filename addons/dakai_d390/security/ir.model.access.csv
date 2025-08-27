@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_l10_romania_report_d390,access_l10_romania_report_d390,model_l10_romania_report_d390,,1,1,1,1
+access_report_d390_operatie,access_report_d390_operatie,model_report_d390_operatie,,1,1,1,1
+access_report_d390_cos,access_report_d390_cos,model_report_d390_cos,,1,1,1,1

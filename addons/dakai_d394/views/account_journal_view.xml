@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_account_journal_form_inheritedD394" model="ir.ui.view">
+        <field name="name">account.journal.form.inheritdD394</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_alias_edit']" position="after">
+                <field name="is_l10n_ro_record" invisible="1" />
+                <group
+                    string="Ro Auto Invoicing"
+                    invisible="not is_l10n_ro_record"
+                >
+                    <field name="l10n_ro_fiscal_receipt" />
+                    <field name="l10n_ro_sequence_type" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_report_journal_form_view">
+            <field name="name">ANAF Sale/Purchase Journal Form</field>
+            <field name="model">account.report.journal</field>
+            <field name="arch" type="xml">
+                <form string="ANAF Sale/Purchase Journal">
+                    <header>
+                        <button name="rebuild" string="Rebuild" type="object" class="btn-primary"/>
+                        <button name="export" string="Export" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="type"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Invoices">
+                                <field name="account_report_journal_line_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="date"/>
+                                        <field name="invoice_total"/>
+                                        <field name="total_base"/>
+                                        <field name="total_vat"/>
+                                    </list>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="partner_id"/>
+                                                    <field name="tva"/>
+                                                </group>
+                                                <group>
+                                                    <field name="name"/>
+                                                    <field name="date"/>
+                                                    <field name="invoice_total"/>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Detalii">
+                                                    <group string="Detalii Baza/TVA">
+                                                        <group>
+                                                            <field name="total_base"/>
+                                                            <field name="base_19"/>
+                                                            <field name="base_9"/>
+                                                            <field name="base_5"/>
+                                                        </group>
+                                                        <group>
+                                                            <field name="total_vat"/>
+                                                            <field name="tva_19"/>
+                                                            <field name="tva_9"/>
+                                                            <field name="tva_5"/>
+                                                        </group>
+                                                    </group>
+                                                    <group string="Intracom">
+                                                        <group>
+                                                            <field name="intracom_base_deduction"/>
+                                                            <field name="intracom_base_nondeduction"/>
+                                                            <field name="intracom_scutit_a_d"/>
+                                                            <field name="intracom_scutit_other"/>
+                                                        </group>
+                                                        <group>
+                                                            <field name="intracom_tva_deduction"/>
+                                                            <field name="intracom_tva_nondeduction"/>
+                                                            <field name="intracom_scutit_b_c"/>
+                                                        </group>
+                                                    </group>
+                                                    <group>
+                                                        <group>
+                                                            <field name="intracom_base_invers_tax"/>
+                                                        </group>
+                                                        <group>
+                                                            <field name="intracom_tva_invers_tax"/>
+                                                        </group>
+                                                    </group>
+                                                </page>
+                                                <page string="Plati">
+                                                    <field name="journal_payment_ids" readonly="1">
+                                                        <list>
+                                                            <field name="payment_number"/>
+                                                            <field name="payment_date"/>
+                                                            <field name="total_exig"/>
+                                                        </list>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="payment_number"/>
+                                                                        <field name="base_exig"/>
+                                                                        <field name="total_exig"/>
+                                                                    </group>
+                                                                    <group>
+                                                                        <field name="payment_date"/>
+                                                                        <field name="tva_exig"/>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                    <group>
+                                                        <group>
+                                                            <field name="base_neex"/>
+                                                        </group>
+                                                        <group>
+                                                            <field name="tva_neex"/>
+                                                        </group>
+                                                    </group>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Totals">
+                                <group string="Detalii Baza/TVA">
+                                    <group>
+                                        <field name="report_total_total_base"/>
+                                        <field name="report_total_base_19"/>
+                                        <field name="report_total_base_9"/>
+                                        <field name="report_total_base_5"/>
+                                    </group>
+                                    <group>
+                                        <field name="report_total_total_vat"/>
+                                        <field name="report_total_tva_19"/>
+                                        <field name="report_total_tva_9"/>
+                                        <field name="report_total_tva_5"/>
+                                    </group>
+                                </group>
+                                <group string="Intracom">
+                                    <group>
+                                        <field name="report_total_intracom_base_deduction"/>
+                                        <field name="report_total_intracom_base_nondeduction"/>
+                                        <field name="report_total_intracom_scutit_a_d"/>
+                                        <field name="report_total_intracom_scutit_other"/>
+                                    </group>
+                                    <group>
+                                        <field name="report_total_intracom_tva_deduction"/>
+                                        <field name="report_total_intracom_tva_nondeduction"/>
+                                        <field name="report_total_intracom_scutit_b_c"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="report_total_intracom_base_invers_tax"/>
+                                    </group>
+                                    <group>
+                                        <field name="report_total_intracom_tva_invers_tax"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_report_journal_list_view">
+            <field name="name">ANAF Sale/Purchase Journal list</field>
+            <field name="model">account.report.journal</field>
+            <field name="arch" type="xml">
+                <list string="ANAF Sale/Purchase Journal">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_account_report_journal">
+            <field name="name">ANAF Sale/Purchase Journal</field>
+            <field name="res_model">account.report.journal</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="account_report_journal_menu" name="ANAF Sale/Purchase Journal"
+            parent="account.menu_finance_reports" sequence="21" action="action_account_report_journal"/>
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="l10n_ro_declaration_view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='other_tab_group']" position="inside">
+                <field name="is_l10n_ro_record" invisible="1" />
+                <group>
+                  <field name="l10n_ro_partner_type" readonly="0"/>
+                </group>
+                <group
+                    id="ro_invoicing_sales"
+                    invisible="move_type not in ['out_invoice', 'out_refund'] or not is_l10n_ro_record"
+                >
+                    <field name="l10n_ro_correction" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
