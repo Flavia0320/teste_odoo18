@@ -37,16 +37,17 @@ class DeclaratiaD394Op1(models.Model):
     @api.depends("partner_id")
     def _get_partner_data(self):
         for s in self:
-            cui = s.partner_id.vat
-            if cui and not cui[0].isalpha():
-                cui = 'RO' + cui
-            s.cuiP = cui and self.env['res.partner']._split_vat(cui)[1] or False
-            s.denP = s.partner_id.name
-            s.taraP = s.partner_id.country_id.code
-            s.locP = s.partner_id.city
-            s.judP = s.partner_id.state_id.l10n_ro_order_code
-            s.strP = s.partner_id.street
-            s.detP = s.partner_id.street2
+            if s.partner_id:
+                cui = s.partner_id.vat
+                if cui and not cui[0].isalpha():
+                    cui = 'RO' + cui
+                s.cuiP = cui and self.env['res.partner']._split_vat(cui)[1] or False
+                s.denP = s.partner_id.name
+                s.taraP = s.partner_id.country_id.code
+                s.locP = s.partner_id.city
+                s.judP = s.partner_id.state_id.l10n_ro_order_code
+                s.strP = s.partner_id.street
+                s.detP = s.partner_id.street2
 
     l10n_ro_invoice_origin_d394 = fields.Selection(
         inv_origin(), string="Document type", default="1"

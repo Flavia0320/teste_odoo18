@@ -63,7 +63,7 @@ class TestD390Cos(TransactionCase):
                         if nc8_code not in cos_data:
                             cos_data[nc8_code] = 0
                         price = move.product_id.list_price or move.product_id.standard_price
-                        cos_data[nc8_code] += move.product_uom_qty * price
+                        cos_data[nc8_code] += move.qty_done * price
 
             for code, value in cos_data.items():
                 self.Cos.create({
@@ -106,7 +106,7 @@ class TestD390Cos(TransactionCase):
         picking.date_done = date_str
 
         for ml in picking.move_line_ids:
-            ml.qty_done = ml.product_uom_qty
+            ml.qty_done = ml.quantity
         picking._action_done()
 
         return picking
