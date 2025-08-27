@@ -16,12 +16,12 @@ class TestD300Computation(TransactionCase):
         cls.company.l10n_ro_property_vat_on_payment_position_id = cls.vat_on_payment_fp.id
 
         cls.account_4423 = cls.env["account.account"].create({
-            "code": "442300",
+            "code": "442311",
             "name": "TVA collected",
             "company_ids": [(6, 0, [cls.company.id])],
         })
         cls.account_4424 = cls.env["account.account"].create({
-            "code": "442400",
+            "code": "442411",
             "name": "TVA deductible",
             "company_ids": [(6, 0, [cls.company.id])],
         })
