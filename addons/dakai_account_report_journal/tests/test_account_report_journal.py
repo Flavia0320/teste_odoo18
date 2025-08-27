@@ -22,8 +22,8 @@ class TestAccountReportJournal(TransactionCase):
             'company_id': cls.company.id,
         })
 
-        revenue_account = cls.env['account.account'].search([('name', '=', 'Other Income')], limit=1)
-        expense_account = cls.env['account.account'].search([('name', '=', 'Expenses')], limit=1)
+        revenue_account = cls.env['account.account'].search([('account_type', '=', 'income_other')], limit=1)
+        expense_account = cls.env['account.account'].search([('account_type', '=', 'expense')], limit=1)
 
         cls.invoice_sale = cls.env['account.move'].create({
             'move_type': 'out_invoice',

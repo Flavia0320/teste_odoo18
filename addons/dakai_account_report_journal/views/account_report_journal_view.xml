@@ -36,52 +36,34 @@
                                     <form>
                                         <sheet>
                                             <group>
-                                                <group>
-                                                    <field name="partner_id"/>
-                                                    <field name="tva"/>
-                                                </group>
-                                                <group>
-                                                    <field name="name"/>
-                                                    <field name="date"/>
-                                                    <field name="invoice_total"/>
-                                                </group>
+                                                <field name="partner_id"/>
+                                                <field name="tva"/>
+                                                <field name="name"/>
+                                                <field name="date"/>
+                                                <field name="invoice_total"/>
                                             </group>
                                             <notebook>
                                                 <page string="Detalii">
-                                                    <group string="Detalii Baza/TVA">
-                                                        <group>
-                                                            <field name="total_base"/>
-                                                            <field name="base_19"/>
-                                                            <field name="base_9"/>
-                                                            <field name="base_5"/>
-                                                        </group>
-                                                        <group>
-                                                            <field name="total_vat"/>
-                                                            <field name="tva_19"/>
-                                                            <field name="tva_9"/>
-                                                            <field name="tva_5"/>
-                                                        </group>
+                                                    <group string="Detalii Baza/TVA" col="4">
+                                                        <field name="total_base"/>
+                                                        <field name="base_19"/>
+                                                        <field name="base_9"/>
+                                                        <field name="base_5"/>
+                                                        <field name="total_vat"/>
+                                                        <field name="tva_19"/>
+                                                        <field name="tva_9"/>
+                                                        <field name="tva_5"/>
                                                     </group>
-                                                    <group string="Intracom">
-                                                        <group>
-                                                            <field name="intracom_base_deduction"/>
-                                                            <field name="intracom_base_nondeduction"/>
-                                                            <field name="intracom_scutit_a_d"/>
-                                                            <field name="intracom_scutit_other"/>
-                                                        </group>
-                                                        <group>
-                                                            <field name="intracom_tva_deduction"/>
-                                                            <field name="intracom_tva_nondeduction"/>
-                                                            <field name="intracom_scutit_b_c"/>
-                                                        </group>
-                                                    </group>
-                                                    <group>
-                                                        <group>
-                                                            <field name="intracom_base_invers_tax"/>
-                                                        </group>
-                                                        <group>
-                                                            <field name="intracom_tva_invers_tax"/>
-                                                        </group>
+                                                    <group string="Intracom" col="4">
+                                                        <field name="intracom_base_deduction"/>
+                                                        <field name="intracom_base_nondeduction"/>
+                                                        <field name="intracom_scutit_a_d"/>
+                                                        <field name="intracom_scutit_other"/>
+                                                        <field name="intracom_tva_deduction"/>
+                                                        <field name="intracom_tva_nondeduction"/>
+                                                        <field name="intracom_scutit_b_c"/>
+                                                        <field name="intracom_base_invers_tax"/>
+                                                        <field name="intracom_tva_invers_tax"/>
                                                     </group>
                                                 </page>
                                                 <page string="Plati">
@@ -94,26 +76,18 @@
                                                         <form>
                                                             <sheet>
                                                                 <group>
-                                                                    <group>
-                                                                        <field name="payment_number"/>
-                                                                        <field name="base_exig"/>
-                                                                        <field name="total_exig"/>
-                                                                    </group>
-                                                                    <group>
-                                                                        <field name="payment_date"/>
-                                                                        <field name="tva_exig"/>
-                                                                    </group>
+                                                                    <field name="payment_number"/>
+                                                                    <field name="base_exig"/>
+                                                                    <field name="total_exig"/>
+                                                                    <field name="payment_date"/>
+                                                                    <field name="tva_exig"/>
                                                                 </group>
                                                             </sheet>
                                                         </form>
                                                     </field>
-                                                    <group>
-                                                        <group>
-                                                            <field name="base_neex"/>
-                                                        </group>
-                                                        <group>
-                                                            <field name="tva_neex"/>
-                                                        </group>
+                                                    <group col="2">
+                                                        <field name="base_neex"/>
+                                                        <field name="tva_neex"/>
                                                     </group>
                                                 </page>
                                             </notebook>
@@ -160,10 +134,7 @@
                             </page>
                         </notebook>
                     </sheet>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
-                        <field name="message_ids" widget="mail_thread"/>
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>
