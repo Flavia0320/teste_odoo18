@@ -35,12 +35,12 @@ class TestDeclaratiaD394Rezumat1(TransactionCase):
             "reprezentant_id": representant.id,
         })
         self.revenue_account = self.env['account.account'].search([('name', '=', 'Other Income')], limit=1)
-        self.revenue_account.write({'company_ids': self.company.id})
+        self.revenue_account.write({'company_ids': [(6, 0, [self.company.id])]})
         if not self.revenue_account:
             self.revenue_account = self.env['account.account'].create({
                 'name': 'Other Income',
                 'code': 'OTHINC',
-                'company_ids': self.company.id,
+                'company_ids': [(6, 0, [self.company.id])],
                 'active': True,
                 'account_type': 'income',
             })
@@ -48,13 +48,13 @@ class TestDeclaratiaD394Rezumat1(TransactionCase):
         self.receivable_account = self.env['account.account'].create({
             'name': 'Receivable',
             'code': 'CUSTREC',
-            'company_ids': self.company.id,
+            'company_ids': [(6, 0, [self.company.id])],
             'account_type': 'asset_receivable',
         })
         self.payable_account = self.env['account.account'].create({
             'name': 'Payable',
             'code': 'CUSTPAY',
-            'company_ids': self.company.id,
+            'company_ids': [(6, 0, [self.company.id])],
             'account_type': 'liability_payable',
         })
 

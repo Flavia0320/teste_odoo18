@@ -144,10 +144,8 @@ class DeclaratiaD394Op1(models.Model):
     def _get_tax_amounts(self, invoice):
         taxes = invoice._prepare_invoice_aggregated_taxes()
         amount_taxes = []
-        models._logger.error(f"GET TAX AMOUNTS {taxes['tax_details'].items()}")
-        for tax, details in taxes['tax_details'].items():
-            models._logger.error(f"GET TAX AMOUNTS TAX {tax}")
-            amount_taxes.append(tax.amount)
+        for tax, detalis in taxes['tax_details'].items():
+            amount_taxes += [detalis['raw_tax_amount']]
         return amount_taxes
 
     @api.model
