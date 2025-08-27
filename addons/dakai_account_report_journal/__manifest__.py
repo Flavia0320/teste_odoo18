@@ -15,5 +15,5 @@
      'views/account_report_journal_template.xml'
     ],
   'category': 'Accounting',
-  'depends': ['account','l10n_ro_config','l10n_ro_vat_on_payment'],
+  'depends': ['account','l10n_ro_config','l10n_ro_vat_on_payment', 'dakai_declarations_common'],
 }
