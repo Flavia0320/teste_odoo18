@@ -24,9 +24,10 @@ class DeclaratiaD390Operatie(models.Model):
     @api.depends("partner_id")
     def _get_partner_data(self):
         for s in self:
-            s.denO = s.partner_id.name.replace("&", "-").replace('"', "")
-            s.tara = s.partner_id.l10n_ro_country_code
-            s.codO = s.partner_id.l10n_ro_vat_number
+            if s.partner_id:
+                s.denO = s.partner_id.name.replace("&", "-").replace('"', "")
+                s.tara = s.partner_id.l10n_ro_country_code
+                s.codO = s.partner_id.l10n_ro_vat_number
 
     invoice_line_ids = fields.Many2many("account.move.line")
 
