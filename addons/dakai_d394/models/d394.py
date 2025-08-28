@@ -505,15 +505,15 @@ class DeclaratiaD394(models.Model):
                     sign = -1
                 taxes = i._prepare_invoice_aggregated_taxes()
                 for tax, details in taxes['tax_details'].items():
-                    if tax['tax'].amount == 24:
+                    if int(tax.amount) == 24:
                         tvaDedAI24 += sign * details['tax_amount']
-                    if tax['tax'].amount == 20:
+                    if int(tax.amount) == 20:
                         tvaDedAI20 += sign * details['tax_amount']
-                    if tax['tax'].amount == 19:
+                    if int(tax.amount) == 19:
                         tvaDedAI19 += sign * details['tax_amount']
-                    if tax['tax'].amount == 9:
+                    if int(tax.amount) == 9:
                         tvaDedAI9 += sign * details['tax_amount']
-                    if tax['tax'].amount == 5:
+                    if int(tax.amount) == 5:
                         tvaDedAI5 += sign * details['tax_amount']
             s.i_tvaDedAI24 = round(tvaDedAI24)
             s.i_tvaDedAI20 = round(tvaDedAI20)
@@ -528,15 +528,15 @@ class DeclaratiaD394(models.Model):
                     sign = -1
                 taxes = i._prepare_invoice_aggregated_taxes()
                 for tax, details in taxes['tax_details'].items():
-                    if tax['tax'].amount == 24 and self.c1_sistemTVA == 1:
+                    if int(tax.amount) == 24 and self.c1_sistemTVA == 1:
                         tvaCol24 += sign * details['tax_amount']
-                    if tax['tax'].amount == 20 and self.c1_sistemTVA == 1:
+                    if int(tax.amount) == 20 and self.c1_sistemTVA == 1:
                         tvaCol20 += sign * details['tax_amount']
-                    if tax['tax'].amount == 19 and self.c1_sistemTVA == 1:
+                    if int(tax.amount) == 19 and self.c1_sistemTVA == 1:
                         tvaCol19 += sign * details['tax_amount']
-                    if tax['tax'].amount == 9 and self.c1_sistemTVA == 1:
+                    if int(tax.amount) == 9 and self.c1_sistemTVA == 1:
                         tvaCol9 += sign * details['tax_amount']
-                    if tax['tax'].amount == 5 and self.c1_sistemTVA == 1:
+                    if int(tax.amount) == 5 and self.c1_sistemTVA == 1:
                         tvaCol5 += sign * details['tax_amount']
             s.i_tvaCol24 = tvaCol24
             s.i_tvaCol20 = tvaCol20

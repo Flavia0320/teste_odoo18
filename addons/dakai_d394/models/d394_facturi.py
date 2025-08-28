@@ -46,19 +46,19 @@ class DeclaratiaD394Facturi(models.Model):
                     sign = -1
                 taxes = s.invoice_id._prepare_invoice_aggregated_taxes()
                 for tax, details in taxes['tax_details'].items():
-                    if tax['tax'].amount == 5:
+                    if int(tax.amount) == 5:
                         baza5 += sign * details['base_amount']
                         tva5 += sign * details['tax_amount']
-                    if tax['tax'].amount == 9:
+                    if int(tax.amount) == 9:
                         baza9 += sign * details['base_amount']
                         tva9 += sign * details['tax_amount']
-                    if tax['tax'].amount == 19:
+                    if int(tax.amount) == 19:
                         baza19 += sign * details['base_amount']
                         tva19 += sign * details['tax_amount']
-                    if tax['tax'].amount == 20:
+                    if int(tax.amount) == 20:
                         baza20 += sign * details['base_amount']
                         tva20 += sign * details['tax_amount']
-                    if tax['tax'].amount == 24:
+                    if int(tax.amount) == 24:
                         baza24 += sign * details['base_amount']
                         tva24 += sign * details['tax_amount']
                 s.baza24 = round(baza24)

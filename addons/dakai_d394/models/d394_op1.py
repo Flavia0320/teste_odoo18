@@ -65,7 +65,7 @@ class DeclaratiaD394Op1(models.Model):
                 taxes = i._prepare_invoice_aggregated_taxes()
                 to_add = True
                 for tax, details in taxes['tax_details'].items():
-                    if tax['tax'].amount > s.cota:
+                    if int(tax.amount) > int(s.cota):
                         to_add = False
                 if to_add:
                     nr += 1
@@ -119,7 +119,7 @@ class DeclaratiaD394Op1(models.Model):
                     sign = -1
                 taxes = i._prepare_invoice_aggregated_taxes()
                 for tax, details in taxes['tax_details'].items():
-                    if tax['tax'].amount == s.cota:
+                    if int(tax.amount) == int(s.cota):
                         baza += sign * details['base_amount']
                         tva += sign * details['tax_amount']
                 if i.l10n_ro_operation_type in ['C', 'V']:
@@ -136,16 +136,16 @@ class DeclaratiaD394Op1(models.Model):
         for i in invoices:
             taxes = i._prepare_invoice_aggregated_taxes()
             for tax, detalis in taxes['tax_details'].items():
-                if not res.get(tax['tax'].amount):
-                    res[tax['tax'].amount] = []
-                res[tax['tax'].amount] += i
+                if not res.get(int(tax.amount)):
+                    res[tax.amount] = []
+                res[tax.amount] += i
         return res
 
     def _get_tax_amounts(self, invoice):
         taxes = invoice._prepare_invoice_aggregated_taxes()
         amount_taxes = []
         for tax, detalis in taxes['tax_details'].items():
-            amount_taxes += [detalis['raw_tax_amount']]
+            amount_taxes += [detalis['tax_amount']]
         return amount_taxes
 
     @api.model

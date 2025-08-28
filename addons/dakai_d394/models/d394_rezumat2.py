@@ -25,7 +25,7 @@ class DeclaratiaD394Rezumat2(models.Model):
                 sign = -1
             taxes = i._prepare_invoice_aggregated_taxes()
             for tax, details in taxes['tax_details'].items():
-                if tax['tax'].amount == cota:
+                if int(tax.amount) == int(cota):
                     baza += sign * details['base_amount']
                     tva += sign * details['tax_amount']
         return baza, tva
