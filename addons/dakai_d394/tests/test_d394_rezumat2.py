@@ -35,7 +35,7 @@ class TestDeclaratiaD394Rezumat2(TransactionCase):
             'name': 'Test Revenue',
             'code': 'TESTREV',
             'reconcile': False,
-            'company_ids': self.company.id,
+            'company_ids': [(6, 0, [self.company.id])],
             'account_type': 'income',
         })
         self.fiscal_position = self.env['account.fiscal.position'].create({

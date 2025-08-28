@@ -229,7 +229,7 @@ class DeclaratiaD394(models.Model):
             s.c1_caen = s.company_id.l10n_ro_caen_code
             s.c1_mail = s.company_id.email
 
-    c1_totalPlata_A = fields.Integer(string="Suma de control", store=True, compute="_compute_c1_totalPlata_A")
+    c1_totalPlata_A = fields.Float(string="Suma de control", store=True, compute="_compute_c1_totalPlata_A")
 
     @api.depends('i_nrCui1', 'i_nrCui2', 'i_nrCui3', 'i_nrCui4',
                  'rezumat2_ids.bazaL', 'rezumat2_ids.bazaA', 'rezumat2_ids.bazaAI')
@@ -515,11 +515,11 @@ class DeclaratiaD394(models.Model):
                         tvaDedAI9 += sign * details['tax_amount']
                     if tax['tax'].amount == 5:
                         tvaDedAI5 += sign * details['tax_amount']
-            s.i_tvaDedAI24 = int(round(tvaDedAI24))
-            s.i_tvaDedAI20 = int(round(tvaDedAI20))
-            s.i_tvaDedAI19 = int(round(tvaDedAI19))
-            s.i_tvaDedAI9 = int(round(tvaDedAI9))
-            s.i_tvaDedAI5 = int(round(tvaDedAI5))
+            s.i_tvaDedAI24 = round(tvaDedAI24)
+            s.i_tvaDedAI20 = round(tvaDedAI20)
+            s.i_tvaDedAI19 = round(tvaDedAI19)
+            s.i_tvaDedAI9 = round(tvaDedAI9)
+            s.i_tvaDedAI5 = round(tvaDedAI5)
 
             tvaCol24 = tvaCol20 = tvaCol19 = tvaCol9 = tvaCol5 = 0
             for i in s.paid_invoice_ids.filtered(lambda x: x.move_type in ["out_invoice", "out_refund"]):
@@ -740,18 +740,18 @@ class DeclaratiaD394(models.Model):
                         if item.nrLivV:
                             detalii.update({
                                    'nrLivV': str(int(item.nrLivV)),
-                                   'bazaLivV': str(int(item.bazaLivV)),
+                                   'bazaLivV': str(round(item.bazaLivV)),
                                 })
                         if item.nrAchizC:
                             detalii.update({
                                    'nrAchizC': str(int(item.nrAchizC)),
-                                   'bazaAchizC': str(int(item.bazaAchizC)),
-                                   'tvaAchizC': str(int(item.tvaAchizC)),
+                                   'bazaAchizC': str(round(item.bazaAchizC)),
+                                   'tvaAchizC': str(round(item.tvaAchizC)),
                                 })
                         if item.nrN:
                             detalii.update({
-                                    'nrN': str(int(item.nrN)),
-                                    'valN': str(int(item.valN)),
+                                    'nrN': str(round(item.nrN)),
+                                    'valN': str(round(item.valN)),
                                 })
                         objdata[key] += [detalii] #getattr(obj, key).read()
         for k, v in objdata.items():

@@ -28,15 +28,15 @@ class DeclaratiaD394Op2(models.Model):
             s.nrAMEF = len(s.invoice_ids.mapped('journal_id'))
             s.nrBF = len(s.invoice_ids)
 
-    total = fields.Integer(string="Total incasari", compute="_get_values", store=True)
-    baza20 = fields.Integer(string="Valoare baza impozabila pt cota 20%", compute="_get_values", store=True)
-    baza19 = fields.Integer(string="Valoare baza impozabila pt cota 19%", compute="_get_values", store=True)
-    baza9 = fields.Integer(string="Valoare baza impozabila pt cota 9%", compute="_get_values", store=True)
-    baza5 = fields.Integer(string="Valoare baza impozabila pt cota 5%", compute="_get_values", store=True)
-    tva20 = fields.Integer(string="Valoarea TVA-ului pt cota 20%", compute="_get_values", store=True)
-    tva19 = fields.Integer(string="Valoarea TVA-ului pt cota 19%", compute="_get_values", store=True)
-    tva9 = fields.Integer(string="Valoarea TVA-ului pt cota 9%", compute="_get_values", store=True)
-    tva5 = fields.Integer(string="Valoarea TVA-ului pt cota 5%", compute="_get_values", store=True)
+    total = fields.Float(string="Total incasari", compute="_get_values", store=True)
+    baza20 = fields.Float(string="Valoare baza impozabila pt cota 20%", compute="_get_values", store=True)
+    baza19 = fields.Float(string="Valoare baza impozabila pt cota 19%", compute="_get_values", store=True)
+    baza9 = fields.Float(string="Valoare baza impozabila pt cota 9%", compute="_get_values", store=True)
+    baza5 = fields.Float(string="Valoare baza impozabila pt cota 5%", compute="_get_values", store=True)
+    tva20 = fields.Float(string="Valoarea TVA-ului pt cota 20%", compute="_get_values", store=True)
+    tva19 = fields.Float(string="Valoarea TVA-ului pt cota 19%", compute="_get_values", store=True)
+    tva9 = fields.Float(string="Valoarea TVA-ului pt cota 9%", compute="_get_values", store=True)
+    tva5 = fields.Float(string="Valoarea TVA-ului pt cota 5%", compute="_get_values", store=True)
 
     @api.depends("invoice_ids")
     def _get_values(self):
@@ -62,15 +62,15 @@ class DeclaratiaD394Op2(models.Model):
                     if tax['tax'].amount == 20:
                         baza20 += sign * details['base_amount']
                         tva20 += sign * details['tax_amount']
-            s.baza20 = int(round(baza20))
-            s.tva20 = int(round(tva20))
-            s.baza19 = int(round(baza19))
-            s.tva19 = int(round(tva19))
-            s.baza9 = int(round(baza9))
-            s.tva9 = int(round(tva9))
-            s.baza5 = int(round(baza5))
-            s.tva5 = int(round(tva5))
-            s.total = int(round(baza20)) + int(round(baza19)) + int(round(baza9)) + int(round(baza5)) + int(round(tva20)) + int(round(tva19)) + int(round(tva9)) + int(round(tva5))
+            s.baza20 = round(baza20)
+            s.tva20 = round(tva20)
+            s.baza19 = round(baza19)
+            s.tva19 = round(tva19)
+            s.baza9 = round(baza9)
+            s.tva9 = round(tva9)
+            s.baza5 = round(baza5)
+            s.tva5 = round(tva5)
+            s.total = round(baza20) + round(baza19) + round(baza9) + round(baza5) + round(tva20) + round(tva19) + round(tva9) + round(tva5)
 
 
     @api.model

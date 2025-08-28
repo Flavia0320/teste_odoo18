@@ -28,8 +28,8 @@ class DeclaratiaD394Rezumat1(models.Model):
     cota = fields.Integer(string="Cota TVA-ului")
 
     facturiL = fields.Integer(string="facturiL", compute="_computeL")
-    bazaL = fields.Integer(string="bazaL", compute="_computeL")
-    tvaL = fields.Integer(string="tvaL", compute="_computeL")
+    bazaL = fields.Float(string="bazaL", compute="_computeL")
+    tvaL = fields.Float(string="tvaL", compute="_computeL")
 
     def _computeL(self):
         for s in self:
@@ -40,7 +40,7 @@ class DeclaratiaD394Rezumat1(models.Model):
 
 
     facturiLS = fields.Integer(string="facturiLS", compute="_computeLS")
-    bazaLS = fields.Integer(string="bazaLS", compute="_computeLS")
+    bazaLS = fields.Float(string="bazaLS", compute="_computeLS")
 
     def _computeLS(self):
         for s in self:
@@ -49,8 +49,8 @@ class DeclaratiaD394Rezumat1(models.Model):
             s.bazaLS = sum(op1LS_ids.mapped('baza'))
 
     facturiA = fields.Integer(string="facturiA", compute="_computeA")
-    bazaA = fields.Integer(string="bazaA", compute="_computeA")
-    tvaA = fields.Integer(string="tvaA", compute="_computeA")
+    bazaA = fields.Float(string="bazaA", compute="_computeA")
+    tvaA = fields.Float(string="tvaA", compute="_computeA")
 
     def _computeA(self):
         for s in self:
@@ -60,8 +60,8 @@ class DeclaratiaD394Rezumat1(models.Model):
             s.tvaA = sum(op1A_ids.mapped('tva'))
 
     facturiAI = fields.Integer(string="facturiAI", compute="_computeAI")
-    bazaAI = fields.Integer(string="bazaAI", compute="_computeAI")
-    tvaAI = fields.Integer(string="tvaAI", compute="_computeAI")
+    bazaAI = fields.Float(string="bazaAI", compute="_computeAI")
+    tvaAI = fields.Float(string="tvaAI", compute="_computeAI")
 
     def _computeAI(self):
         for s in self:
@@ -71,7 +71,7 @@ class DeclaratiaD394Rezumat1(models.Model):
             s.tvaAI = sum(op1AI_ids.mapped('tva'))
 
     facturiAS = fields.Integer(string="facturiAS", compute="_computeAS")
-    bazaAS = fields.Integer(string="bazaAS", compute="_computeAS")
+    bazaAS = fields.Float(string="bazaAS", compute="_computeAS")
 
     def _computeAS(self):
         for s in self:
@@ -80,7 +80,7 @@ class DeclaratiaD394Rezumat1(models.Model):
             s.bazaAS = sum(op1AS_ids.mapped('baza'))
 
     facturiV = fields.Integer(string="facturiV", compute="_computeV")
-    bazaV = fields.Integer(string="bazaV", compute="_computeV")
+    bazaV = fields.Float(string="bazaV", compute="_computeV")
 
     def _computeV(self):
         for s in self:
@@ -89,8 +89,8 @@ class DeclaratiaD394Rezumat1(models.Model):
             s.bazaV = sum(op1V_ids.mapped('baza'))
 
     facturiC = fields.Integer(string="facturiC", compute="_computeC")
-    bazaC = fields.Integer(string="bazaC", compute="_computeC")
-    tvaC = fields.Integer(string="tvaC", compute="_computeC")
+    bazaC = fields.Float(string="bazaC", compute="_computeC")
+    tvaC = fields.Float(string="tvaC", compute="_computeC")
 
     def _computeC(self):
         for s in self:
@@ -100,7 +100,7 @@ class DeclaratiaD394Rezumat1(models.Model):
             s.tvaC = sum(op1C_ids.mapped('tva'))
 
     facturiN = fields.Integer(string="facturiN", compute="_computeN")
-    bazaN = fields.Integer(string="bazaN", compute="_computeN")
+    bazaN = fields.Float(string="bazaN", compute="_computeN")
 
     def _computeN(self):
         for s in self:

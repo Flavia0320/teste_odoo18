@@ -71,8 +71,8 @@ class DeclaratiaD394Op1(models.Model):
                     nr += 1
             s.nrFact = nr
 
-    baza = fields.Integer(string="Bază impozabilă", compute="_compute_baza_tva", store=True)
-    tva = fields.Integer(string="TVA", compute="_compute_baza_tva", store=True)
+    baza = fields.Float(string="Bază impozabilă", compute="_compute_baza_tva", store=True)
+    tva = fields.Float(string="TVA", compute="_compute_baza_tva", store=True)
 
     #functie de calculare baza tva in functie de taxa cu exceptie "C". daca nu mai e nevoie de ea o scoatem
     def _update_cotas(self, line):
@@ -126,8 +126,8 @@ class DeclaratiaD394Op1(models.Model):
                     for line in i.invoice_line_ids.filtered(lambda x: x.product_id.l10n_ro_anaf_code):
                         res = line.tax_ids.compute_all(line.price_subtotal, handle_price_include=False)["taxes"][0]
                         tva += round(abs(res.get("amount", 0.0)),2)
-            s.baza = int(round(baza))
-            s.tva = int(round(tva))
+            s.baza = round(baza)
+            s.tva = round(tva)
 
     op11_ids = fields.One2many("report.d394.op11", "op1_id")
 
@@ -223,6 +223,6 @@ class DeclaratiaD394Op11(models.Model):
 
     nrFactPR = fields.Integer(string="Numar facturi")
     codPR = fields.Char(string="Cod produs")
-    bazaPR = fields.Integer(string="Baza impozitabila")
-    tvaPR = fields.Integer(string="TVA")
+    bazaPR = fields.Float(string="Baza impozitabila")
+    tvaPR = fields.Float(string="TVA")
     op1_id = fields.Many2one("report.d394.op1")

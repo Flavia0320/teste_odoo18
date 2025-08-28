@@ -24,16 +24,16 @@ class DeclaratiaD394Facturi(models.Model):
     serie = fields.Char(string="Serie", related="invoice_id.sequence_prefix")
     nr = fields.Integer(string="Numarul facturii", related="invoice_id.sequence_number")
 
-    baza24 = fields.Integer(string="Baza impozabila aferenta facturii- cota 24%", compute="_get_values", store=True)
-    baza20 = fields.Integer(string="Baza impozabila aferenta facturii- cota 20%", compute="_get_values", store=True)
-    baza19 = fields.Integer(string="Baza impozabila aferenta facturii- cota 19%", compute="_get_values", store=True)
-    baza9 = fields.Integer(string="Baza impozabila aferenta facturii- cota 9%", compute="_get_values", store=True)
-    baza5 = fields.Integer(string="Baza impozabila aferenta facturii- cota 5%", compute="_get_values", store=True)
-    tva5 = fields.Integer(string="Tva-ul aferent facturii daca se aplica tva 5%", compute="_get_values", store=True)
-    tva9 = fields.Integer(string="Tva-ul aferent facturii daca se aplica tva 9%", compute="_get_values", store=True)
-    tva19 = fields.Integer(string="Tva-ul aferent facturii daca se aplica tva 19%", compute="_get_values", store=True)
-    tva20 = fields.Integer(string="Tva-ul aferent facturii daca se aplica tva 20%", compute="_get_values", store=True)
-    tva24 = fields.Integer(string="Tva-ul aferent facturii daca se aplica tva 24%", compute="_get_values", store=True)
+    baza24 = fields.Float(string="Baza impozabila aferenta facturii- cota 24%", compute="_get_values", store=True)
+    baza20 = fields.Float(string="Baza impozabila aferenta facturii- cota 20%", compute="_get_values", store=True)
+    baza19 = fields.Float(string="Baza impozabila aferenta facturii- cota 19%", compute="_get_values", store=True)
+    baza9 = fields.Float(string="Baza impozabila aferenta facturii- cota 9%", compute="_get_values", store=True)
+    baza5 = fields.Float(string="Baza impozabila aferenta facturii- cota 5%", compute="_get_values", store=True)
+    tva5 = fields.Float(string="Tva-ul aferent facturii daca se aplica tva 5%", compute="_get_values", store=True)
+    tva9 = fields.Float(string="Tva-ul aferent facturii daca se aplica tva 9%", compute="_get_values", store=True)
+    tva19 = fields.Float(string="Tva-ul aferent facturii daca se aplica tva 19%", compute="_get_values", store=True)
+    tva20 = fields.Float(string="Tva-ul aferent facturii daca se aplica tva 20%", compute="_get_values", store=True)
+    tva24 = fields.Float(string="Tva-ul aferent facturii daca se aplica tva 24%", compute="_get_values", store=True)
 
     @api.depends("invoice_id")
     def _get_values(self):
@@ -61,16 +61,16 @@ class DeclaratiaD394Facturi(models.Model):
                     if tax['tax'].amount == 24:
                         baza24 += sign * details['base_amount']
                         tva24 += sign * details['tax_amount']
-                s.baza24 = int(round(baza24))
-                s.tva24 = int(round(tva24))
-                s.baza20 = int(round(baza20))
-                s.tva20 = int(round(tva20))
-                s.baza19 = int(round(baza19))
-                s.tva19 = int(round(tva19))
-                s.baza9 = int(round(baza9))
-                s.tva9 = int(round(tva9))
-                s.baza5 = int(round(baza5))
-                s.tva5 = int(round(tva5))
+                s.baza24 = round(baza24)
+                s.tva24 = round(tva24)
+                s.baza20 = round(baza20)
+                s.tva20 = round(tva20)
+                s.baza19 = round(baza19)
+                s.tva19 = round(tva19)
+                s.baza9 = round(baza9)
+                s.tva9 = round(tva9)
+                s.baza5 = round(baza5)
+                s.tva5 = round(tva5)
 
     @api.model
     def generate(self, d394_id):

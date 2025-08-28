@@ -19,8 +19,8 @@ class DeclaratiaD394Lista(models.Model):
         ("1", "Livrare Bunuri"),
         ("2", "Prestari Servicii")
     ], string="Tipul operatiunii")
-    valoare = fields.Integer(string="Valoarea livrarilor/prestarilor de servicii", compute="_compute_value", store=True)
-    tva = fields.Integer(string="Valoare TVA", compute="_compute_value", store=True)
+    valoare = fields.Float(string="Valoarea livrarilor/prestarilor de servicii", compute="_compute_value", store=True)
+    tva = fields.Float(string="Valoare TVA", compute="_compute_value", store=True)
 
     @api.depends('invoice_line_ids')
     def _compute_value(self):
@@ -42,8 +42,8 @@ class DeclaratiaD394Lista(models.Model):
                     line.company_id,
                     inv_date,
                 )
-            s.valoare = int(round(baza))
-            s.tva = int(round(tva))
+            s.valoare = round(baza)
+            s.tva = round(tva)
 
     @api.model
     def generate(self, d394_id):

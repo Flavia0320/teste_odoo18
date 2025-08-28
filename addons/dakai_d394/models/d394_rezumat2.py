@@ -30,8 +30,8 @@ class DeclaratiaD394Rezumat2(models.Model):
                     tva += sign * details['tax_amount']
         return baza, tva
 
-    bazaFSLcod = fields.Integer(string="Valoarea bazei impozabile aferente livrarilor", compute="_computeFSLcod", store=True)
-    TVAFSLcod = fields.Integer(string="Valoarea TVA-ului aferent livrarilor", compute="_computeFSLcod", store=True)
+    bazaFSLcod = fields.Float(string="Valoarea bazei impozabile aferente livrarilor", compute="_computeFSLcod", store=True)
+    TVAFSLcod = fields.Float(string="Valoarea TVA-ului aferent livrarilor", compute="_computeFSLcod", store=True)
 
     @api.depends('d394_id', 'd394_id.invoice_ids')
     def _computeFSLcod(self):
@@ -46,11 +46,11 @@ class DeclaratiaD394Rezumat2(models.Model):
                 i.l10n_ro_partner_type in ["1", "2"]
             )
             baza, tva = self.get_invoice_base_tva(out_receipts_slcod, s.cota)
-            s.bazaFSLcod = int(round(baza))
-            s.TVAFSLcod = int(round(tva))
+            s.bazaFSLcod = round(baza)
+            s.TVAFSLcod = round(tva)
 
-    bazaFSL = fields.Integer(string="bazaFSL", compute="_computeFSL", store=True)
-    TVAFSL = fields.Integer(string="TVAFSL", compute="_computeFSL", store=True)
+    bazaFSL = fields.Float(string="bazaFSL", compute="_computeFSL", store=True)
+    TVAFSL = fields.Float(string="TVAFSL", compute="_computeFSL", store=True)
 
     @api.depends('d394_id', 'd394_id.invoice_ids')
     def _computeFSL(self):
@@ -65,11 +65,11 @@ class DeclaratiaD394Rezumat2(models.Model):
                 i.l10n_ro_partner_type in ["1", "2"]
             )
             baza, tva = self.get_invoice_base_tva(out_receipts_sl, s.cota)
-            s.bazaFSL = int(round(baza))
-            s.TVAFSL = int(round(tva))
+            s.bazaFSL = round(baza)
+            s.TVAFSL = round(tva)
 
-    bazaFSA = fields.Integer(string="bazaFSA", compute="_computeFSA", store=True)
-    TVAFSA = fields.Integer(string="TVAFSA", compute="_computeFSA", store=True)
+    bazaFSA = fields.Float(string="bazaFSA", compute="_computeFSA", store=True)
+    TVAFSA = fields.Float(string="TVAFSA", compute="_computeFSA", store=True)
 
     @api.depends('d394_id', 'd394_id.invoice_ids')
     def _computeFSA(self):
@@ -84,11 +84,11 @@ class DeclaratiaD394Rezumat2(models.Model):
                 i.l10n_ro_partner_type in ["1", "2"]
             )
             baza, tva = self.get_invoice_base_tva(in_receipts_fsa, s.cota)
-            s.bazaFSA = int(round(baza))
-            s.TVAFSA = int(round(tva))
+            s.bazaFSA = round(baza)
+            s.TVAFSA = round(tva)
 
-    bazaFSAI = fields.Integer(string="bazaFSAI", compute="_computeFSAI", store=True)
-    TVAFSAI = fields.Integer(string="TVAFSAI", compute="_computeFSAI", store=True)
+    bazaFSAI = fields.Float(string="bazaFSAI", compute="_computeFSAI", store=True)
+    TVAFSAI = fields.Float(string="TVAFSAI", compute="_computeFSAI", store=True)
 
     @api.depends('d394_id', 'd394_id.invoice_ids')
     def _computeFSAI(self):
@@ -112,11 +112,11 @@ class DeclaratiaD394Rezumat2(models.Model):
                 i.fiscal_position_id == fp
             )
             baza, tva = self.get_invoice_base_tva(in_receipts_fsai, s.cota)
-            s.bazaFSAI = int(round(baza))
-            s.TVAFSAI = int(round(tva))
+            s.bazaFSAI = round(baza)
+            s.TVAFSAI = round(tva)
 
-    bazaBFAI = fields.Integer(string="bazaBFAI", compute="_computeBFAI", store=True)
-    TVABFAI = fields.Integer(string="TVABFAI", compute="_computeBFAI", store=True)
+    bazaBFAI = fields.Float(string="bazaBFAI", compute="_computeBFAI", store=True)
+    TVABFAI = fields.Float(string="TVABFAI", compute="_computeBFAI", store=True)
 
     @api.depends('d394_id', 'd394_id.invoice_ids')
     def _computeBFAI(self):
@@ -140,47 +140,47 @@ class DeclaratiaD394Rezumat2(models.Model):
                 i.fiscal_position_id == fp
             )
             baza, tva = self.get_invoice_base_tva(in_receipts_bfai, s.cota)
-            s.bazaBFAI = int(round(baza))
-            s.TVABFAI = int(round(tva))
+            s.bazaBFAI = round(baza)
+            s.TVABFAI = round(tva)
 
     nrFacturiL = fields.Integer(string="nrFacturiL", compute="_computeL", store=True)
-    bazaL = fields.Integer(string="bazaL", compute="_computeL", store=True)
-    tvaL = fields.Integer(string="tvaL", compute="_computeL", store=True)
+    bazaL = fields.Float(string="bazaL", compute="_computeL", store=True)
+    tvaL = fields.Float(string="tvaL", compute="_computeL", store=True)
 
     @api.depends('op1_ids')
     def _computeL(self):
         for s in self:
             op1L_ids = s.op1_ids.filtered(lambda x: x.l10n_ro_operation_type == 'L')
             s.nrFacturiL = int(round(sum(op1L_ids.mapped('nrFact'))))
-            s.bazaL = int(round(sum(op1L_ids.mapped('baza'))))
-            s.tvaL = int(round(sum(op1L_ids.mapped('tva'))))
+            s.bazaL = round(sum(op1L_ids.mapped('baza')))
+            s.tvaL = round(sum(op1L_ids.mapped('tva')))
 
     nrFacturiA = fields.Integer(string="nrFacturiA", compute="_computeA", store=True)
-    bazaA = fields.Integer(string="bazaA", compute="_computeA", store=True)
-    tvaA = fields.Integer(string="tvaA", compute="_computeA", store=True)
+    bazaA = fields.Float(string="bazaA", compute="_computeA", store=True)
+    tvaA = fields.Float(string="tvaA", compute="_computeA", store=True)
 
     @api.depends('op1_ids')
     def _computeA(self):
         for s in self:
             op1A_ids = s.op1_ids.filtered(lambda x: x.l10n_ro_operation_type in ['A','C'])
             s.nrFacturiA = int(round(sum(op1A_ids.mapped('nrFact'))))
-            s.bazaA = int(round(sum(op1A_ids.mapped('baza'))))
-            s.tvaA = int(round(sum(op1A_ids.mapped('tva'))))
+            s.bazaA = round(sum(op1A_ids.mapped('baza')))
+            s.tvaA = round(sum(op1A_ids.mapped('tva')))
 
     nrFacturiAI = fields.Integer(string="nrFacturiAI", compute="_computeAI", store=True)
-    bazaAI = fields.Integer(string="bazaAI", compute="_computeAI", store=True)
-    tvaAI = fields.Integer(string="tvaAI", compute="_computeAI", store=True)
+    bazaAI = fields.Float(string="bazaAI", compute="_computeAI", store=True)
+    tvaAI = fields.Float(string="tvaAI", compute="_computeAI", store=True)
 
     @api.depends('op1_ids')
     def _computeAI(self):
         for s in self:
             op1AI_ids = s.op1_ids.filtered(lambda x: x.l10n_ro_operation_type == 'AI')
             s.nrFacturiAI = int(round(sum(op1AI_ids.mapped('nrFact'))))
-            s.bazaAI = int(round(sum(op1AI_ids.mapped('baza'))))
-            s.tvaAI = int(round(sum(op1AI_ids.mapped('tva'))))
+            s.bazaAI = round(sum(op1AI_ids.mapped('baza')))
+            s.tvaAI = round(sum(op1AI_ids.mapped('tva')))
 
-    baza_incasari_i1 = fields.Integer(string="baza_incasari_i1", compute="_computeI1", store=True)
-    tva_incasari_i1 = fields.Integer(string="tva_incasari_i1", compute="_computeI1", store=True)
+    baza_incasari_i1 = fields.Float(string="baza_incasari_i1", compute="_computeI1", store=True)
+    tva_incasari_i1 = fields.Float(string="tva_incasari_i1", compute="_computeI1", store=True)
 
     @api.depends('d394_id', 'd394_id.op2_ids')
     def _computeI1(self):
@@ -190,11 +190,11 @@ class DeclaratiaD394Rezumat2(models.Model):
                 op2_i1_ids = s.d394_id.op2_ids.filtered(lambda x: x.tip_op2 == 'i1')
                 baza_incasari_i1 = sum(op2_i1_ids.mapped('baza%s' % s.cota))
                 tva_incasari_i1 = sum(op2_i1_ids.mapped('tva%s' % s.cota))
-            s.baza_incasari_i1 = int(round(baza_incasari_i1))
-            s.tva_incasari_i1 = int(round(tva_incasari_i1))
+            s.baza_incasari_i1 = round(baza_incasari_i1)
+            s.tva_incasari_i1 = round(tva_incasari_i1)
 
-    baza_incasari_i2 = fields.Integer(string="baza_incasari_i2", compute="_computeI2", store=True)
-    tva_incasari_i2 = fields.Integer(string="tva_incasari_i2", compute="_computeI2", store=True)
+    baza_incasari_i2 = fields.Float(string="baza_incasari_i2", compute="_computeI2", store=True)
+    tva_incasari_i2 = fields.Float(string="tva_incasari_i2", compute="_computeI2", store=True)
 
     @api.depends('d394_id', 'd394_id.op2_ids')
     def _computeI2(self):
@@ -204,11 +204,11 @@ class DeclaratiaD394Rezumat2(models.Model):
                 op2_i2_ids = s.d394_id.op2_ids.filtered(lambda x: x.tip_op2 == 'i2')
                 baza_incasari_i2 = sum(op2_i2_ids.mapped('baza%s' % s.cota))
                 tva_incasari_i2 = sum(op2_i2_ids.mapped('tva%s' % s.cota))
-            s.baza_incasari_i2 = int(round(baza_incasari_i2))
-            s.tva_incasari_i2 = int(round(tva_incasari_i2))
+            s.baza_incasari_i2 = round(baza_incasari_i2)
+            s.tva_incasari_i2 = round(tva_incasari_i2)
 
-    bazaL_PF = fields.Integer(string="bazaL_PF", compute="_computeL_PF", store=True)
-    tvaL_PF = fields.Integer(string="tvaL_PF", compute="_computeL_PF", store=True)
+    bazaL_PF = fields.Float(string="bazaL_PF", compute="_computeL_PF", store=True)
+    tvaL_PF = fields.Float(string="tvaL_PF", compute="_computeL_PF", store=True)
 
     @api.depends('op1_ids')
     def _computeL_PF(self):
