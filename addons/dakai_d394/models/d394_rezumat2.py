@@ -10,7 +10,7 @@ class DeclaratiaD394Rezumat2(models.Model):
     @api.depends('d394_id', 'cota')
     def _compute_name(self):
         for s in self:
-            s.name = f"Rezumat2 - {s.cota}%"
+            s.name = f"Rezumat2 - {int(s.cota)}%"
 
     d394_id = fields.Many2one('l10_romania.report.d394')
     cota = fields.Float(string="Cota TVA-ului")
@@ -188,8 +188,8 @@ class DeclaratiaD394Rezumat2(models.Model):
             baza_incasari_i1 = tva_incasari_i1 = 0
             if s.cota in [5,9,19,20]:
                 op2_i1_ids = s.d394_id.op2_ids.filtered(lambda x: x.tip_op2 == 'i1')
-                baza_incasari_i1 = sum(op2_i1_ids.mapped('baza%s' % s.cota))
-                tva_incasari_i1 = sum(op2_i1_ids.mapped('tva%s' % s.cota))
+                baza_incasari_i1 = sum(op2_i1_ids.mapped('baza%s' % int(s.cota)))
+                tva_incasari_i1 = sum(op2_i1_ids.mapped('tva%s' % int(s.cota)))
             s.baza_incasari_i1 = round(baza_incasari_i1)
             s.tva_incasari_i1 = round(tva_incasari_i1)
 
@@ -200,10 +200,10 @@ class DeclaratiaD394Rezumat2(models.Model):
     def _computeI2(self):
         for s in self:
             baza_incasari_i2 = tva_incasari_i2 = 0
-            if s.cota in [5, 9, 19, 20]:
+            if int(s.cota) in [5, 9, 19, 20]:
                 op2_i2_ids = s.d394_id.op2_ids.filtered(lambda x: x.tip_op2 == 'i2')
-                baza_incasari_i2 = sum(op2_i2_ids.mapped('baza%s' % s.cota))
-                tva_incasari_i2 = sum(op2_i2_ids.mapped('tva%s' % s.cota))
+                baza_incasari_i2 = sum(op2_i2_ids.mapped('baza%s' % int(s.cota)))
+                tva_incasari_i2 = sum(op2_i2_ids.mapped('tva%s' % int(s.cota)))
             s.baza_incasari_i2 = round(baza_incasari_i2)
             s.tva_incasari_i2 = round(tva_incasari_i2)
 
