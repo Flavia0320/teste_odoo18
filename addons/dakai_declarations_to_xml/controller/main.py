@@ -216,7 +216,10 @@ class Main(http.Controller):
         nsmap = {None: "mfp:anaf:dgti:d394:declaratie:v4", "xsi": "http://www.w3.org/2001/XMLSchema-instance"}
         d394 = etree.Element("declaratie394",{attr_qname: "mfp:anaf:dgti:d394:declaratie:v4 D394.xsd"}, nsmap=nsmap)
         d394 = self.dict2xml(d394, self.prepare_d394_dict(res))
-        return etree.tostring(d394)
+        models._logger.error(etree.tostring(d394))
+        return {
+            'result': etree.tostring(d394),
+        }
 
     def prepare_d394_dict(self, res):
         send_res = {}

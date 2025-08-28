@@ -794,6 +794,7 @@ class DeclaratiaD394(models.Model):
         response = requests.post('%s/d394_data_to_xml' % l10n_ro_decalaration_url, json=objdata, timeout=80)
 
         xml_name = "%s.xml" % (self.name)
+        models._logger.error("D394 XML export response: %s", response.text, response.json())
         xml_content = response.json().get("result")
 
         xml_doc = etree.fromstring(xml_content.encode())
