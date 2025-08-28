@@ -13,7 +13,7 @@ class DeclaratiaD394Rezumat2(models.Model):
             s.name = f"Rezumat2 - {s.cota}%"
 
     d394_id = fields.Many2one('l10_romania.report.d394')
-    cota = fields.Integer(string="Cota TVA-ului")
+    cota = fields.Float(string="Cota TVA-ului")
     op1_ids = fields.Many2many('report.d394.op1')
 
     def get_invoice_base_tva(self, invoices, cota):

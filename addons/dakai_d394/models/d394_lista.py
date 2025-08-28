@@ -13,7 +13,7 @@ class DeclaratiaD394Lista(models.Model):
 
     d394_id = fields.Many2one('l10_romania.report.d394')
     caen = fields.Integer(string="Activitate")
-    cota = fields.Integer(string="Cota de TVA")
+    cota = fields.Float(string="Cota de TVA")
     invoice_line_ids = fields.Many2many('account.move.line')
     operat = fields.Selection([
         ("1", "Livrare Bunuri"),

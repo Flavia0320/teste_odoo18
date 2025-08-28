@@ -25,7 +25,7 @@ class DeclaratiaD394Rezumat1(models.Model):
         inv_origin(), string="document_N", default="1"
     )
 
-    cota = fields.Integer(string="Cota TVA-ului")
+    cota = fields.Float(string="Cota TVA-ului")
 
     facturiL = fields.Integer(string="facturiL", compute="_computeL")
     bazaL = fields.Float(string="bazaL", compute="_computeL")

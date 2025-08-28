@@ -22,7 +22,7 @@ class DeclaratiaD394Op1(models.Model):
         partner_type(),
         string="D394 Partner Type",
     )
-    cota = fields.Integer(string="Cota TVA-ului")
+    cota = fields.Float(string="Cota TVA-ului")
 
     partner_id = fields.Many2one("res.partner", string="Partner")
 
