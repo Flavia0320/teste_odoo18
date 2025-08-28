@@ -41,7 +41,7 @@ COMMON_REMOVE_FIELDS = [
 class Main(http.Controller):
 
 
-    @http.route(['/d300_data_to_xml'], csrf=False, auth="public", type="http")
+    @http.route(['/d300_data_to_xml'], csrf=False, auth="public", type="json")
     def d300_data_to_xml(self):
         res = request.get_json_data()
         attr_qname = etree.QName("http://www.w3.org/2001/XMLSchema-instance", "schemaLocation")
@@ -103,7 +103,7 @@ class Main(http.Controller):
         ]
         return self.clean_dict(res, removed_fields, replace_keys, replaced_values, required_fields)
 
-    @http.route(['/d390_data_to_xml'], csrf=False, auth="public", type="http")
+    @http.route(['/d390_data_to_xml'], csrf=False, auth="public", type="json")
     def d390_data_to_xml(self):
         res = request.get_json_data()
         attr_qname = etree.QName("http://www.w3.org/2001/XMLSchema-instance", "schemaLocation")
@@ -209,7 +209,7 @@ class Main(http.Controller):
             }]
         return ordered_d390_dict
 
-    @http.route(['/d394_data_to_xml'], csrf=False, auth="public", type="htp")
+    @http.route(['/d394_data_to_xml'], csrf=False, auth="public", type="json")
     def d394_data_to_xml(self):
         res = request.get_json_data()
         attr_qname = etree.QName("http://www.w3.org/2001/XMLSchema-instance", "schemaLocation")
